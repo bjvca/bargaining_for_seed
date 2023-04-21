@@ -21,13 +21,18 @@
 
 \begin{document}
 \author{Bjorn Van Campenhout\thanks{Development Strategy and Governance Division, IFPRI, Belgium - corresponding
-author: bjorn.vancampenhout@cgiar.org}, Olayinka Aremu\thanks{Department of Environmental Systems Science, ETH Zurich,Switzerland}}
+author: bjorn.vancampenhout@cgiar.org}}
 \title{Bargaining over seed}
 \maketitle
 
 \section{Introduction}
 
-In many societies, it is customary to bargain over prices
+In many societies, it is customary to bargain over prices in economic transactions.
+In this paper, we use a simple experiment to study the bargaining process. In the experiment, farmers get the opportunity to buy one kilogram of an improved maize seed variety. The experiment was timed to coincide with the start of the harvest season, so demand is likely to be high. We developed a computer program to guide the bargaining process. 
+
+Our experiment allows us to investigate anchoring of the bargaining process to the initial ask price. For instance, we test if there is a relationship between the level of the initial ask price and (1) the final price at which the transaction is concluded, (2) the level of first bid price as a response to the initial ask price, (3) the number of rounds before a transaction is concluded. 
+
+We can also investigate how some of the characteristics of the actors involved affect outcomes such as final price and change in bid price. For instance, it is often argued that women are worse negotiators than men, although these studies often involve bargaining over wage. 
 
 \section{Bargaining Experiment}
 
@@ -37,15 +42,11 @@ life setting where bargaining is the norm. The enumerator follows
 a standard script. An initial ask price is randomly drawn, ranging
 from 12,000 to 9,000, and this price is then presented to the farmer
 as the price of the bag of seed. The enumerator then explains what
-kind of seed it is and what the advantages are. The farmer is then
-encourage to name his/her first price. A computer algorithm then determines
-a counter-offer that the enumerator asks, reemphasizing why the first
-price was too low. The farmer can then make a second bid. Bargaining
-continues until the price difference between the bid and ask price
-falls below a certain threshold (eg 1000) in which case the computer
-instructs the enumerator to indicate that this is his/her last price.
-The farmer can then decide to buy. If the farmer does not want to
-buy we will still sell the seed at the last bid made by the farmer.
+kind of seed it is and what the advantages are. The farmer has the option to accept this price or not. If the farmer does not accept the ask price, then the farmer is encouraged to name his/her first bid price.
+
+A computer algorithm then determines a counter-offer that the enumerator asks in a second round of negotiation. This new ask price is determined as the farmer's bid price plus 80 percent of the difference between the (initial) ask price and the farmer's bid price, and this is rounded to the nearest multiple of 500. This updated (lower) ask price is then presented to the farmer and the farmer gets another opportunity to accept or not. If the farmer does not accept, he or she is encouraged to make a second bid and a third ask price is determined as the farmer's last bid price plus 80 percent of the difference between the last ask price and the farmer's last bid price. Bargaining continues until the farmer accepts an ask price, or the price difference between the bid and ask price is smaller than 500 ugandan shilling, in which case the computer
+instructs the enumerator sell at the last price the farmer bids.
+
 To make the bargaining also incentive compatible for the enumerators,
 we tell them in advance that the money that is collected from farmers
 during this first stage will be divided and distributed equally among
@@ -60,4 +61,12 @@ bid is lower than the price, they pay nothing and receive nothing.
 However, after testing in the field, we found that too many farmers
 had problems comprehending the procedure, struggling especially with
 the fact that they could not bargain over the price.
+
+What will be outcomes of interest? Some kind of willingness to pay.
+
+\section{Initial ask price}
+Initial ask price
+\section{First bid price}
+
+
 \end{document}
