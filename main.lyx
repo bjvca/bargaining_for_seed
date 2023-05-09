@@ -1,0 +1,965 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{graphicx}% Required for inserting images
+
+\title{bargaining_for_seed}
+\author{bjorn.vancampenhout }
+\date{March 2023}
+\end_preamble
+\use_default_options false
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding iso8859-15
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Author
+Bjorn Van Campenhout
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Development Strategy and Governance Division, IFPRI, Belgium - corresponding
+ author: bjorn.vancampenhout@cgiar.org
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+The anatomy of bargaining over seed 
+\end_layout
+
+\begin_layout Abstract
+We offer farmers the opportunity to buy an improved seed variety during
+ a sequential bargaining process.
+ We introduce exogenous variation by randomizing the first offer price.
+ 
+\end_layout
+
+\begin_layout Section
+Motivation
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<standard_beginning, echo=F, warning=F, message=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+path <- getwd()
+\end_layout
+
+\begin_layout Plain Layout
+
+source(paste(path,
+\begin_inset Quotes erd
+\end_inset
+
+bargaining.R
+\begin_inset Quotes erd
+\end_inset
+
+,sep=
+\begin_inset Quotes erd
+\end_inset
+
+/
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In many societies, it is customary to bargain over prices in economic transactio
+ns.
+ In this paper, we use a simple lab-in-the-field experiment to study this
+ bargaining process,with a particular focus on how the initial price determines
+ various characteristics of the bargaining process like number of rounds,
+ initial counter bid and final price.
+ 
+\end_layout
+
+\begin_layout Standard
+In the experiment, farmers get the opportunity to buy one kilogram of an
+ improved maize seed variety.
+ 
+\end_layout
+
+\begin_layout Standard
+The experiment was timed to coincide with the start of the harvest season,
+ so demand is likely to be high.
+ 
+\end_layout
+
+\begin_layout Standard
+We developed a computer program to guide the bargaining process.
+ 
+\end_layout
+
+\begin_layout Standard
+Our experiment allows us to investigate anchoring of the bargaining process
+ to the initial ask price.
+ For instance, we test if there is a relationship between the level of the
+ initial ask price and (1) the final price at which the transaction is concluded
+, (2) the level of first bid price as a response to the initial ask price,
+ (3) the number of rounds before a transaction is concluded.
+ 
+\end_layout
+
+\begin_layout Standard
+We can also investigate how some of the characteristics of the actors involved
+ affect outcomes such as final price and change in bid price.
+ For instance, it is often argued that women are worse negotiators than
+ men, although these studies often involve bargaining over wage.
+ 
+\end_layout
+
+\begin_layout Section
+Bargaining Experiment
+\end_layout
+
+\begin_layout Standard
+Farmers are offered the opportunity to buy a bag of seed from an enumerator
+ in a way that is as close as possible as how this happens in a real life
+ setting where bargaining is the norm.
+ The enumerator follows a standard script.
+ An initial offer price is randomly drawn, ranging from 12,000 to 9,000,
+ and this price is then presented to the farmer as the price of the bag
+ of seed.
+ The enumerator then explains what kind of seed it is and what the advantages
+ are.
+ The farmer has the option to accept this price or not.
+ If the farmer does not accept the ask price, then the farmer is encouraged
+ to name his/her first bid price.
+\end_layout
+
+\begin_layout Standard
+A computer algorithm then determines a counter-offer that the enumerator
+ asks in a second round of negotiation.
+ This new ask price is determined as the farmer's bid price plus 80 percent
+ of the difference between the (initial) ask price and the farmer's bid
+ price, and this is rounded to the nearest multiple of 500.
+ This updated (lower) ask price is then presented to the farmer and the
+ farmer gets another opportunity to accept or not.
+ If the farmer does not accept, he or she is encouraged to make a second
+ bid and a third ask price is determined as the farmer's last bid price
+ plus 80 percent of the difference between the last ask price and the farmer's
+ last bid price.
+ Bargaining continues until the farmer accepts an ask price, or the price
+ difference between the bid and ask price is smaller than 500 ugandan shilling,
+ in which case the computer instructs the enumerator sell at the last price
+ the farmer bids.
+\end_layout
+
+\begin_layout Standard
+To make the bargaining also incentive compatible for the enumerators, we
+ tell them in advance that the money that is collected from farmers during
+ this first stage will be divided and distributed equally among all the
+ enumerators.
+\end_layout
+
+\begin_layout Standard
+A popular alternative way to measure willingness to pay is a Becker-DeGroot-Mars
+chak (BDM) auction.
+ In it simplest version, the subject formulates a bid and this bid is compared
+ to a price determined by a random number generator.
+ If the subject's bid is greater than the price, they pay the price and
+ receives the item being auctioned.
+ If the subject's bid is lower than the price, they pay nothing and receive
+ nothing.
+ However, after testing in the field, we found that too many farmers had
+ problems comprehending the procedure, struggling especially with the fact
+ that they could not bargain over the price.
+\end_layout
+
+\begin_layout Standard
+Bargaining outcomes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<warning=FALSE, message=FALSE, echo=FALSE>>=  
+\end_layout
+
+\begin_layout Plain Layout
+
+library(ggplot2)  
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot(plt, aes(x=price, fill=time)) +   geom_density() + scale_fill_grey()
+ + theme_classic() +   geom_density(alpha=0.4) +   scale_x_continuous(limits
+ = c(1000, 13500))
+\end_layout
+
+\begin_layout Plain Layout
+
+@ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Price distribution
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Price-distribution-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The final price, which comes closest to willingness to pay, was the last
+ offer price before the farmer accepts or the last bid price before the
+ computer decided to abort the negotiation (ie.
+ the difference between last offer and bid prices is smaller than UGX 500).
+ Using this definition, we find that the average final price is UGX 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(mean(dta$final_price, na.rm=TRUE),digits=0)}
+\end_layout
+
+\end_inset
+
+.
+ For reference, we obtained the seed at UGX 12,000.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Price-distribution-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows price distributions.
+ In addition to the final price at which the transaction was concluded,
+ we also plot distributions of the initial bid price (in case the initial
+ offer price was not accepted).
+ The average initial bid price was UGX 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(mean(dta$starting_price, na.rm=TRUE),digits=0)}
+\end_layout
+
+\end_inset
+
+.
+ The figure shows there is clear pull from round prices, 5000 and 10000
+ in particular.
+ 
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Price-distribution_ridge"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows price distributions conditional on the initial (randomized) offer
+ price.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<warning=FALSE, message=FALSE, echo=FALSE>>=  
+\end_layout
+
+\begin_layout Plain Layout
+
+library(ggplot2)  
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot(plt, aes(x = price, y = anchor, fill=time)) + geom_density_ridges2(jitter
+ed_points = TRUE,                                                      
+                               position = position_points_jitter(width =
+ 0.5, height = 0),                                                      
+                               point_shape = '|', point_size = 3, point_alpha
+ = .5, alpha = 0.5) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Price distribution
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Price-distribution_ridge"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Definintion of negotiation round.
+ A complete round includes the seller makes a price offer that the buyer
+ can accept or not.
+ If not, buyer makes a counter offer
+\end_layout
+
+\begin_layout Section
+Analysis
+\end_layout
+
+\begin_layout Subsection
+no negotiation
+\end_layout
+
+\begin_layout Standard
+A small share of farmers (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(mean(dta$paid.start_neg=="Yes")*100,digits=0)}
+\end_layout
+
+\end_inset
+
+ percent) does not negotiate, but readily accept the first offer.
+ Table 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+results
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rcccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (1) & (2) & (3) & (4) & (5)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+10000 & 
+\backslash
+Sexpr{format(round(res_tab[2,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(res_tab[2,3,1]<.01,"**",ifelse(res_tab[2,3,1]<.05,"*",ifelse(res_tab[
+2,3,1]<.1,"+","")))}}$ & 
+\backslash
+Sexpr{format(round(res_tab[2,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(res_tab[2,3,2]<.01,"**",ifelse(res_tab[2,3,2]<.05,"*",ifelse(res_tab[
+2,3,2]<.1,"+","")))}}$ & 
+\backslash
+Sexpr{format(round(res_tab[2,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(res_tab[2,3,3]<.01,"**",ifelse(res_tab[2,3,3]<.05,"*",ifelse(res_tab[
+2,3,3]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(res_tab[2,1,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(res_tab[2,3,4]<.01,"**",ifelse(res_tab[2,3,4]<.05,"*",ifelse(res_tab[
+2,3,4]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(res_tab[2,1,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(res_tab[2,3,5]<.01,"**",ifelse(res_tab[2,3,5]<.05,"*",ifelse(res_tab[
+2,3,5]<.1,"+","")))}}$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(res_tab[2,2,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(res_tab[2,2,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(res_tab[2,2,3],digits=3),nsmall=3)})  & (
+\backslash
+Sexpr{format(round(res_tab[2,2,4],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(res_tab[2,2,5],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+11000 & 
+\backslash
+Sexpr{format(round(res_tab[3,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(res_tab[3,3,1]<.01,"**",ifelse(res_tab[3,3,1]<.05,"*",ifelse(res_tab[
+3,3,1]<.1,"+","")))}}$ & 
+\backslash
+Sexpr{format(round(res_tab[3,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(res_tab[3,3,2]<.01,"**",ifelse(res_tab[3,3,2]<.05,"*",ifelse(res_tab[
+3,3,2]<.1,"+","")))}}$ & 
+\backslash
+Sexpr{format(round(res_tab[3,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(res_tab[3,3,3]<.01,"**",ifelse(res_tab[3,3,3]<.05,"*",ifelse(res_tab[
+3,3,3]<.1,"+","")))}}$ & 
+\backslash
+Sexpr{format(round(res_tab[3,1,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(res_tab[3,3,4]<.01,"**",ifelse(res_tab[3,3,4]<.05,"*",ifelse(res_tab[
+3,3,4]<.1,"+","")))}}$ & 
+\backslash
+Sexpr{format(round(res_tab[3,1,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(res_tab[3,3,5]<.01,"**",ifelse(res_tab[3,3,5]<.05,"*",ifelse(res_tab[
+3,3,5]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(res_tab[3,2,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(res_tab[3,2,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(res_tab[3,2,3],digits=3),nsmall=3)})  & (
+\backslash
+Sexpr{format(round(res_tab[3,2,4],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(res_tab[3,2,5],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+12000 & 
+\backslash
+Sexpr{format(round(res_tab[4,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(res_tab[4,3,1]<.01,"**",ifelse(res_tab[4,3,1]<.05,"*",ifelse(res_tab[
+4,3,1]<.1,"+","")))}}$ & 
+\backslash
+Sexpr{format(round(res_tab[4,1,2],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(res_tab[4,3,2]<.01,"**",ifelse(res_tab[4,3,2]<.05,"*",ifelse(res_tab[
+4,3,2]<.1,"+","")))}}$ & 
+\backslash
+Sexpr{format(round(res_tab[4,1,3],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(res_tab[4,3,3]<.01,"**",ifelse(res_tab[4,3,3]<.05,"*",ifelse(res_tab[
+4,3,3]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(res_tab[4,1,4],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(res_tab[4,3,4]<.01,"**",ifelse(res_tab[4,3,4]<.05,"*",ifelse(res_tab[
+4,3,4]<.1,"+","")))}}$  & 
+\backslash
+Sexpr{format(round(res_tab[4,1,5],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(res_tab[4,3,5]<.01,"**",ifelse(res_tab[4,3,5]<.05,"*",ifelse(res_tab[
+4,3,5]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(res_tab[4,2,1],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(res_tab[4,2,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(res_tab[4,2,3],digits=3),nsmall=3)})  & (
+\backslash
+Sexpr{format(round(res_tab[4,2,4],digits=3),nsmall=3)})  & (
+\backslash
+Sexpr{format(round(res_tab[4,2,5],digits=3),nsmall=3)})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6} 
+\end_layout
+
+\begin_layout Plain Layout
+
+10000  = 11000 & 
+\backslash
+Sexpr{format(round(res_tab[5,3,1],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[5,3,2],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[5,3,3],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[5,3,4],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[5,3,5],digits=3))}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+10000  = 12000 & 
+\backslash
+Sexpr{format(round(res_tab[6,3,1],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[6,3,2],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[6,3,3],digits=3))}& 
+\backslash
+Sexpr{format(round(res_tab[6,3,4],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[6,3,5],digits=3))}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+11000  = 12000 & 
+\backslash
+Sexpr{format(round(res_tab[7,3,1],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[7,3,2],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[7,3,3],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[7,3,4],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[7,3,5],digits=3))}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-6} 
+\end_layout
+
+\begin_layout Plain Layout
+
+nobs  & 
+\backslash
+Sexpr{format(round(res_tab[8,1,1],digits=0))} & 
+\backslash
+Sexpr{format(round(res_tab[8,1,2],digits=0))} & 
+\backslash
+Sexpr{format(round(res_tab[8,1,3],digits=0))}  & 
+\backslash
+Sexpr{format(round(res_tab[8,1,4],digits=0))}  & 
+\backslash
+Sexpr{format(round(res_tab[8,1,5],digits=0))}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Adj R^2 & 
+\backslash
+Sexpr{format(round(res_tab[9,1,1],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[9,1,2],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[9,1,3],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[9,1,4],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[9,1,5],digits=3))}
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Reference  & 
+\backslash
+Sexpr{format(round(res_tab[1,1,1],digits=0))} & 
+\backslash
+Sexpr{format(round(res_tab[1,1,2],digits=0))} & 
+\backslash
+Sexpr{format(round(res_tab[1,1,3],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[1,1,4],digits=3))} & 
+\backslash
+Sexpr{format(round(res_tab[1,1,5],digits=3))}
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+sticky prices
+\end_layout
+
+\begin_layout Standard
+Another interesting group of farmers are those that stick to their first
+ counter bid.
+ In our data, we find that on average
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+The results suggest that one should be wary when using bargaining experiments
+ like this to measure willingness to pay.
+ When testing different methods to elicit willingness to pay, we found that
+ farmers found the standard Becker–DeGroot–Marschak method (BDM) challenging
+ to understand.
+ Particularly the one-shot nature of the experiment was confusing, as this
+ is not how farmers usually do business.
+ A the same time, the anchoring effects inherent to bargaining experiments
+ may make them less useful in uncovering true willingness to pay.
+\end_layout
+
+\end_body
+\end_document
