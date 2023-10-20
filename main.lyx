@@ -53,9 +53,9 @@ knitr
 \use_package stackrel 0
 \use_package stmaryrd 0
 \use_package undertilde 0
-\cite_engine basic
-\cite_engine_type default
-\biblio_style plain
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -67,6 +67,10 @@ knitr
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 1cm
+\topmargin 2cm
+\rightmargin 1cm
+\bottommargin 2cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -87,14 +91,27 @@ knitr
 
 \begin_body
 
-\begin_layout Author
-Bjorn Van Campenhout
-\begin_inset Foot
+\begin_layout Title
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-Development Strategy and Governance Division, IFPRI, Belgium - corresponding
- author: bjorn.vancampenhout@cgiar.org
+
+Bjorn Van Campenhout
+\backslash
+thanks{Innovation Policy and Scaling Unit, International Food Policy Research
+ Institute, Leuven, Belgium; corresponding author: b.vancampenhout@cgiar.org}
+ 
+\backslash
+footnotemark[1]}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -107,14 +124,15 @@ The anatomy of bargaining over seed
 \end_layout
 
 \begin_layout Abstract
-We offer farmers the opportunity to buy an improved seed variety during
- a sequential bargaining process.
- We introduce exogenous variation by randomizing the first offer price.
- 
-\end_layout
-
-\begin_layout Section
-Motivation
+We offer Ugandan maize farmers the opportunity to buy an improved seed variety
+ during a bilateral sequential bargaining process that follows a concessional
+ script.
+ We introduce exogenous variation by randomly assigning a different initial
+ offer price.
+ We describe some of strategies used by the players and summarize key parameters
+ that characterized the process.
+ We provide subgroup analysis based on the gender of the seller and buyer.
+ We also comment on the implications.
 \end_layout
 
 \begin_layout Standard
@@ -166,7 +184,7 @@ bargaining.R
 In many societies, it is customary to bargain over prices in economic transactio
 ns.
  In this paper, we use a simple lab-in-the-field experiment to study this
- bargaining process,with a particular focus on how the initial price determines
+ bargaining process, with a particular focus on how the initial price determines
  various characteristics of the bargaining process like number of rounds,
  initial counter bid and final price.
  
@@ -190,21 +208,43 @@ We developed a computer program to guide the bargaining process.
 \end_layout
 
 \begin_layout Standard
-Our experiment allows us to investigate anchoring of the bargaining process
- to the initial ask price.
+Our experiment allows us to investigate the effect of the initial ask price
+ on a range of important bargaining related outcome.
  For instance, we test if there is a relationship between the level of the
  initial ask price and (1) the final price at which the transaction is concluded
 , (2) the level of first bid price as a response to the initial ask price,
- (3) the number of rounds before a transaction is concluded.
+ and (3) the number of rounds before a transaction is concluded.
  
 \end_layout
 
 \begin_layout Standard
-We can also investigate how some of the characteristics of the actors involved
- affect outcomes such as final price and change in bid price.
- For instance, it is often argued that women are worse negotiators than
- men, although these studies often involve bargaining over wage.
- 
+This article has several aims.
+ First, most research on bargaining uses a WEIRD population (Western, Educated,
+ Industrialized, Rich, and Democratic), yet bargaining is much more prevalent
+ in non-WEIRD societies.
+ By implementing a concessional sequential bargaining game, we contribute
+ to the knowledge on how economic transactions transpire in a more realistic
+ setting.
+ Second,  
+\end_layout
+
+\begin_layout Section
+Related literature
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+key "CASTILLO201335"
+literal "false"
+
+\end_inset
+
+ report on a sequential bargaining experiment in the market for taxi rides
+ in Lima.
+ They are interested in supplier behavior, which they study using a fixed-offer
+ bargaining script that both male and female potential passengers follow
+ when interacting with (male) taxi drivers.
 \end_layout
 
 \begin_layout Section
@@ -215,33 +255,75 @@ Bargaining Experiment
 Farmers are offered the opportunity to buy a bag of seed from an enumerator
  in a way that is as close as possible as how this happens in a real life
  setting where bargaining is the norm.
- The enumerator follows a standard script.
- An initial offer price is randomly drawn, ranging from 12,000 to 9,000,
- and this price is then presented to the farmer as the price of the bag
- of seed.
- The enumerator then explains what kind of seed it is and what the advantages
- are.
- The farmer has the option to accept this price or not.
- If the farmer does not accept the ask price, then the farmer is encouraged
- to name his/her first bid price.
+ The seller follows a standard script.
+ An initial offer price is randomly drawn from a set of four prices (12000,11000
+,10000,9000), with higher probability on the extremes (probabilities are
+ 0.25, 0.125, 0.125, and 0.25 respectively).
+ 
 \end_layout
 
 \begin_layout Standard
-A computer algorithm then determines a counter-offer that the enumerator
- asks in a second round of negotiation.
+This price is then presented to the farmer as the price of the bag of seed.
+ The enumerator then explains what kind of seed it is and what the advantages
+ are.
+ The farmer is than asked if they want to buy the seed for this price.
+ If the farmer says no, then they are encouraged to name their counter bid
+ price.
+ The minimal bid price was 3000, but this lower limit was not communicated
+ to the farmer in advance.
+ If the farmer's first bid was lower than 3000, it was communicated that
+ 3000 was the lowest price and the farmer could revise the first counter
+ bid to 3000 or abandon the game.
+\end_layout
+
+\begin_layout Standard
+Sellers then follow a concession script where they split the difference
+ between the offer price and the farmer's bid 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.2307/25098677"
+literal "false"
+
+\end_inset
+
+.
+ The tablet computer that guides the seller then uses an algorithm to determine
+ a counter-offer that the enumerator asks in a second round of negotiation.
  This new ask price is determined as the farmer's bid price plus 80 percent
  of the difference between the (initial) ask price and the farmer's bid
  price, and this is rounded to the nearest multiple of 500.
- This updated (lower) ask price is then presented to the farmer and the
- farmer gets another opportunity to accept or not.
- If the farmer does not accept, he or she is encouraged to make a second
- bid and a third ask price is determined as the farmer's last bid price
- plus 80 percent of the difference between the last ask price and the farmer's
- last bid price.
+ This updated (lower) ask price is the compared to the last bid price of
+ the farmer.
+ If the difference is smaller than 500, the seller is instructed to accept
+ the bid price.
+ If the difference between the updated (lower) ask price and the bid price
+ is larger than 500, then the updated ask price is presented to the farmer
+ and the farmer gets another opportunity to accept or reject.
+ If the farmer does not accept, they are encouraged to make a second bid.
+ 
+\end_layout
+
+\begin_layout Standard
+Based on this second bid, a third ask price is determined as the farmer's
+ last bid price plus 80 percent of the difference between the last ask price
+ and the farmer's last bid price.
  Bargaining continues until the farmer accepts an ask price, or the price
  difference between the bid and ask price is smaller than 500 ugandan shilling,
  in which case the computer instructs the enumerator sell at the last price
  the farmer bids.
+ If the highest initial offer price of 12000 was drawn and a farmer sticks
+ to the lowest possible bid price (3000), the program accepts this bid after
+ 10 negotiation rounds.
+\end_layout
+
+\begin_layout Standard
+Farmers were not informed about the algorithm.
+ That is, they did not know that the seller would eventually accept even
+ if they stick to the lowest price.
+ We do not expected that farmers would be able to learn about the offer
+ price formation algorithm from a single bargaining experiment and we also
+ made sure that farmers could not communicate with each other by making
+ sure the experiments were run in parallel in villages.
 \end_layout
 
 \begin_layout Standard
@@ -265,15 +347,54 @@ chak (BDM) auction.
  that they could not bargain over the price.
 \end_layout
 
+\begin_layout Section
+Sample
+\end_layout
+
 \begin_layout Standard
+Include here a table with descriptive statistics.
+ 
+\end_layout
+
+\begin_layout Standard
+We find that in our sample, almost 60 percent uses farmer saved seed.
+ About 9 percent used bazooka on any of their plots in the last agricultural
+ season.
+ 
+\end_layout
+
+\begin_layout Section
 Bargaining outcomes
+\end_layout
+
+\begin_layout Standard
+The starting prices were high enough to trigger negotiation.
+\end_layout
+
+\begin_layout Standard
+Minimal bid prices used in the study were low enough to result in transactions.
+ We find that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(mean(dta$starting_price==3000),digits=0)}
+\end_layout
+
+\end_inset
+
+ percent of farmers names 3000, the minimal acceptable bid price, as their
+ first bid price.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -466,23 +587,51 @@ name "fig:Price-distribution_ridge"
 
 \end_layout
 
-\begin_layout Standard
-Definintion of negotiation round.
- A complete round includes the seller makes a price offer that the buyer
- can accept or not.
- If not, buyer makes a counter offer
+\begin_layout Section
+Analysis of the bargaining process
 \end_layout
 
-\begin_layout Section
-Analysis
+\begin_layout Standard
+In this section, we look at the following characteristics and outcomes of
+ the bargaining process: transaction price, initial bid price, number of
+ negotiation rounds, immediate accept, and a fixed bid strategy.
+ For each of these outcomes, we look at the effect of the initial offer
+ price.
+ We use this as with an OLS regression where the initial offer price enters
+ as a categorical variable and the farmers that were offered the seed at
+ 9000 are the reference group.
+ Results are summarized in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
-no negotiation
+accept
 \end_layout
 
 \begin_layout Standard
-A small share of farmers (
+A first outcome we consider is the likelihood that after receiving the first
+ offer price, the farmer accepts and no bargaining process ensues.
+ Column (4) in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows how this strategy is related to initial offer price.
+ We see that if the initial offer price is 9000, 
 \begin_inset ERT
 status open
 
@@ -490,13 +639,33 @@ status open
 
 
 \backslash
-Sexpr{round(mean(dta$paid.start_neg=="Yes")*100,digits=0)}
+Sexpr{format(round(res_tab[1,1,4]*100,digits=0))} 
 \end_layout
 
 \end_inset
 
- percent) does not negotiate, but readily accept the first offer.
- Table 
+ percent of farmers accept this price and immediately buy.
+ The share is similar for farmers that were offered the seed at 10000.
+ However, for farmers where the initial offer price exceeded 10000, almost
+ all farmers enter into negotiation.
+ For instance, in the group of farmers where the initial offer price was
+ 12000, only 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(res_tab[1,1,4]+res_tab[4,1,4],digits=0))} 
+\end_layout
+
+\end_inset
+
+ percent of farmers accept this offer.
+ The fact that there is also no difference in coefficients between that
+ group that started at 11000 and the group that started at 12000 again suggest
+ some mental threshold.
 \end_layout
 
 \begin_layout Standard
@@ -510,6 +679,13 @@ status open
 
 \begin_layout Plain Layout
 results
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:results"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -926,8 +1102,253 @@ scriptsize
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+transaction price
+\end_layout
+
+\begin_layout Standard
+Column (1) in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that the average transaction price in the reference category (where
+ initial offer price is 9000) is 
+\begin_inset ERT
+status open
+
 \begin_layout Plain Layout
 
+
+\backslash
+Sexpr{format(round(res_tab[1,1,1],digits=0))}
+\end_layout
+
+\end_inset
+
+ Ugandan shillings for a seed pack.
+ We further see that the average transaction price in the subset of farmers
+ that started negotiations off with an initial offer price of 10000 is 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(res_tab[2,1,1],digits=0))}
+\end_layout
+
+\end_inset
+
+ shillings higher, or 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(res_tab[1,1,1] + res_tab[2,1,1],digits=0))}
+\end_layout
+
+\end_inset
+
+ Ugandan shillings for a seed pack.
+ In the subgroup of farmers that started off with 11000 as the initial offer
+ price, the final price was on average 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(res_tab[1,1,1] + res_tab[3,1,1],digits=0))}
+\end_layout
+
+\end_inset
+
+, slightly lower than in the 10000, but still significantly higher than
+ in the reference group.
+ Finally, the group that started off with the highest possible also converged
+ to the highest average transaction price of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(res_tab[1,1,1] + res_tab[4,1,1],digits=0))}
+\end_layout
+
+\end_inset
+
+, which is 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(res_tab[4,1,1],digits=0))}
+\end_layout
+
+\end_inset
+
+ higher than the reference groups.
+\end_layout
+
+\begin_layout Standard
+The table also shows p-values for tests of equality of the coefficients.
+ We do not find that differences with the reference group are not significantly
+ different the groups that get initial offers of 10000, 11000 and 12000
+ respectively.
+ This suggests some form of non-linearity in the relationship between initial
+ offer price and the final price with a critical point at 10000: Once the
+ initial offer price falls below 10000, farmers expect a substantial discount.
+ However, if the price is equal or higher than 10000, farmers seem to converge
+ to the same price that is significantly higher than the price the 9000
+ group converges to.
+\end_layout
+
+\begin_layout Subsection
+counter bid
+\end_layout
+
+\begin_layout Standard
+Column (2) in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that the initial counter bid for the reference category is 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(res_tab[1,1,2],digits=0))}
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+number of negotiation rounds
+\end_layout
+
+\begin_layout Standard
+We define a negotiation round as the process of the seller making an offer,
+ the buyer agreeing or rejecting and in the latter case formulating a counter
+ offer, which is automatically accepted by the buyer if a condition is met.
+ We find that on average, negotiations lasted 4 to 5 rounds.
+ Column (3) in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that in the reference category, negotiations last only 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(res_tab[1,1,3],digits=2))}
+\end_layout
+
+\end_inset
+
+ rounds on average.
+ We see that the length of negotiation steadily rises with the initial offer:
+ among farmers that received the 10000 initial offer, it takes on average
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(res_tab[1,1,3]+res_tab[2,1,3],digits=2))}
+\end_layout
+
+\end_inset
+
+.
+ In the group that are offered seed at 11000, agreement is reached after
+ about 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(res_tab[1,1,3]+res_tab[3,1,3],digits=2))}
+\end_layout
+
+\end_inset
+
+ rounds.
+ For the subgroup of farmers that started off with 12000 as the initial
+ offer, negotiation takes 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(res_tab[1,1,3]+res_tab[4,1,3],digits=2))}
+\end_layout
+
+\end_inset
+
+ rounds.
+ We also find that the differences between the group are significant.
+\end_layout
+
+\begin_layout Standard
+To some extent, the increase in the number of rounds was to be expected
+ given the mechanical nature of the bargaining process, whereby the maximum
+ number of rounds before convergence is reached is dependent on the starting
+ price.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+So can we really say that if price is higher people negotiate harder? Can
+ we correct for this by dividing by total number of rounds?
 \end_layout
 
 \end_inset
@@ -936,13 +1357,122 @@ scriptsize
 \end_layout
 
 \begin_layout Subsection
-sticky prices
+fixed bid strategy
 \end_layout
 
 \begin_layout Standard
-Another interesting group of farmers are those that stick to their first
+Another interesting group of farmers are those that stick to their initial
  counter bid.
- In our data, we find that on average
+ In our data, we find that on average 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(prop.table(table(dta$sticky))[2]*100,digits=0))} 
+\end_layout
+
+\end_inset
+
+ percent of farmers do not adjust the initial counter bid upward, generally
+ leading to more rounds of negotiation.
+ Column (5) in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ investigates how this strategy is related to the initial offer price.
+ We see that in the reference group that gets the lowest offer price, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(res_tab[1,1,5]*100,digits=0))}
+\end_layout
+
+\end_inset
+
+ percent of farmers uses a fixed bid strategy.
+ We do not find that this strategy is significantly different in the groups
+ that start off with 10000 or 12000.
+ We do, however, see that farmers who are offered the seed at the initial
+ price of 12000 are significantly less likely to follow a fixed bid strategy.
+\end_layout
+
+\begin_layout Section
+Exploring heterogeneity in bargaining processes
+\end_layout
+
+\begin_layout Standard
+A key driver of gender inequalities in the economic domain lies in gender
+ differences in bargaining about the distribution of economic resources.
+ To boost statistical power, we pool certain groups to arrive at two categories
+ (a 
+\begin_inset Quotes eld
+\end_inset
+
+low initial bid
+\begin_inset Quotes erd
+\end_inset
+
+ reference group and a 
+\begin_inset Quotes eld
+\end_inset
+
+high initial bid
+\begin_inset Quotes erd
+\end_inset
+
+ group).
+ The decision to pool is based on tests for differences between coefficients
+ in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ For instance, when the outcome is the final price, we will pool the 10000,
+ 11000 and 12000 groups into a single 
+\begin_inset Quotes eld
+\end_inset
+
+high initial bid
+\begin_inset Quotes erd
+\end_inset
+
+ group; when the outcome is the share of farmers adopting a fixed bid strategy,
+ we will pool the 9000, 10000 and 11000 groups into a single 
+\begin_inset Quotes eld
+\end_inset
+
+low initial bid reference group
+\begin_inset Quotes erd
+\end_inset
+
+ (and the 12000 group now becoming the 
+\begin_inset Quotes eld
+\end_inset
+
+high initial bid
+\begin_inset Quotes erd
+\end_inset
+
+ group).
 \end_layout
 
 \begin_layout Section
@@ -959,6 +1489,1036 @@ The results suggest that one should be wary when using bargaining experiments
  is not how farmers usually do business.
  A the same time, the anchoring effects inherent to bargaining experiments
  may make them less useful in uncovering true willingness to pay.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Effect of gender of buyer
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:results-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& maize & teff & wheat & pooled
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-5}
+\end_layout
+
+\begin_layout Plain Layout
+
+intial accept & 
+\backslash
+Sexpr{format(round(results_gender[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[1,1,3]<.01,"**",ifelse(results_gender[1,1,3]<.05,"*",i
+felse(results_gender[1,1,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_gender[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[1,2,3]<.01,"**",ifelse(results_gender[1,2,3]<.05,"*",i
+felse(results_gender[1,2,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_gender[1,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[1,3,3]<.01,"**",ifelse(results_gender[1,3,3]<.05,"*",i
+felse(results_gender[1,3,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_gender[1,4,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[1,4,3]<.01,"**",ifelse(results_gender[1,4,3]<.05,"*",i
+felse(results_gender[1,4,3]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(results_gender[1,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_gender[1,2,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_gender[1,3,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_gender[1,4,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+starting price & 
+\backslash
+Sexpr{format(round(results_gender[2,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[2,1,3]<.01,"**",ifelse(results_gender[2,1,3]<.05,"*",i
+felse(results_gender[2,1,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_gender[2,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[2,2,3]<.01,"**",ifelse(results_gender[2,2,3]<.05,"*",i
+felse(results_gender[2,2,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_gender[2,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[2,3,3]<.01,"**",ifelse(results_gender[2,3,3]<.05,"*",i
+felse(results_gender[2,3,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_gender[2,4,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[2,4,3]<.01,"**",ifelse(results_gender[2,4,3]<.05,"*",i
+felse(results_gender[2,4,3]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(results_gender[2,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_gender[2,2,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_gender[2,3,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_gender[2,4,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Bottom price & 
+\backslash
+Sexpr{format(round(results_gender[3,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[3,1,3]<.01,"**",ifelse(results_gender[3,1,3]<.05,"*",i
+felse(results_gender[3,1,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_gender[3,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[3,2,3]<.01,"**",ifelse(results_gender[3,2,3]<.05,"*",i
+felse(results_gender[3,2,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_gender[3,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[3,3,3]<.01,"**",ifelse(results_gender[3,3,3]<.05,"*",i
+felse(results_gender[3,3,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_gender[3,4,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[3,4,3]<.01,"**",ifelse(results_gender[3,4,3]<.05,"*",i
+felse(results_gender[3,4,3]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(results_gender[4,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_gender[4,2,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_gender[4,3,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_gender[4,4,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+sticky strategy & 
+\backslash
+Sexpr{format(round(results_gender[4,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[4,1,3]<.01,"**",ifelse(results_gender[4,1,3]<.05,"*",i
+felse(results_gender[4,1,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_gender[4,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[4,2,3]<.01,"**",ifelse(results_gender[4,2,3]<.05,"*",i
+felse(results_gender[4,2,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_gender[4,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[4,3,3]<.01,"**",ifelse(results_gender[4,3,3]<.05,"*",i
+felse(results_gender[4,3,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_gender[4,4,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[4,4,3]<.01,"**",ifelse(results_gender[4,4,3]<.05,"*",i
+felse(results_gender[4,4,3]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(results_gender[4,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_gender[4,2,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_gender[4,3,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_gender[4,4,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+final price  & 
+\backslash
+Sexpr{format(round(results_gender[5,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[5,1,3]<.01,"**",ifelse(results_gender[5,1,3]<.05,"*",i
+felse(results_gender[5,1,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_gender[5,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[5,2,3]<.01,"**",ifelse(results_gender[5,2,3]<.05,"*",i
+felse(results_gender[5,2,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_gender[5,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[5,3,3]<.01,"**",ifelse(results_gender[5,3,3]<.05,"*",i
+felse(results_gender[5,3,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_gender[5,4,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_gender[5,4,3]<.01,"**",ifelse(results_gender[5,4,3]<.05,"*",i
+felse(results_gender[5,4,3]<.1,"+","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(results_gender[5,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_gender[5,2,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_gender[5,3,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_gender[5,4,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Effect of gender of seller
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:results_seller"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& maize & teff & wheat & pooled
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-5}
+\end_layout
+
+\begin_layout Plain Layout
+
+intial accept & 
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[1,1,3]<.01,"**",ifelse(results_enumerator_
+gender[1,1,3]<.05,"*",ifelse(results_enumerator_gender[1,1,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[1,2,3]<.01,"**",ifelse(results_enumerator_
+gender[1,2,3]<.05,"*",ifelse(results_enumerator_gender[1,2,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[1,3,3]<.01,"**",ifelse(results_enumerator_
+gender[1,3,3]<.05,"*",ifelse(results_enumerator_gender[1,3,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,4,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[1,4,3]<.01,"**",ifelse(results_enumerator_
+gender[1,4,3]<.05,"*",ifelse(results_enumerator_gender[1,4,3]<.1,"+","")))}}$
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,1,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,2,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,3,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,4,2],digits=3),nsmall=3)})
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+starting price & 
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[2,1,3]<.01,"**",ifelse(results_enumerator_
+gender[2,1,3]<.05,"*",ifelse(results_enumerator_gender[2,1,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[2,2,3]<.01,"**",ifelse(results_enumerator_
+gender[2,2,3]<.05,"*",ifelse(results_enumerator_gender[2,2,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[2,3,3]<.01,"**",ifelse(results_enumerator_
+gender[2,3,3]<.05,"*",ifelse(results_enumerator_gender[2,3,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,4,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[2,4,3]<.01,"**",ifelse(results_enumerator_
+gender[2,4,3]<.05,"*",ifelse(results_enumerator_gender[2,4,3]<.1,"+","")))}}$
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,1,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,2,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,3,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,4,2],digits=3),nsmall=3)})
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Bottom price & 
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[3,1,3]<.01,"**",ifelse(results_enumerator_
+gender[3,1,3]<.05,"*",ifelse(results_enumerator_gender[3,1,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[3,2,3]<.01,"**",ifelse(results_enumerator_
+gender[3,2,3]<.05,"*",ifelse(results_enumerator_gender[3,2,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[3,3,3]<.01,"**",ifelse(results_enumerator_
+gender[3,3,3]<.05,"*",ifelse(results_enumerator_gender[3,3,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,4,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[3,4,3]<.01,"**",ifelse(results_enumerator_
+gender[3,4,3]<.05,"*",ifelse(results_enumerator_gender[3,4,3]<.1,"+","")))}}$
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,1,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,2,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,3,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,4,2],digits=3),nsmall=3)})
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+sticky strategy & 
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,1,3]<.01,"**",ifelse(results_enumerator_
+gender[4,1,3]<.05,"*",ifelse(results_enumerator_gender[4,1,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,2,3]<.01,"**",ifelse(results_enumerator_
+gender[4,2,3]<.05,"*",ifelse(results_enumerator_gender[4,2,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,3,3]<.01,"**",ifelse(results_enumerator_
+gender[4,3,3]<.05,"*",ifelse(results_enumerator_gender[4,3,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,4,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,4,3]<.01,"**",ifelse(results_enumerator_
+gender[4,4,3]<.05,"*",ifelse(results_enumerator_gender[4,4,3]<.1,"+","")))}}$
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,1,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,2,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,3,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,4,2],digits=3),nsmall=3)})
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+final price  & 
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,1,3]<.01,"**",ifelse(results_enumerator_
+gender[5,1,3]<.05,"*",ifelse(results_enumerator_gender[5,1,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,2,3]<.01,"**",ifelse(results_enumerator_
+gender[5,2,3]<.05,"*",ifelse(results_enumerator_gender[5,2,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,3,3]<.01,"**",ifelse(results_enumerator_
+gender[5,3,3]<.05,"*",ifelse(results_enumerator_gender[5,3,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,4,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,4,3]<.01,"**",ifelse(results_enumerator_
+gender[5,4,3]<.05,"*",ifelse(results_enumerator_gender[5,4,3]<.1,"+","")))}}$
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,1,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,2,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,3,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,4,2],digits=3),nsmall=3)})
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "bargaining"
+options "IFPRI_Style"
+
+\end_inset
+
+
 \end_layout
 
 \end_body
