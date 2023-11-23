@@ -120,19 +120,33 @@ footnotemark[1]}
 \end_layout
 
 \begin_layout Title
-The anatomy of bargaining over seed 
+The role of gender in bargaining: evidence for selling seed to smallholders
+ in Uganda 
 \end_layout
 
 \begin_layout Abstract
-We offer Ugandan maize farmers the opportunity to buy an improved seed variety
- during a bilateral sequential bargaining process that follows a concessional
- script.
- We introduce exogenous variation by randomly assigning a different initial
- offer price.
- We describe some of strategies used by the players and summarize key parameters
- that characterized the process.
- We provide subgroup analysis based on the gender of the seller and buyer.
- We also comment on the implications.
+In rural societies with strong gender norms and customs, small informal
+ agribusinesses may often be one of the few ways in which women can independentl
+y generate resources.
+ However, previous research has indicated that female run business may be
+ perceived less favorable compared to their male counterparts.
+ In this paper, I examine potential consequences of these biased perceptions
+ on business transactions.
+ More in particular, I test whether the gender of the seller has an impact
+ on buyers' negotiation strategies and eventual outcomes in bilateral price
+ negotiations.
+ I do so using a lab-in-the-field experiment in eastern Uganda, where a
+ representative sample of smallholder maize farmers are offered the opportunity
+ to bargain over a bag of an improved maize seed variety from a male or
+ female seller.
+ We find that buyers that are confronted with a female seller are less likely
+ to accept the initial offer price and respond with a lower counter bid
+ price than farmers faced with a male seller.
+ Negotiation take on average one round longer when the seller is a woman,
+ and the transaction price is almost 9 percent lower.
+ For comparison, we also look at the effect of the starting price on the
+ same bargaining outcomes and find that the gender disadvantage is roughly
+ equal to the the effect of a 20 percent higher starting price.
 \end_layout
 
 \begin_layout Standard
@@ -180,56 +194,216 @@ bargaining.R
 
 \end_layout
 
+\begin_layout Section
+Introduction
+\end_layout
+
 \begin_layout Standard
-In many societies, it is customary to bargain over prices in economic transactio
-ns.
- In this paper, we use a simple lab-in-the-field experiment to study this
- bargaining process, with a particular focus on how the initial price determines
- various characteristics of the bargaining process like number of rounds,
- initial counter bid and final price.
+Over the last few decades, attention has shifted from considering farm household
+s as a single unit to studying the structure and organization of the household
+ as an institution comprised of different actors, each with their own preference
+ which may or may not align 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "agarwal1997bargaining"
+literal "false"
+
+\end_inset
+
+.
+ In the context of collective bargaining models, research has established
+ the importance of household members' control over resources for their intra-hou
+sehold bargaining power and outcomes in terms of intra-household equity.
  
 \end_layout
 
 \begin_layout Standard
-In the experiment, farmers get the opportunity to buy one kilogram of an
- improved maize seed variety.
+In settings characterized by strong gender norms and customs, activities
+ within the household often have a gender dimension.
+ For instance, men could be responsible for economic activities such maize
+ production, while women take care of reproductive activities such as fetching
+ water and firewood.
+ In settings characterized by subsistence agriculture, entry points for
+ women in food supply chains are generally downstream the value chain, consistin
+g of activities such as light processing and retail.
+ Research indeed shows that informal vendors often tend to be self-employed
+ or owner-operators women.
+ Especially for women, these forms of informal self-employment often constitute
+ a crucial source of income that they can earn independently from the husband
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "GIROUX2021101997"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Unfortunately, even though they would be allowed in these roles, perceptions
+ may still be stacked against them.
+ For instance, previous research with agro-input dealers in Uganda showed
+ that female managed agro-input shops are perceived less favorable on a
+ range of attributes than their male counterparts.
+ This includes perceptions that female managed shops sold seed of lower
+ quality, while in reality the reverse seemed to be true 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "de2022gender"
+literal "false"
+
+\end_inset
+
+.
+ The difference in perceptions was largest when customers weree asked to
+ rate agro-dealers in terms of price competitiveness, again despite the
+ fact that there is no difference between average prices charged by male
+ and female managed agro-dealers.
+\end_layout
+
+\begin_layout Standard
+In this paper, we investigate if this gender bias in perception extends
+ into price bargaining processes and outcomes.
+ In the context of rural Uganda, bargaining over prices is the rule rather
+ than the exception.
+ The ensuing transaction price is a function of a range of variables, such
+ as perceptions, power relationships, well-being of negotiating partners,
+ etc.
+ If some of these variables are skewed against female informal vendors (such
+ as perceptions related to the quality of what they sell), gender bias may
+ also manifest in the strategies that negotiating parties use, and the outcome
+ of the process.
+ The fact that the bias in perceptions was particularly large for price
+ related attributes of the seller leads us to suspect that there will also
+ be effects on the bargaining process.
  
 \end_layout
 
 \begin_layout Standard
-The experiment was timed to coincide with the start of the harvest season,
- so demand is likely to be high.
- 
+We run simple lab-in-the-field experiments to study the effect of gender
+ of the seller on bargaining process.
+ In particular, we offer the opportunity to a representative group of maize
+ farmers to buy a bag of hybrid maize seed.
+ A trained enumerator, guided by a script implemented on a tablet computer,
+ acts as a seller.
+ After explaining the virtues of hybrid maize seed to the buyer, the seller
+ asks if the buyer wants to buy the seed at the initial (randomize) offer
+ price.
+ If the buyer refuses, he or she is encouraged to call out a first counter-bid.
+ The algorithm on the tablet then determines if the seller agrees on the
+ counter bid (depending the difference between the two bids being small
+ enough) or to enter into a second round of negotiations and name a second
+ offer price (which is lower than the previous offer price but higher than
+ the farmer's previous counter bid).
+ This process continues until the farmer accepts an offer price, or the
+ seller is instructed to accept because the difference between last bid
+ price and new offer price is lower than a particular threshold.
 \end_layout
 
 \begin_layout Standard
-We developed a computer program to guide the bargaining process.
- 
+We provide exogenous variation along two dimensions.
+ First, we randomly assign farmers to either a male of a female seller.
+ This allows us to estimate the causal impact of the gender of the seller
+ on the bargaining process and outcomes.
+ Second, we also randomly assign the initial offer price that the (male
+ of female) seller asks to the farmer, again allowing us to estimate the
+ causal impact of initial offer price on the bargaining process and outcomes.
+ It will be interesting to compare the sizes of these two effects.
+ Furthermore, we can look at interactions to test if eg the gender effect
+ becomes even more important when the stakes are high (eg when the initial
+ offer price is high).
 \end_layout
 
 \begin_layout Standard
-Our experiment allows us to investigate the effect of the initial ask price
- on a range of important bargaining related outcome.
- For instance, we test if there is a relationship between the level of the
- initial ask price and (1) the final price at which the transaction is concluded
-, (2) the level of first bid price as a response to the initial ask price,
- and (3) the number of rounds before a transaction is concluded.
- 
+Our experiment allows us to investigate the effect the gender of the seller
+ and/or initial ask price on various strategies used by the buyer and outcomes
+ of the process.
+ These include: (1) the likelihood that the buyer immediately accepts the
+ initial offer prices (and hence no bargaining took place); (2) the first
+ counter bid following the initial offer price; (3) the level of the initial
+ coutner bid and then in particular the likelihood that this is the minimum
+ admissible price; (4) the likelihood that the buyer sticks with the initial
+ counter bid throughout the bargaining process (that is, the buyer plays
+ a non-concessional strategy); (5) the number of negotiation rounds; (6)
+ the likelihood that the buyer accepts at any point (as opposed to ending
+ negotiations because of convergence); and (7) the transaction price.
 \end_layout
 
 \begin_layout Standard
-This article has several aims.
+Results show that the likelihood that the buyer immediately accepts is reduced
+ when the seller is a woman.
+ Negotiations with female sellers also lead to a substantial decrease in
+ the initial counter bid by buyers and a higher percentage of buyers starting
+ with the lowest possible bid.
+ The bargaining process with female sellers tends to involve more negotiation
+ rounds, indicating increased resistance from buyers, ultimately resulting
+ in transaction prices that are approximately UGX 600 lower than those with
+ male sellers.
+ This gender effect thus seems to manifests early in the negotiation process,
+ influencing initial counter bids and setting the stage for subsequent interacti
+ons, emphasizing the significant impact of seller gender on bargaining dynamics.
+\end_layout
+
+\begin_layout Standard
+This article contributes to the existing literature in several ways.
  First, most research on bargaining uses a WEIRD population (Western, Educated,
  Industrialized, Rich, and Democratic), yet bargaining is much more prevalent
- in non-WEIRD societies.
- By implementing a concessional sequential bargaining game, we contribute
- to the knowledge on how economic transactions transpire in a more realistic
- setting.
- Second,  
+ in non-WEIRD societies 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "henrich2010weirdest"
+literal "false"
+
+\end_inset
+
+.
+ By implementing a lab-in-the-field experiment in the context of smallholder
+ farmers bargaining over seed, we contribute to the knowledge on how economic
+ transactions transpire in a more realistic setting.
+ Second, there is a large literature that investigates differences in bargaining
+ behavior between men and women.
+ Again, most of this research is situated in a Western context, often focusing
+ on how these differences in bargaining contributes to the labour market
+ outcomes such as the wage gap.
+ We investigate the consequences of gendered bargaining processes in the
+ context of informal employment in developing countries.
+ Finally, we contribute to a recent literature that uses rigorous impact
+ evaluation methods to study discrimination in developing countries 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "eg."
+key "CASTILLO201335,delecourt2021does"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Te remainder of this article is organized as follows.
+ In the next section, we provide a brief overview of the related literature.
+ 
 \end_layout
 
 \begin_layout Section
 Related literature
+\end_layout
+
+\begin_layout Standard
+One of the first studies that uses identical scripted bargaining strategies
+ to study the impact of gender (and race) is 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "825eef39-d1b6-3a49-9884-20578c598ab2"
+literal "false"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -242,9 +416,48 @@ literal "false"
 
  report on a sequential bargaining experiment in the market for taxi rides
  in Lima.
- They are interested in supplier behavior, which they study using a fixed-offer
- bargaining script that both male and female potential passengers follow
- when interacting with (male) taxi drivers.
+ They are interested in the impact of gender of the customer on the bargaining
+ strategies and outcomes of the taxi driver (which are all men).
+ They use a fixed-offer bargaining script that both male and female potential
+ passengers follow when interacting with (male) taxi drivers.
+\end_layout
+
+\begin_layout Standard
+Our work is also related to 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "delecourt2021does"
+literal "false"
+
+\end_inset
+
+ who start from the observation that women owned micro-businesses are generally
+ less profitable than male owned businesses.
+ To separate the effect of differences in business characteristics from
+ the gender effect, they conduct two field experiments among Indian vegetable
+ sellers where men report earning roughly 50% more than women in terms of
+ daily revenues.
+ In their experiment, they keep every business aspect (eg location, opening
+ hours, stock,...) the same except for the gender of the seller.
+ After controlling for supply side factors in this way, they find that earnings
+ between male and female vendors does not differ and conclude that the observed
+ gender differences in the market are not due to differential demand-side
+ constraints.
+ An important difference with our study is the context, as in the indian
+ market transactions are fast-paced, short, and without chit-chat and bargaining
+ is uncommon.
+ 
+\end_layout
+
+\begin_layout Standard
+The ability to earn some money independently from the husband is important
+ for several reasons.
+ First, the unitary household model has been challenged theoretically and
+ rejected empirically in numerous studies, and women within the household
+ are generally disadvantaged.
+ Second, access to resources has been found to increase women bargaining
+ power within the households.
+ Third
 \end_layout
 
 \begin_layout Section
@@ -252,19 +465,19 @@ Bargaining Experiment
 \end_layout
 
 \begin_layout Standard
-Farmers are offered the opportunity to buy a bag of seed from an enumerator
- in a way that is as close as possible as how this happens in a real life
- setting where bargaining is the norm.
+Farmers are offered the opportunity to buy a bag of seed from a seller in
+ a way that is as close as possible as how this happens in a real life setting
+ where bargaining is the norm.
  The seller follows a standard script.
- An initial offer price is randomly drawn from a set of four prices (12000,11000
-,10000,9000), with higher probability on the extremes (probabilities are
- 0.25, 0.125, 0.125, and 0.25 respectively).
+ An initial offer price (or ask) is randomly drawn from a set of four prices
+ (12000,11000,10000,9000), with higher probability on the extremes (probabilitie
+s are 0.25, 0.125, 0.125, and 0.25 respectively).
  
 \end_layout
 
 \begin_layout Standard
 This price is then presented to the farmer as the price of the bag of seed.
- The enumerator then explains what kind of seed it is and what the advantages
+ The seller then explains what kind of seed it is and what the advantages
  are.
  The farmer is than asked if they want to buy the seed for this price.
  If the farmer says no, then they are encouraged to name their counter bid
@@ -327,24 +540,36 @@ Farmers were not informed about the algorithm.
 \end_layout
 
 \begin_layout Standard
-To make the bargaining also incentive compatible for the enumerators, we
- tell them in advance that the money that is collected from farmers during
- this first stage will be divided and distributed equally among all the
- enumerators.
+It is important to note that we did not randomize the gender of the buyer,
+ and as such can not answer the question if the gender of the buyer has
+ an impact on bargaining.
+ Answering this question would need a slightly different experiment, were
+ we work with a representative sample of agro-input sellers (perhaps stratified
+ by gender) and then randomly send male or female buyers to the seller.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+We are currently running an experiment with agro-vet input dealers in southeaste
+rn Uganda that employs a mystery shopper approach to test if dealers provide
+ sufficient advise on the use of acaricides.
+ In that study, we will randomize the gender of the buyer.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-A popular alternative way to measure willingness to pay is a Becker-DeGroot-Mars
-chak (BDM) auction.
- In it simplest version, the subject formulates a bid and this bid is compared
- to a price determined by a random number generator.
- If the subject's bid is greater than the price, they pay the price and
- receives the item being auctioned.
- If the subject's bid is lower than the price, they pay nothing and receive
- nothing.
- However, after testing in the field, we found that too many farmers had
- problems comprehending the procedure, struggling especially with the fact
- that they could not bargain over the price.
+The experiment was timed to coincide with the start of the harvest season,
+ so demand is likely to be high.
+ 
+\end_layout
+
+\begin_layout Standard
+We developed a computer program to guide the bargaining process.
+ 
 \end_layout
 
 \begin_layout Section
@@ -364,30 +589,50 @@ We find that in our sample, almost 60 percent uses farmer saved seed.
 \end_layout
 
 \begin_layout Section
-Bargaining outcomes
+A gendered analysis of the bargaining process
 \end_layout
 
 \begin_layout Standard
-The starting prices were high enough to trigger negotiation.
-\end_layout
-
-\begin_layout Standard
-Minimal bid prices used in the study were low enough to result in transactions.
- We find that 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mean(dta$starting_price==3000),digits=0)}
-\end_layout
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Prices"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
- percent of farmers names 3000, the minimal acceptable bid price, as their
- first bid price.
+ shows that the bargaining process is more likely to converge to a low price
+ when the seller is a woman then when the seller is a man.
+ When the seller is a women, there is a clear peak in the density around
+ UGX 5000.
+ When the seller is a man, there is also some bunching around 5,000, but
+ the likelihood that the eventual transaction price is around 5000 does
+ not differ all that much from the likelihood that the negotiation ends
+ up at a price around 10,000.
+\end_layout
+
+\begin_layout Standard
+The bottom panel show that the disadvantage of the female seller already
+ manifests itself at the very start of the negotiation process, when the
+ buyer names their first counter bid after the seller named the initial
+ (randomly assigned) offer price.
+ When the seller is man, the most likely price to start from is 5,000.
+ When the seller is a women, farmers are more inclined to go the absolute
+ minimum.
+ As, in addition to the fist offer price, the first counter bid price is
+ likely to be an important anchoring point for the rest of the negotiation,
+ the gender effect is likely affect a range of other outcomes in the bargaining
+ process 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "galinsky2001first"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -397,30 +642,10 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<warning=FALSE, message=FALSE, echo=FALSE>>=  
-\end_layout
-
-\begin_layout Plain Layout
-
-library(ggplot2)  
-\end_layout
-
-\begin_layout Plain Layout
-
-ggplot(plt, aes(x=price, fill=time)) +   geom_density() + scale_fill_grey()
- + theme_classic() +   geom_density(alpha=0.4) +   scale_x_continuous(limits
- = c(1000, 13500))
-\end_layout
-
-\begin_layout Plain Layout
-
-@ 
-\end_layout
+\align center
+\begin_inset Graphics
+	filename bragaining_plot.png
+	scale 25
 
 \end_inset
 
@@ -431,10 +656,10 @@ ggplot(plt, aes(x=price, fill=time)) +   geom_density() + scale_fill_grey()
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Price distribution
+Prices
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Price-distribution-1"
+name "fig:Prices"
 
 \end_inset
 
@@ -443,6 +668,10 @@ name "fig:Price-distribution-1"
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -452,1532 +681,103 @@ name "fig:Price-distribution-1"
 \end_layout
 
 \begin_layout Standard
-The final price, which comes closest to willingness to pay, was the last
- offer price before the farmer accepts or the last bid price before the
- computer decided to abort the negotiation (ie.
- the difference between last offer and bid prices is smaller than UGX 500).
- Using this definition, we find that the average final price is UGX 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mean(dta$final_price, na.rm=TRUE),digits=0)}
-\end_layout
-
-\end_inset
-
-.
- For reference, we obtained the seed at UGX 12,000.
-\end_layout
-
-\begin_layout Standard
-Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Price-distribution-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows price distributions.
- In addition to the final price at which the transaction was concluded,
- we also plot distributions of the initial bid price (in case the initial
- offer price was not accepted).
- The average initial bid price was UGX 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mean(dta$starting_price, na.rm=TRUE),digits=0)}
-\end_layout
-
-\end_inset
-
-.
- The figure shows there is clear pull from round prices, 5000 and 10000
- in particular.
- 
-\end_layout
-
-\begin_layout Standard
-Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Price-distribution_ridge"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows price distributions conditional on the initial (randomized) offer
- price.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<warning=FALSE, message=FALSE, echo=FALSE>>=  
-\end_layout
-
-\begin_layout Plain Layout
-
-library(ggplot2)  
-\end_layout
-
-\begin_layout Plain Layout
-
-ggplot(plt, aes(x = price, y = anchor, fill=time)) + geom_density_ridges2(jitter
-ed_points = TRUE,                                                      
-                               position = position_points_jitter(width =
- 0.5, height = 0),                                                      
-                               point_shape = '|', point_size = 3, point_alpha
- = .5, alpha = 0.5) 
-\end_layout
-
-\begin_layout Plain Layout
-
-@ 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Price distribution
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Price-distribution_ridge"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Analysis of the bargaining process
-\end_layout
-
-\begin_layout Standard
-In this section, we look at the following characteristics and outcomes of
- the bargaining process: transaction price, initial bid price, number of
- negotiation rounds, immediate accept, and a fixed bid strategy.
- For each of these outcomes, we look at the effect of the initial offer
- price.
- We use this as with an OLS regression where the initial offer price enters
- as a categorical variable and the farmers that were offered the seed at
- 9000 are the reference group.
- Results are summarized in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:results"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsection
-accept
-\end_layout
-
-\begin_layout Standard
-A first outcome we consider is the likelihood that after receiving the first
- offer price, the farmer accepts and no bargaining process ensues.
- Column (4) in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:results"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows how this strategy is related to initial offer price.
- We see that if the initial offer price is 9000, 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(res_tab[1,1,4]*100,digits=0))} 
-\end_layout
-
-\end_inset
-
- percent of farmers accept this price and immediately buy.
- The share is similar for farmers that were offered the seed at 10000.
- However, for farmers where the initial offer price exceeded 10000, almost
- all farmers enter into negotiation.
- For instance, in the group of farmers where the initial offer price was
- 12000, only 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(res_tab[1,1,4]+res_tab[4,1,4],digits=0))} 
-\end_layout
-
-\end_inset
-
- percent of farmers accept this offer.
- The fact that there is also no difference in coefficients between that
- group that started at 11000 and the group that started at 12000 again suggest
- some mental threshold.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-results
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:results"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rcccccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (1) & (2) & (3) & (4) & (5)
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{2-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-10000 & 
-\backslash
-Sexpr{format(round(res_tab[2,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(res_tab[2,3,1]<.01,"**",ifelse(res_tab[2,3,1]<.05,"*",ifelse(res_tab[
-2,3,1]<.1,"+","")))}}$ & 
-\backslash
-Sexpr{format(round(res_tab[2,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(res_tab[2,3,2]<.01,"**",ifelse(res_tab[2,3,2]<.05,"*",ifelse(res_tab[
-2,3,2]<.1,"+","")))}}$ & 
-\backslash
-Sexpr{format(round(res_tab[2,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(res_tab[2,3,3]<.01,"**",ifelse(res_tab[2,3,3]<.05,"*",ifelse(res_tab[
-2,3,3]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(res_tab[2,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(res_tab[2,3,4]<.01,"**",ifelse(res_tab[2,3,4]<.05,"*",ifelse(res_tab[
-2,3,4]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(res_tab[2,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(res_tab[2,3,5]<.01,"**",ifelse(res_tab[2,3,5]<.05,"*",ifelse(res_tab[
-2,3,5]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(res_tab[2,2,1],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(res_tab[2,2,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(res_tab[2,2,3],digits=3),nsmall=3)})  & (
-\backslash
-Sexpr{format(round(res_tab[2,2,4],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(res_tab[2,2,5],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-11000 & 
-\backslash
-Sexpr{format(round(res_tab[3,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(res_tab[3,3,1]<.01,"**",ifelse(res_tab[3,3,1]<.05,"*",ifelse(res_tab[
-3,3,1]<.1,"+","")))}}$ & 
-\backslash
-Sexpr{format(round(res_tab[3,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(res_tab[3,3,2]<.01,"**",ifelse(res_tab[3,3,2]<.05,"*",ifelse(res_tab[
-3,3,2]<.1,"+","")))}}$ & 
-\backslash
-Sexpr{format(round(res_tab[3,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(res_tab[3,3,3]<.01,"**",ifelse(res_tab[3,3,3]<.05,"*",ifelse(res_tab[
-3,3,3]<.1,"+","")))}}$ & 
-\backslash
-Sexpr{format(round(res_tab[3,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(res_tab[3,3,4]<.01,"**",ifelse(res_tab[3,3,4]<.05,"*",ifelse(res_tab[
-3,3,4]<.1,"+","")))}}$ & 
-\backslash
-Sexpr{format(round(res_tab[3,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(res_tab[3,3,5]<.01,"**",ifelse(res_tab[3,3,5]<.05,"*",ifelse(res_tab[
-3,3,5]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(res_tab[3,2,1],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(res_tab[3,2,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(res_tab[3,2,3],digits=3),nsmall=3)})  & (
-\backslash
-Sexpr{format(round(res_tab[3,2,4],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(res_tab[3,2,5],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-12000 & 
-\backslash
-Sexpr{format(round(res_tab[4,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(res_tab[4,3,1]<.01,"**",ifelse(res_tab[4,3,1]<.05,"*",ifelse(res_tab[
-4,3,1]<.1,"+","")))}}$ & 
-\backslash
-Sexpr{format(round(res_tab[4,1,2],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(res_tab[4,3,2]<.01,"**",ifelse(res_tab[4,3,2]<.05,"*",ifelse(res_tab[
-4,3,2]<.1,"+","")))}}$ & 
-\backslash
-Sexpr{format(round(res_tab[4,1,3],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(res_tab[4,3,3]<.01,"**",ifelse(res_tab[4,3,3]<.05,"*",ifelse(res_tab[
-4,3,3]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(res_tab[4,1,4],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(res_tab[4,3,4]<.01,"**",ifelse(res_tab[4,3,4]<.05,"*",ifelse(res_tab[
-4,3,4]<.1,"+","")))}}$  & 
-\backslash
-Sexpr{format(round(res_tab[4,1,5],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(res_tab[4,3,5]<.01,"**",ifelse(res_tab[4,3,5]<.05,"*",ifelse(res_tab[
-4,3,5]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(res_tab[4,2,1],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(res_tab[4,2,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(res_tab[4,2,3],digits=3),nsmall=3)})  & (
-\backslash
-Sexpr{format(round(res_tab[4,2,4],digits=3),nsmall=3)})  & (
-\backslash
-Sexpr{format(round(res_tab[4,2,5],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{2-6} 
-\end_layout
-
-\begin_layout Plain Layout
-
-10000  = 11000 & 
-\backslash
-Sexpr{format(round(res_tab[5,3,1],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[5,3,2],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[5,3,3],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[5,3,4],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[5,3,5],digits=3))}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-10000  = 12000 & 
-\backslash
-Sexpr{format(round(res_tab[6,3,1],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[6,3,2],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[6,3,3],digits=3))}& 
-\backslash
-Sexpr{format(round(res_tab[6,3,4],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[6,3,5],digits=3))}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-11000  = 12000 & 
-\backslash
-Sexpr{format(round(res_tab[7,3,1],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[7,3,2],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[7,3,3],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[7,3,4],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[7,3,5],digits=3))}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{2-6} 
-\end_layout
-
-\begin_layout Plain Layout
-
-nobs  & 
-\backslash
-Sexpr{format(round(res_tab[8,1,1],digits=0))} & 
-\backslash
-Sexpr{format(round(res_tab[8,1,2],digits=0))} & 
-\backslash
-Sexpr{format(round(res_tab[8,1,3],digits=0))}  & 
-\backslash
-Sexpr{format(round(res_tab[8,1,4],digits=0))}  & 
-\backslash
-Sexpr{format(round(res_tab[8,1,5],digits=0))}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Adj R^2 & 
-\backslash
-Sexpr{format(round(res_tab[9,1,1],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[9,1,2],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[9,1,3],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[9,1,4],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[9,1,5],digits=3))}
-\backslash
-
-\backslash
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Reference  & 
-\backslash
-Sexpr{format(round(res_tab[1,1,1],digits=0))} & 
-\backslash
-Sexpr{format(round(res_tab[1,1,2],digits=0))} & 
-\backslash
-Sexpr{format(round(res_tab[1,1,3],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[1,1,4],digits=3))} & 
-\backslash
-Sexpr{format(round(res_tab[1,1,5],digits=3))}
-\backslash
-
-\backslash
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-scriptsize
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-transaction price
-\end_layout
-
-\begin_layout Standard
-Column (1) in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:results"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows that the average transaction price in the reference category (where
- initial offer price is 9000) is 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(res_tab[1,1,1],digits=0))}
-\end_layout
-
-\end_inset
-
- Ugandan shillings for a seed pack.
- We further see that the average transaction price in the subset of farmers
- that started negotiations off with an initial offer price of 10000 is 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(res_tab[2,1,1],digits=0))}
-\end_layout
-
-\end_inset
-
- shillings higher, or 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(res_tab[1,1,1] + res_tab[2,1,1],digits=0))}
-\end_layout
-
-\end_inset
-
- Ugandan shillings for a seed pack.
- In the subgroup of farmers that started off with 11000 as the initial offer
- price, the final price was on average 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(res_tab[1,1,1] + res_tab[3,1,1],digits=0))}
-\end_layout
-
-\end_inset
-
-, slightly lower than in the 10000, but still significantly higher than
- in the reference group.
- Finally, the group that started off with the highest possible also converged
- to the highest average transaction price of 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(res_tab[1,1,1] + res_tab[4,1,1],digits=0))}
-\end_layout
-
-\end_inset
-
-, which is 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(res_tab[4,1,1],digits=0))}
-\end_layout
-
-\end_inset
-
- higher than the reference groups.
-\end_layout
-
-\begin_layout Standard
-The table also shows p-values for tests of equality of the coefficients.
- We do not find that differences with the reference group are not significantly
- different the groups that get initial offers of 10000, 11000 and 12000
- respectively.
- This suggests some form of non-linearity in the relationship between initial
- offer price and the final price with a critical point at 10000: Once the
- initial offer price falls below 10000, farmers expect a substantial discount.
- However, if the price is equal or higher than 10000, farmers seem to converge
- to the same price that is significantly higher than the price the 9000
- group converges to.
-\end_layout
-
-\begin_layout Subsection
-counter bid
-\end_layout
-
-\begin_layout Standard
-Column (2) in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:results"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows that the initial counter bid for the reference category is 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(res_tab[1,1,2],digits=0))}
-\end_layout
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Subsection
-number of negotiation rounds
-\end_layout
-
-\begin_layout Standard
-We define a negotiation round as the process of the seller making an offer,
- the buyer agreeing or rejecting and in the latter case formulating a counter
- offer, which is automatically accepted by the buyer if a condition is met.
- We find that on average, negotiations lasted 4 to 5 rounds.
- Column (3) in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:results"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows that in the reference category, negotiations last only 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(res_tab[1,1,3],digits=2))}
-\end_layout
-
-\end_inset
-
- rounds on average.
- We see that the length of negotiation steadily rises with the initial offer:
- among farmers that received the 10000 initial offer, it takes on average
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(res_tab[1,1,3]+res_tab[2,1,3],digits=2))}
-\end_layout
-
-\end_inset
-
-.
- In the group that are offered seed at 11000, agreement is reached after
- about 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(res_tab[1,1,3]+res_tab[3,1,3],digits=2))}
-\end_layout
-
-\end_inset
-
- rounds.
- For the subgroup of farmers that started off with 12000 as the initial
- offer, negotiation takes 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(res_tab[1,1,3]+res_tab[4,1,3],digits=2))}
-\end_layout
-
-\end_inset
-
- rounds.
- We also find that the differences between the group are significant.
-\end_layout
-
-\begin_layout Standard
-To some extent, the increase in the number of rounds was to be expected
- given the mechanical nature of the bargaining process, whereby the maximum
- number of rounds before convergence is reached is dependent on the starting
- price.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-So can we really say that if price is higher people negotiate harder? Can
- we correct for this by dividing by total number of rounds?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-fixed bid strategy
-\end_layout
-
-\begin_layout Standard
-Another interesting group of farmers are those that stick to their initial
- counter bid.
- In our data, we find that on average 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(prop.table(table(dta$sticky))[2]*100,digits=0))} 
-\end_layout
-
-\end_inset
-
- percent of farmers do not adjust the initial counter bid upward, generally
- leading to more rounds of negotiation.
- Column (5) in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:results"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- investigates how this strategy is related to the initial offer price.
- We see that in the reference group that gets the lowest offer price, 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(res_tab[1,1,5]*100,digits=0))}
-\end_layout
-
-\end_inset
-
- percent of farmers uses a fixed bid strategy.
- We do not find that this strategy is significantly different in the groups
- that start off with 10000 or 12000.
- We do, however, see that farmers who are offered the seed at the initial
- price of 12000 are significantly less likely to follow a fixed bid strategy.
-\end_layout
-
-\begin_layout Section
-Exploring heterogeneity in bargaining processes
-\end_layout
-
-\begin_layout Standard
-A key driver of gender inequalities in the economic domain lies in gender
- differences in bargaining about the distribution of economic resources.
- To boost statistical power, we pool certain groups to arrive at two categories
- (a 
+We now turn to a more formal analysis of various outcomes and strategies
+ using regression analysis.
+ In a first model, we exploit the fact that the initial offer price was
+ randomly assigned and regress outcomes on an indicator variable for 
 \begin_inset Quotes eld
 \end_inset
 
-low initial bid
+high initial price
 \begin_inset Quotes erd
 \end_inset
 
- reference group and a 
+ that takes the value of one if the initial price was 12,000 or 11,000,
+ and zero if it was 9,000 or 10,000.
+ In this regression, we control for the gender of the seller.
+ Furthermore, as we found some indications earlier of gender matching in
+ the negotiation pairing, we control for the gender of the buyer in the
+ regressions as well.
+\end_layout
+
+\begin_layout Standard
+In a second model, we look at differential bargaining behaviour based on
+ seller gender and regress outcomes and strategies on an indicator of the
+ sex of the seller that takes the value of 1 if the seller was a women (and
+ zero if it was a man).
+ Also here, we control for the gender of the buyer in the regressions as
+ well.
+\end_layout
+
+\begin_layout Standard
+In a third model, we also isolate the interaction effect and include an
+ indicator variable that is one if both the 
 \begin_inset Quotes eld
 \end_inset
 
-high initial bid
+high initial price
 \begin_inset Quotes erd
 \end_inset
 
- group).
- The decision to pool is based on tests for differences between coefficients
- in Table 
+ indicator is one and the seller is a women.
+ This allows us to test if a gender effect (in any) is stronger or weaker
+ when higher initial prices are quoted.
+ As in previous models, we control for the gender of the buyer in the regression
+s as well.
+\end_layout
+
+\begin_layout Standard
+For the independent variables, we consider the following outcomes and strategies
+: (1) the likelihood that the buyer accepts the initial offer of the seller
+ and so no negotiation ensues, (2) the counter bid price that the buyer
+ calls after the initial offer by the seller, (3) the likelihood that initial
+ counter bid is the lowest admissible bid (UGX 3,000), (4) the likelihood
+ that the buyer sticks to his or her initial bid price, (5) the number of
+ negotiation rounds, and (6) the final price at which the transaction took
+ place (ie.
+ the transaction price).
+\end_layout
+
+\begin_layout Standard
+The first column of Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:results"
+reference "tab:results_seller"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-.
- For instance, when the outcome is the final price, we will pool the 10000,
- 11000 and 12000 groups into a single 
-\begin_inset Quotes eld
-\end_inset
-
-high initial bid
-\begin_inset Quotes erd
-\end_inset
-
- group; when the outcome is the share of farmers adopting a fixed bid strategy,
- we will pool the 9000, 10000 and 11000 groups into a single 
-\begin_inset Quotes eld
-\end_inset
-
-low initial bid reference group
-\begin_inset Quotes erd
-\end_inset
-
- (and the 12000 group now becoming the 
-\begin_inset Quotes eld
-\end_inset
-
-high initial bid
-\begin_inset Quotes erd
-\end_inset
-
- group).
-\end_layout
-
-\begin_layout Section
-Conclusion
-\end_layout
-
-\begin_layout Standard
-The results suggest that one should be wary when using bargaining experiments
- like this to measure willingness to pay.
- When testing different methods to elicit willingness to pay, we found that
- farmers found the standard Becker–DeGroot–Marschak method (BDM) challenging
- to understand.
- Particularly the one-shot nature of the experiment was confusing, as this
- is not how farmers usually do business.
- A the same time, the anchoring effects inherent to bargaining experiments
- may make them less useful in uncovering true willingness to pay.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Effect of gender of buyer
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:results-1"
+ shows overall averages for the control group (the subset of buyers that
+ negotiated with a male seller that started from a low initial offer prices
+ (9,000 or 10,000).
+ The second column in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:results_seller"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-
-\end_layout
+ reports differences in the dependent variable between negotiations that
+ started with a high initial offer price (12,000 or 11,000) and those where
+ the initial offer price was low (9,000 or 10,000).
+ The third column in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:results_seller"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{rccccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& maize & teff & wheat & pooled
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{2-5}
-\end_layout
-
-\begin_layout Plain Layout
-
-intial accept & 
-\backslash
-Sexpr{format(round(results_gender[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[1,1,3]<.01,"**",ifelse(results_gender[1,1,3]<.05,"*",i
-felse(results_gender[1,1,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_gender[1,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[1,2,3]<.01,"**",ifelse(results_gender[1,2,3]<.05,"*",i
-felse(results_gender[1,2,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_gender[1,3,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[1,3,3]<.01,"**",ifelse(results_gender[1,3,3]<.05,"*",i
-felse(results_gender[1,3,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_gender[1,4,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[1,4,3]<.01,"**",ifelse(results_gender[1,4,3]<.05,"*",i
-felse(results_gender[1,4,3]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(results_gender[1,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_gender[1,2,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_gender[1,3,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_gender[1,4,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-starting price & 
-\backslash
-Sexpr{format(round(results_gender[2,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[2,1,3]<.01,"**",ifelse(results_gender[2,1,3]<.05,"*",i
-felse(results_gender[2,1,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_gender[2,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[2,2,3]<.01,"**",ifelse(results_gender[2,2,3]<.05,"*",i
-felse(results_gender[2,2,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_gender[2,3,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[2,3,3]<.01,"**",ifelse(results_gender[2,3,3]<.05,"*",i
-felse(results_gender[2,3,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_gender[2,4,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[2,4,3]<.01,"**",ifelse(results_gender[2,4,3]<.05,"*",i
-felse(results_gender[2,4,3]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(results_gender[2,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_gender[2,2,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_gender[2,3,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_gender[2,4,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Bottom price & 
-\backslash
-Sexpr{format(round(results_gender[3,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[3,1,3]<.01,"**",ifelse(results_gender[3,1,3]<.05,"*",i
-felse(results_gender[3,1,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_gender[3,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[3,2,3]<.01,"**",ifelse(results_gender[3,2,3]<.05,"*",i
-felse(results_gender[3,2,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_gender[3,3,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[3,3,3]<.01,"**",ifelse(results_gender[3,3,3]<.05,"*",i
-felse(results_gender[3,3,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_gender[3,4,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[3,4,3]<.01,"**",ifelse(results_gender[3,4,3]<.05,"*",i
-felse(results_gender[3,4,3]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(results_gender[4,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_gender[4,2,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_gender[4,3,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_gender[4,4,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-sticky strategy & 
-\backslash
-Sexpr{format(round(results_gender[4,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[4,1,3]<.01,"**",ifelse(results_gender[4,1,3]<.05,"*",i
-felse(results_gender[4,1,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_gender[4,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[4,2,3]<.01,"**",ifelse(results_gender[4,2,3]<.05,"*",i
-felse(results_gender[4,2,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_gender[4,3,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[4,3,3]<.01,"**",ifelse(results_gender[4,3,3]<.05,"*",i
-felse(results_gender[4,3,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_gender[4,4,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[4,4,3]<.01,"**",ifelse(results_gender[4,4,3]<.05,"*",i
-felse(results_gender[4,4,3]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(results_gender[4,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_gender[4,2,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_gender[4,3,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_gender[4,4,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-final price  & 
-\backslash
-Sexpr{format(round(results_gender[5,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[5,1,3]<.01,"**",ifelse(results_gender[5,1,3]<.05,"*",i
-felse(results_gender[5,1,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_gender[5,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[5,2,3]<.01,"**",ifelse(results_gender[5,2,3]<.05,"*",i
-felse(results_gender[5,2,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_gender[5,3,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[5,3,3]<.01,"**",ifelse(results_gender[5,3,3]<.05,"*",i
-felse(results_gender[5,3,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_gender[5,4,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_gender[5,4,3]<.01,"**",ifelse(results_gender[5,4,3]<.05,"*",i
-felse(results_gender[5,4,3]<.1,"+","")))}}$ 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(results_gender[5,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_gender[5,2,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_gender[5,3,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_gender[5,4,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-scriptsize
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ reports differences in the dependent variable between negotiations with
+ a female seller and those where the seller is a man.
+ The fourth column shows the interaction effect.
 \end_layout
 
 \begin_layout Standard
@@ -2038,7 +838,16 @@ hline
 
 \begin_layout Plain Layout
 
-& maize & teff & wheat & pooled
+& mean & high offer & seller & seller is woman 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& & price & woman & and high offer price
 \backslash
 
 \backslash
@@ -2054,7 +863,10 @@ cline{2-5}
 
 \begin_layout Plain Layout
 
-intial accept & 
+Intial accept & 
+\backslash
+Sexpr{format(round(averages_enumerator_gender[1,1],digits=3),nsmall=3)}
+  & 
 \backslash
 Sexpr{format(round(results_enumerator_gender[1,1,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -2082,18 +894,7 @@ Sexpr{format(round(results_enumerator_gender[1,3,1],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(results_enumerator_gender[1,3,3]<.01,"**",ifelse(results_enumerator_
 gender[1,3,3]<.05,"*",ifelse(results_enumerator_gender[1,3,3]<.1,"+","")))}}$
- &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_enumerator_gender[1,4,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[1,4,3]<.01,"**",ifelse(results_enumerator_
-gender[1,4,3]<.05,"*",ifelse(results_enumerator_gender[1,4,3]<.1,"+","")))}}$
- 
+  
 \backslash
 
 \backslash
@@ -2108,6 +909,9 @@ gender[1,4,3]<.05,"*",ifelse(results_enumerator_gender[1,4,3]<.1,"+","")))}}$
 
 & (
 \backslash
+Sexpr{format(round(averages_enumerator_gender[1,2],digits=3),nsmall=3)})
+   & (
+\backslash
 Sexpr{format(round(results_enumerator_gender[1,1,2],digits=3),nsmall=3)})
  & (
 \backslash
@@ -2115,9 +919,6 @@ Sexpr{format(round(results_enumerator_gender[1,2,2],digits=3),nsmall=3)})
  & (
 \backslash
 Sexpr{format(round(results_enumerator_gender[1,3,2],digits=3),nsmall=3)})
- & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[1,4,2],digits=3),nsmall=3)})
  
 \backslash
 
@@ -2136,7 +937,10 @@ Sexpr{format(round(results_enumerator_gender[1,4,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-starting price & 
+Starting price & 
+\backslash
+Sexpr{format(round(averages_enumerator_gender[2,1],digits=3),nsmall=3)}
+ & 
 \backslash
 Sexpr{format(round(results_enumerator_gender[2,1,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -2164,18 +968,7 @@ Sexpr{format(round(results_enumerator_gender[2,3,1],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(results_enumerator_gender[2,3,3]<.01,"**",ifelse(results_enumerator_
 gender[2,3,3]<.05,"*",ifelse(results_enumerator_gender[2,3,3]<.1,"+","")))}}$
- &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_enumerator_gender[2,4,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[2,4,3]<.01,"**",ifelse(results_enumerator_
-gender[2,4,3]<.05,"*",ifelse(results_enumerator_gender[2,4,3]<.1,"+","")))}}$
- 
+  
 \backslash
 
 \backslash
@@ -2190,6 +983,9 @@ gender[2,4,3]<.05,"*",ifelse(results_enumerator_gender[2,4,3]<.1,"+","")))}}$
 
 & (
 \backslash
+Sexpr{format(round(averages_enumerator_gender[2,2],digits=3),nsmall=3)})
+  & (
+\backslash
 Sexpr{format(round(results_enumerator_gender[2,1,2],digits=3),nsmall=3)})
  & (
 \backslash
@@ -2197,10 +993,7 @@ Sexpr{format(round(results_enumerator_gender[2,2,2],digits=3),nsmall=3)})
  & (
 \backslash
 Sexpr{format(round(results_enumerator_gender[2,3,2],digits=3),nsmall=3)})
- & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[2,4,2],digits=3),nsmall=3)})
- 
+  
 \backslash
 
 \backslash
@@ -2219,6 +1012,9 @@ Sexpr{format(round(results_enumerator_gender[2,4,2],digits=3),nsmall=3)})
 \begin_layout Plain Layout
 
 Bottom price & 
+\backslash
+Sexpr{format(round(averages_enumerator_gender[3,1],digits=3),nsmall=3)}
+ & 
 \backslash
 Sexpr{format(round(results_enumerator_gender[3,1,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -2246,17 +1042,6 @@ Sexpr{format(round(results_enumerator_gender[3,3,1],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(results_enumerator_gender[3,3,3]<.01,"**",ifelse(results_enumerator_
 gender[3,3,3]<.05,"*",ifelse(results_enumerator_gender[3,3,3]<.1,"+","")))}}$
- &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_enumerator_gender[3,4,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[3,4,3]<.01,"**",ifelse(results_enumerator_
-gender[3,4,3]<.05,"*",ifelse(results_enumerator_gender[3,4,3]<.1,"+","")))}}$
  
 \backslash
 
@@ -2272,99 +1057,21 @@ gender[3,4,3]<.05,"*",ifelse(results_enumerator_gender[3,4,3]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(results_enumerator_gender[4,1,2],digits=3),nsmall=3)})
+Sexpr{format(round(averages_enumerator_gender[3,2],digits=3),nsmall=3)})
  & (
 \backslash
-Sexpr{format(round(results_enumerator_gender[4,2,2],digits=3),nsmall=3)})
+Sexpr{format(round(results_enumerator_gender[3,1,2],digits=3),nsmall=3)})
  & (
 \backslash
-Sexpr{format(round(results_enumerator_gender[4,3,2],digits=3),nsmall=3)})
+Sexpr{format(round(results_enumerator_gender[3,2,2],digits=3),nsmall=3)})
  & (
 \backslash
-Sexpr{format(round(results_enumerator_gender[4,4,2],digits=3),nsmall=3)})
- 
-\backslash
-
-\backslash
-
+Sexpr{format(round(results_enumerator_gender[3,3,2],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
 
 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-sticky strategy & 
-\backslash
-Sexpr{format(round(results_enumerator_gender[4,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[4,1,3]<.01,"**",ifelse(results_enumerator_
-gender[4,1,3]<.05,"*",ifelse(results_enumerator_gender[4,1,3]<.1,"+","")))}}$
- &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_enumerator_gender[4,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[4,2,3]<.01,"**",ifelse(results_enumerator_
-gender[4,2,3]<.05,"*",ifelse(results_enumerator_gender[4,2,3]<.1,"+","")))}}$
- &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_enumerator_gender[4,3,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[4,3,3]<.01,"**",ifelse(results_enumerator_
-gender[4,3,3]<.05,"*",ifelse(results_enumerator_gender[4,3,3]<.1,"+","")))}}$
- &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_enumerator_gender[4,4,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[4,4,3]<.01,"**",ifelse(results_enumerator_
-gender[4,4,3]<.05,"*",ifelse(results_enumerator_gender[4,4,3]<.1,"+","")))}}$
- 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(results_enumerator_gender[4,1,2],digits=3),nsmall=3)})
- & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[4,2,2],digits=3),nsmall=3)})
- & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[4,3,2],digits=3),nsmall=3)})
- & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[4,4,2],digits=3),nsmall=3)})
- 
 \backslash
 
 \backslash
@@ -2382,7 +1089,10 @@ Sexpr{format(round(results_enumerator_gender[4,4,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-final price  & 
+Sticky strategy & 
+\backslash
+Sexpr{format(round(averages_enumerator_gender[5,1],digits=3),nsmall=3)}
+ & 
 \backslash
 Sexpr{format(round(results_enumerator_gender[5,1,1],digits=3),nsmall=3)}$^{
 \backslash
@@ -2410,17 +1120,6 @@ Sexpr{format(round(results_enumerator_gender[5,3,1],digits=3),nsmall=3)}$^{
 \backslash
 Sexpr{ifelse(results_enumerator_gender[5,3,3]<.01,"**",ifelse(results_enumerator_
 gender[5,3,3]<.05,"*",ifelse(results_enumerator_gender[5,3,3]<.1,"+","")))}}$
- &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_enumerator_gender[5,4,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[5,4,3]<.01,"**",ifelse(results_enumerator_
-gender[5,4,3]<.05,"*",ifelse(results_enumerator_gender[5,4,3]<.1,"+","")))}}$
  
 \backslash
 
@@ -2436,6 +1135,9 @@ gender[5,4,3]<.05,"*",ifelse(results_enumerator_gender[5,4,3]<.1,"+","")))}}$
 
 & (
 \backslash
+Sexpr{format(round(averages_enumerator_gender[5,2],digits=3),nsmall=3)})
+  & (
+\backslash
 Sexpr{format(round(results_enumerator_gender[5,1,2],digits=3),nsmall=3)})
  & (
 \backslash
@@ -2443,9 +1145,6 @@ Sexpr{format(round(results_enumerator_gender[5,2,2],digits=3),nsmall=3)})
  & (
 \backslash
 Sexpr{format(round(results_enumerator_gender[5,3,2],digits=3),nsmall=3)})
- & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[5,4,2],digits=3),nsmall=3)})
  
 \backslash
 
@@ -2454,6 +1153,232 @@ Sexpr{format(round(results_enumerator_gender[5,4,2],digits=3),nsmall=3)})
 \end_layout
 
 \begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Rounds & 
+\backslash
+Sexpr{format(round(averages_enumerator_gender[6,1],digits=3),nsmall=3)}
+ & 
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,1,3]<.01,"**",ifelse(results_enumerator_
+gender[6,1,3]<.05,"*",ifelse(results_enumerator_gender[6,1,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,2,3]<.01,"**",ifelse(results_enumerator_
+gender[6,2,3]<.05,"*",ifelse(results_enumerator_gender[6,2,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,3,3]<.01,"**",ifelse(results_enumerator_
+gender[6,3,3]<.05,"*",ifelse(results_enumerator_gender[6,3,3]<.1,"+","")))}}$
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(averages_enumerator_gender[6,2],digits=3),nsmall=3)})
+  & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,1,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,2,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,3,2],digits=3),nsmall=3)})
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Buyer accepts & 
+\backslash
+Sexpr{format(round(averages_enumerator_gender[4,1],digits=3),nsmall=3)}
+ & 
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,1,3]<.01,"**",ifelse(results_enumerator_
+gender[4,1,3]<.05,"*",ifelse(results_enumerator_gender[4,1,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,2,3]<.01,"**",ifelse(results_enumerator_
+gender[4,2,3]<.05,"*",ifelse(results_enumerator_gender[4,2,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,3,3]<.01,"**",ifelse(results_enumerator_
+gender[4,3,3]<.05,"*",ifelse(results_enumerator_gender[4,3,3]<.1,"+","")))}}$
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(averages_enumerator_gender[4,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,1,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,2,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,3,2],digits=3),nsmall=3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Transaction price & 
+\backslash
+Sexpr{format(round(averages_enumerator_gender[7,1],digits=3),nsmall=3)}
+ & 
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,1,3]<.01,"**",ifelse(results_enumerator_
+gender[7,1,3]<.05,"*",ifelse(results_enumerator_gender[7,1,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,2,3]<.01,"**",ifelse(results_enumerator_
+gender[7,2,3]<.05,"*",ifelse(results_enumerator_gender[7,2,3]<.1,"+","")))}}$
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,3,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,3,3]<.01,"**",ifelse(results_enumerator_
+gender[7,3,3]<.05,"*",ifelse(results_enumerator_gender[7,3,3]<.1,"+","")))}}$
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(averages_enumerator_gender[7,2],digits=3),nsmall=3)})
+  & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,1,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,2,2],digits=3),nsmall=3)})
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,3,2],digits=3),nsmall=3)})
+ 
+\backslash
+
+\backslash
 
 \end_layout
 
@@ -2507,6 +1432,129 @@ scriptsize
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+As a first outcome of interest, we see that about 30 percent of buyers immediate
+ly accepted the to buy the seed pack at the initial offer price.
+ The likelihood that farmers immediately accept reduces substantially when
+ the initial offer is high: If the seller asks for at least 11,000, only
+ about 11 percent of buyers accept immediately.
+ Interestingly, we see that the likelihood that farmers immediately accept
+ also reduces substantially when the seller is a woman.
+ Finally, for this outcome we also find a significant interaction effect.
+ The interaction effect counteracts the main effects.
+ The fact that the interaction effect is very similar to the main gender
+ effect suggests no difference in the likelihood of initial acceptance between
+ male and female sellers when the initial offer price is high.
+ The large reduction in the likelihood emanating from a high initial offer
+ price leaves little room for an additional gender effect.
+ 
+\end_layout
+
+\begin_layout Standard
+We already touched upon the importance of the initial counter bid in the
+ negotiation process and revisit the first counter bid of the buyer here
+ (see starting price in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:results_seller"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ The average counter bid by farmers in response to this initial offer was
+ just over UGX 6,000.
+ For this outcome, there is no significant impact from from the initial
+ price level.
+ However, we do see a significant reduction in the first bid price when
+ the seller is a women.
+ The effect is also economically significant, amounting to only 87 percent
+ of the initial bid price that male sellers are confronted.
+ For this outcome, the interaction effect is not significantly different
+ from zero.
+\end_layout
+
+\begin_layout Standard
+We also find that about 17 percent of buyers started negotiating from UGX
+ 3,000, the lowest possible bid.
+ The level of the initial offer price does not seem to affect this share.
+ However, in line with the previous finding, we do see that the share of
+ buyers going for the lowest possible counter bid is significantly higher
+ if the seller is a woman (although only at the 10 percent level).
+ We do not find evidence of a significant interaction effect.
+\end_layout
+
+\begin_layout Standard
+Another interesting negotiation strategy some buyers seen to use is to name
+ an initial counter bid and stick to this price.
+ A surprisingly large share of farmers, 40 percent, uses this strategy.
+ The use of this strategy does not depend on the initial offer price.
+ However, we do find that a significantly lower share of farmers use this
+ strategy when the woman is a seller.
+ Apparently, the lower base price that is started from in this subgroup
+ increases the likelihood that farmers increase bid prices over time.
+ Also for this strategy, there is no significant interaction effect.
+\end_layout
+
+\begin_layout Standard
+The average negotiation took almost 5 rounds before the buyer agreed or
+ the difference between the last bid and the last offer smaller than the
+ threshold where the seller was instructed to agree.
+ We find that this increases to about 7 rounds if the seller started with
+ a high initial offer price.
+ The significant and positive effect is not surprising given that sellers
+ follow a concessional script where the steps are a direct function of the
+ initial offer price.
+ More interesting is the finding that the seller being a woman adds an additiona
+l round to the negotiation process.
+\end_layout
+
+\begin_layout Standard
+The fact that female sellers face an additional round of bargaining seems
+ to suggest that farmers that negotiate with a women are less likely to
+ agree with an offer price.
+ We thus also look at the share of negotiations that were concluded with
+ the buyer agreeing (as opposed to instances where the negotiations ended
+ because the difference between ask price and bid price was less than UGX
+ 500).
+ While in about 40 percent of cases the buyer accepts, this percentage is
+ indeed almost 12 percentage points lower when the seller is a woman.
+ A high offer price also leads to lower likelihood that the buyer accepts.
+ There is also an interaction effect that counteracts the reduction in the
+ likelihood that the buyer accepts.
+ Also here, this may indicate that if a higher offer price already substantially
+ reduced the likelihood that the buyer accepts, there may be less room for
+ an additional reduction due to the gender effect.
+\end_layout
+
+\begin_layout Standard
+Finally, we look at arguably the most important outcome.
+ The average transaction price was about 7,000, which was about 70 percent
+ of the maximum initial offer price, and 2.3 times the minimal bid price.
+ We see that an initially high offer price increases the final price by
+ UGX 334.
+ If the seller is a women, however, we see that the transaction price is
+ about UGX 600 lower than when the seller is a man.
+ 
+\end_layout
+
+\begin_layout Standard
+Looking at these results together shows a clear and substantial effect emanating
+ from the gender of the seller.
+ The effect has it is origin early in the bargaining process, with a lower
+ first counter bid and a higher share of buyers that start off at the lowest
+ possible bid price when the seller is a woman.
+ This lower bound serves as an anchor for subsequent strategies—with buyers
+ less likely to accept and hence more negotiation rounds—eventually to a
+ significantly lower final price.
+\end_layout
+
+\begin_layout Section
+Implications
 \end_layout
 
 \begin_layout Standard

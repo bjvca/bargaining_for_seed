@@ -5,6 +5,8 @@ library(ggplot2)
 library(ggridges)
 library(car)
 library(plyr)
+library(clubSandwich)
+library(ggpubr)
 
 group.center <- function(var,grp) {
   return(var-tapply(var,grp,mean,na.rm=T)[grp])
@@ -61,7 +63,18 @@ dta$ask <-      ifelse(!is.na(as.numeric(dta$paid.P3_pric_10)),as.numeric(dta$pa
 dta$ask[dta$ask>14000] <- NA
 
 
+bids <- cbind(as.numeric(dta$paid.P2_pric_2)- as.numeric(dta$paid.P2_pric), 
+as.numeric(dta$paid.P2_pric_3)- as.numeric(dta$paid.P2_pric_2) ,
+as.numeric(dta$paid.P2_pric_4)- as.numeric(dta$paid.P2_pric_3) ,
+as.numeric(dta$paid.P2_pric_5)- as.numeric(dta$paid.P2_pric_4) ,
+as.numeric(dta$paid.P2_pric_6)- as.numeric(dta$paid.P2_pric_5) ,
+as.numeric(dta$paid.P2_pric_7)- as.numeric(dta$paid.P2_pric_6) ,
+as.numeric(dta$paid.P2_pric_8)- as.numeric(dta$paid.P2_pric_7) ,
+as.numeric(dta$paid.P2_pric_9)- as.numeric(dta$paid.P2_pric_8) ,
+as.numeric(dta$paid.P2_pric_10)- as.numeric(dta$paid.P2_pric_9) ,
+as.numeric(dta$paid.P2_pric_11)- as.numeric(dta$paid.P2_pric_10))
 
+dta$av_bid_step <- rowMeans(bids, na.rm=T)
 ###number of rounds after which farmer agrees
 dta$rounds <- 1
 dta$rounds[ dta$paid.P3_pric!="n/a" ] <- 2
@@ -137,6 +150,46 @@ ggplot(plt, aes(x = price, y = anchor, fill=time)) + geom_density_ridges2(jitter
                                                                                     position = position_points_jitter(width = 0.5, height = 0),
                                                                                     point_shape = '|', point_size = 3, point_alpha = .5, alpha = 0.5)
 
+plt1 <- dta[c("starting_price","enumerator_gender")]
+names(plt1) <- c("price","gender")
+
+ggplot(plt1, aes(x = price, fill=gender)) +
+  geom_density() + scale_fill_grey() + theme_classic() +
+  geom_density(alpha=0.4) +
+  scale_x_continuous(limits = c(1000, 13500))
+
+plt2 <- dta[c("final_price","enumerator_gender")]
+names(plt2) <- c("price","gender")
+
+ggplot(plt1, aes(x = price, fill=gender)) +
+  geom_density() + scale_fill_grey() + theme_classic() +
+  geom_density(alpha=0.4) +
+  scale_x_continuous(limits = c(1000, 13500))
+
+plt1$who <- "starting"
+plt2$who <- "final"
+
+plt <- rbind(plt1,plt2)
+
+ggplot(plt, aes(x = price, y = gender)) + geom_density_ridges2(jittered_points = TRUE,
+                                                                          position = position_points_jitter(width = 0.5, height = 0),
+                                                                          point_shape = '|', point_size = 3, point_alpha = .5, alpha = 0.5) 
+p1 <-ggplot(plt1, aes(x=price, fill=gender)) +  geom_density(alpha=0.4) +   scale_x_continuous(limits = c(1000, 13500)) +   scale_y_continuous(limits = c(0, 0.000275))
+p2 <-ggplot(plt2, aes(x=price, fill=gender)) +  geom_density(alpha=0.4) +   scale_x_continuous(limits = c(1000, 13500)) +   scale_y_continuous(limits = c(0, 0.000275))
+ggarrange(p2,p1, 
+          labels = c("final price", "first counter bid"),
+          ncol = 1, nrow = 2,heights = c(0.7, 0.7))
+
+
+### question: is gender_enumerator orthogonal to farmer baseline outcomes
+### start by most obvious: gender of the farmers
+
+
+model <- lm(gender=="Female"~enumerator_gender=="Female",data=dta)
+vcov_cluster <- vcovCR(model, cluster = dta$enumerator_gender, type = "CR0")
+res <- coef_test(model, vcov_cluster)
+
+
 ### analysis
 ##starting price on immediate acceptance
 mean(dta$paid.start_neg=="Yes")*100
@@ -170,16 +223,11 @@ for (i in 1:length(outcomes)) {
   
   
 }
+dta$enumerator_gender <- relevel(factor(dta$enumerator_gender), ref = "Male")
 
 ##gender analysis starts here
-
-summary(lm(final_price~gender, data=dta))
-
-summary(lm(final_price~gender+anchor, data=dta))
-
-summary(lm(final_price~enumerator_gender, data=dta))
-
-summary(lm(final_price~enumerator_gender+anchor, data=dta))
+dta$initial_accept <- dta$paid.start_neg == "Yes"
+dta$bottom_price <- dta$starting_price==3000
 
 
 #level 1 - gender of the buyer (controling for gender of the seller in regressions)
@@ -188,30 +236,105 @@ summary(lm(gender=="Female" ~anchor, data=dta))
 prop.table(table(dta$gender, dta$anchor), margin=2)
 chisq.test(table(dta$gender, dta$anchor))
 
+# analysis for seller gender
+
+
+# model <- lm(final_price~enumerator_gender, data=dta)
+# vcov_cluster <- vcovCR(model, cluster = dta$enumerator_gender, type = "CR0")
+# res <- coef_test(model, vcov_cluster)
+dta$anchor_high <- dta$anchor %in% c("11000","12000")
+dta$buyer_accepts <- dta$accepts=="buyer"
+###collect results in matrix
+outcomes <- c("initial_accept","starting_price", "bottom_price","buyer_accepts","sticky","rounds","final_price")
+results <- array(NA,c(length(outcomes), 4,4))
+averages <- array(NA,c(length(outcomes),2))
+t <- 1
+for (i in outcomes) {
+  
+  averages[t,1] <- mean(dta[dta$anchor_high==FALSE & dta$enumerator_gender=="Male",i], na.rm=T)
+  averages[t,2] <- sd(dta[dta$anchor_high==FALSE & dta$enumerator_gender=="Male",i], na.rm=T)
+  
+  model <- lm(as.formula(paste(i,"enumerator_gender+anchor_high+gender", sep="~")), data=dta)
+  
+#  print(summary(model))
+  results[t,2,1:2] <- summary(model)$coefficients[2,1:2]
+  results[t,2,3] <- summary(model)$coefficients[2,4]
+  results[t,2,4] <- nobs(model)
+  
+  
+  results[t,1,1:2] <- summary(model)$coefficients[3,1:2]
+  results[t,1,3] <- summary(model)$coefficients[3,4]
+  results[t,1,4] <- nobs(model)
+  model <- lm(as.formula(paste(i,"enumerator_gender*anchor_high+gender", sep="~")), data=dta)
+  
+  results[t,3,1:2] <- summary(model)$coefficients[5,1:2]
+  results[t,3,3] <- summary(model)$coefficients[5,4]
+  results[t,3,4] <- nobs(model)
+
+  t <- t + 1
+} 
+
+
+results_enumerator_gender <- results 
+averages_enumerator_gender <- averages
 
 
 
-##question 1:do women bargain harder than nem
-dta$gender[dta$resp_gender!= "n/a"] <- dta$resp_gender[dta$resp_gender!= "n/a"]
-
-summary(lm(final_price~enumerator_gender*gender, data=dta))
-
-summary(lm(starting_price~enumerator_gender*gender, data=dta))
-
-summary(lm((paid.start_neg=='Yes')~enumerator_gender*gender, data=dta))
-
-summary(lm(sticky~enumerator_gender*gender, data=dta))
-
-summary(lm(final_price~enumerator_gender*gender*anchor, data=dta))
-
-summary(lm(starting_price~enumerator_gender*gender*anchor, data=dta))
-
-summary(lm((paid.start_neg=='Yes')~enumerator_gender*gender*anchor, data=dta))
-
-summary(lm(sticky~enumerator_gender*gender*anchor, data=dta))
 
 
-dta$initial_accept <- dta$paid.start_neg=='Yes'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ###ethiopia
 teff <- read.csv(paste(path,"bargaining_for_seed/ethiopia/data/Teff_BargainingExp.csv",sep="/"),na.strings=)
@@ -361,8 +484,6 @@ teff$gender <- relevel(factor(teff$gender), ref = "Male")
 wheat$gender <- relevel(factor(wheat$gender), ref = "Male")
 
 dta$enumerator_gender <- relevel(factor(dta$enumerator_gender), ref = "Male")
-teff$enumerator_gender <- relevel(factor(teff$enumerator_gender), ref = "Male")
-wheat$enumerator_gender <- relevel(factor(wheat$enumerator_gender), ref = "Male")
 
 ### anaysis
 ###collect results in matrix
@@ -406,46 +527,7 @@ t <- t + 1
 results_gender<- results
 
 
-## anaysis for seller gende
-###collect results in matrix
-outcomes <- c("initial_accept","starting_price", "bottom_price","sticky","final_price")
-results <- array(NA,c(length(outcomes), 4,4))
-t <- 1
-for (i in outcomes) {
-  model <- lm(as.formula(paste(i,"enumerator_gender", sep="~")), data=dta)
-  results[t,1,1:2] <- summary(model)$coefficients[2,1:2]
-  results[t,1,3] <- summary(model)$coefficients[2,4]
-  results[t,1,4] <- nobs(model)
-  # 
-  # model <- lm(as.formula(paste(i,"gender", sep="~")), data=teff)
-  # results[t,2,1:2] <- summary(model)$coefficients[2,1:2]
-  # results[t,2,3] <- summary(model)$coefficients[2,4]
-  # results[t,2,4] <- nobs(model)
-  # 
-  # model <- lm(as.formula(paste(i,"gender", sep="~")), data=wheat)
-  # results[t,3,1:2] <- summary(model)$coefficients[2,1:2]
-  # results[t,3,3] <- summary(model)$coefficients[2,4]
-  # results[t,3,4] <- nobs(model)
-  
-  first <- wheat[c("enumerator_gender",i)]
-  first$crop <- "wheat"
-  second <- teff[c("enumerator_gender",i)]
-  second$crop <- "teff"
-  third <-  dta[c("enumerator_gender",i)]
-  third$crop <- "maize"
-  
-  all <- rbind(first, second, third )
-  
-  
-  model <- lm(as.formula(paste(i,"enumerator_gender+crop", sep="~")), data=all)
-  results[t,4,1:2] <- summary(model)$coefficients[2,1:2]
-  results[t,4,3] <- summary(model)$coefficients[2,4]
-  results[t,4,4] <- nobs(model)
-  
-  t <- t + 1
-} 
 
-results_enumerator_gender <- results
 
 ### gender matching vs gender mixing
 
