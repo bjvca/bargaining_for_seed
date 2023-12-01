@@ -257,7 +257,7 @@ literal "false"
 \end_inset
 
 .
- The difference in perceptions was largest when customers weree asked to
+ The difference in perceptions was largest when customers were asked to
  rate agro-dealers in terms of price competitiveness, again despite the
  fact that there is no difference between average prices charged by male
  and female managed agro-dealers.
@@ -323,7 +323,7 @@ Our experiment allows us to investigate the effect the gender of the seller
  These include: (1) the likelihood that the buyer immediately accepts the
  initial offer prices (and hence no bargaining took place); (2) the first
  counter bid following the initial offer price; (3) the level of the initial
- coutner bid and then in particular the likelihood that this is the minimum
+ counter bid and then in particular the likelihood that this is the minimum
  admissible price; (4) the likelihood that the buyer sticks with the initial
  counter bid throughout the bargaining process (that is, the buyer plays
  a non-concessional strategy); (5) the number of negotiation rounds; (6)
@@ -393,6 +393,82 @@ Related literature
 \end_layout
 
 \begin_layout Standard
+A large number of studies—based on observational data and more rigorous
+ field experiments alike—find overwhelming evidence of differences in the
+ outcomes of market transactions when minorities (including women) are involved
+ as a transacting party (as compared to cases where all transaction parties
+ come from the majority 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1111/1468-0297.00080"
+literal "false"
+
+\end_inset
+
+).
+ This unsettling regularity has led to a search for the sources of this
+ apparent discrimination.
+ Research on the causes of discrimination is prominent in labour economics,
+ where so-called situation or audit tests have been used to estimate the
+ effect of race on the likelihood of being invited for an interview 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "eg:"
+key "10.1257/0002828042002561"
+literal "false"
+
+\end_inset
+
+.
+ The fact that women generally earn less than men is also a fertile breeding
+ ground for research.
+ Potential explanations include sorting (where women end up on farmers that
+ pay lower wage premiums), the fact that women are offered lower wages and/or
+ the fact that women negotiate worse wages bargains 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1093/qje/qjv038,leibbrandt2015women"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Given the large number of research, we focus on a specific set of studies.
+ First, we are interested in the effect of gender of one party (in our case
+ the seller) on bargaining behaviour of the other party (in our case the
+ buyer).
+ This is different from studies that look at the impact of gender on own
+ behavior (for instance testing if female buyers' initial bid price is different
+ from male buyers' initial bit price 
+\emph on
+ceteris paribus
+\emph default
+).
+ While the impact of gender on own behaviour is certainly also an interesting
+ question, it is much harder to investigates since gender can not be randomized.
+ Second, we will focus on studies that capture at least some elements of
+ bilateral bargaining.
+ Finally, we differentiate between studies where the gender of the buyer
+ is is of primary concern versus studies on the impact of the gender of
+ the seller.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+key "10.2307/25098677"
+literal "false"
+
+\end_inset
+
+ finds that here is a strong tendency for minorities to receive initial
+ and final offers that are inferior to those received by majorities.
+\end_layout
+
+\begin_layout Standard
 One of the first studies that uses identical scripted bargaining strategies
  to study the impact of gender (and race) is 
 \begin_inset CommandInset citation
@@ -443,21 +519,10 @@ literal "false"
  between male and female vendors does not differ and conclude that the observed
  gender differences in the market are not due to differential demand-side
  constraints.
- An important difference with our study is the context, as in the indian
+ An important difference with our study is the context, as in the Indian
  market transactions are fast-paced, short, and without chit-chat and bargaining
  is uncommon.
  
-\end_layout
-
-\begin_layout Standard
-The ability to earn some money independently from the husband is important
- for several reasons.
- First, the unitary household model has been challenged theoretically and
- rejected empirically in numerous studies, and women within the household
- are generally disadvantaged.
- Second, access to resources has been found to increase women bargaining
- power within the households.
- Third
 \end_layout
 
 \begin_layout Section
@@ -1555,6 +1620,63 @@ Looking at these results together shows a clear and substantial effect emanating
 
 \begin_layout Section
 Implications
+\end_layout
+
+\begin_layout Standard
+As is generally the case, our study only establishes the existence of discrimina
+tion, but we can only speculate about the nature of discrimination.
+ For instance, if female sellers in general provide lower quality maize
+ seed, or if the quality of the seed women provide is less certain, buyers
+ may engage in statistical discrimination.
+ Alternatively, buyers may rely on stereotypes or they may indeed be prejudiced
+ against women (leading to taste discrimination).
+\end_layout
+
+\begin_layout Standard
+Our results are in line with 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "10.2307/25098677"
+literal "false"
+
+\end_inset
+
+ who finds that "consumer-side" discrimination appears to be more pronounced
+ than "seller-side" discrimination.
+\end_layout
+
+\begin_layout Standard
+One potential limitations of the study is potential bias from tester behavior.
+ For instance, it could be that male sellers bargain harder than female
+ sellers.
+ Confounding by tester behavior is a known problem in audit studies (that
+ involve actual persons to do the transactions), and a reason why these
+ days correspondence studies (where personal contact is avoided, such as
+ in the 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "10.1257/0002828042002561"
+literal "false"
+
+\end_inset
+
+ study where Vita of imaginary job candidates with white and non-white sounding
+ names are sent to potential employers to screen on discrimination) are
+ preferred.
+ We tried to mitigate this problem by instructing our enumerators to strictly
+ stick to the script on the tablet computer.
+\end_layout
+
+\begin_layout Standard
+Second, for logistical consideration, we did not randomize ex-ante the gender
+ of the seller.
+ Sellers were sent to farmers based on who was available (hence the larger
+ group).
+ While we assume this happened as good as randoms, we do find that women
+ sellers had a higher probability of being paired with women buyers than
+ male sellers.
+ To account for this problem, we include the gender of the buyer in all
+ specifications.
 \end_layout
 
 \begin_layout Standard
