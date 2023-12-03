@@ -127,7 +127,7 @@ The role of gender in bargaining: evidence for selling seed to smallholders
 \begin_layout Abstract
 In rural societies with strong gender norms and customs, small informal
  agribusinesses may often be one of the few ways in which women can independentl
-y generate resources.
+y generate revenue.
  However, previous research has indicated that female run business may be
  perceived less favorable compared to their male counterparts.
  In this paper, I examine potential consequences of these biased perceptions
@@ -199,10 +199,10 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Over the last few decades, attention has shifted from considering farm household
+Over the past few decades, attention has shifted from considering farm household
 s as a single unit to studying the structure and organization of the household
  as an institution comprised of different actors, each with their own preference
- which may or may not align 
+s, which may or may not align 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "agarwal1997bargaining"
@@ -227,10 +227,9 @@ In settings characterized by strong gender norms and customs, activities
  women in food supply chains are generally downstream the value chain, consistin
 g of activities such as light processing and retail.
  Research indeed shows that informal vendors often tend to be self-employed
- or owner-operators women.
- Especially for women, these forms of informal self-employment often constitute
- a crucial source of income that they can earn independently from the husband
- 
+ or owner-operatored women.
+ As such, these forms of informal self-employment often constitute a crucial
+ source of income that women can earn independently from the husband 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "GIROUX2021101997"
@@ -259,8 +258,8 @@ literal "false"
 .
  The difference in perceptions was largest when customers were asked to
  rate agro-dealers in terms of price competitiveness, again despite the
- fact that there is no difference between average prices charged by male
- and female managed agro-dealers.
+ fact that we found no difference between average prices charged by male
+ and female managed agro-input shops.
 \end_layout
 
 \begin_layout Standard
@@ -278,20 +277,18 @@ In this paper, we investigate if this gender bias in perception extends
  The fact that the bias in perceptions was particularly large for price
  related attributes of the seller leads us to suspect that there will also
  be effects on the bargaining process.
- 
 \end_layout
 
 \begin_layout Standard
-We run simple lab-in-the-field experiments to study the effect of gender
- of the seller on bargaining process.
- In particular, we offer the opportunity to a representative group of maize
- farmers to buy a bag of hybrid maize seed.
+At the core do the study is a simple lab-in-the-field experiment.
+ In particular, we offer the opportunity to a representative group of (both
+ male and female) maize farmers to buy a bag of hybrid maize seed.
  A trained enumerator, guided by a script implemented on a tablet computer,
  acts as a seller.
  After explaining the virtues of hybrid maize seed to the buyer, the seller
- asks if the buyer wants to buy the seed at the initial (randomize) offer
- price.
- If the buyer refuses, he or she is encouraged to call out a first counter-bid.
+ asks if the buyer wants to buy the seed at an initial offer price.
+ If the buyer rejects the offer, he or she is encouraged to call out a first
+ counter-bid.
  The algorithm on the tablet then determines if the seller agrees on the
  counter bid (depending the difference between the two bids being small
  enough) or to enter into a second round of negotiations and name a second
@@ -308,8 +305,8 @@ We provide exogenous variation along two dimensions.
  This allows us to estimate the causal impact of the gender of the seller
  on the bargaining process and outcomes.
  Second, we also randomly assign the initial offer price that the (male
- of female) seller asks to the farmer, again allowing us to estimate the
- causal impact of initial offer price on the bargaining process and outcomes.
+ of female) seller asks to the farmer, allowing us to estimate the causal
+ impact of initial offer price on the bargaining process and outcomes.
  It will be interesting to compare the sizes of these two effects.
  Furthermore, we can look at interactions to test if eg the gender effect
  becomes even more important when the stakes are high (eg when the initial
@@ -321,14 +318,14 @@ Our experiment allows us to investigate the effect the gender of the seller
  and/or initial ask price on various strategies used by the buyer and outcomes
  of the process.
  These include: (1) the likelihood that the buyer immediately accepts the
- initial offer prices (and hence no bargaining took place); (2) the first
- counter bid following the initial offer price; (3) the level of the initial
- counter bid and then in particular the likelihood that this is the minimum
- admissible price; (4) the likelihood that the buyer sticks with the initial
- counter bid throughout the bargaining process (that is, the buyer plays
- a non-concessional strategy); (5) the number of negotiation rounds; (6)
- the likelihood that the buyer accepts at any point (as opposed to ending
- negotiations because of convergence); and (7) the transaction price.
+ initial offer prices (and hence no bargaining takes place); (2) the first
+ counter bid following the initial offer price; (3) the likelihood that
+ this first counter-bid is the minimum admissible counter-bid; (4) the likelihoo
+d that the buyer sticks with the initial counter bid throughout the bargaining
+ process (that is, the buyer plays a non-concessional strategy); (5) the
+ number of negotiation rounds; (6) the likelihood that the buyer accepts
+ at any point (as opposed to ending negotiations because of convergence);
+ and (7) the transaction price.
 \end_layout
 
 \begin_layout Standard
@@ -385,7 +382,20 @@ literal "false"
 \begin_layout Standard
 Te remainder of this article is organized as follows.
  In the next section, we provide a brief overview of the related literature.
- 
+ We then proceed with an in-depth description of the bargaining experiment.
+ We then describe the study population.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:A-gendered-analysis"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ provides the results of the analysis, and a final section concludes with
+ discussion of the implications.
 \end_layout
 
 \begin_layout Section
@@ -407,10 +417,15 @@ literal "false"
 
 ).
  This unsettling regularity has led to a search for the sources of this
- apparent discrimination.
- Research on the causes of discrimination is prominent in labour economics,
- where so-called situation or audit tests have been used to estimate the
- effect of race on the likelihood of being invited for an interview 
+ apparent discrimination, generating an equally large body of reseaerch.
+ 
+\end_layout
+
+\begin_layout Standard
+Research on the causes of discrimination is particularly prominent in labour
+ economics, where so-called situation or audit tests have been used to estimate
+ the effect of race on the likelihood of being invited for an interview
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 before "eg:"
@@ -422,9 +437,9 @@ literal "false"
 .
  The fact that women generally earn less than men is also a fertile breeding
  ground for research.
- Potential explanations include sorting (where women end up on farmers that
- pay lower wage premiums), the fact that women are offered lower wages and/or
- the fact that women negotiate worse wages bargains 
+ Potential explanations include sorting (where women end up in companies
+ that pay lower wage premiums), the fact that women are offered lower wages
+ and/or the fact that women negotiate worse wage bargains 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1093/qje/qjv038,leibbrandt2015women"
@@ -655,6 +670,13 @@ We find that in our sample, almost 60 percent uses farmer saved seed.
 
 \begin_layout Section
 A gendered analysis of the bargaining process
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:A-gendered-analysis"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
