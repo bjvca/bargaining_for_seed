@@ -358,7 +358,15 @@ literal "false"
 .
  By implementing a lab-in-the-field experiment in the context of smallholder
  farmers bargaining over seed, we contribute to the knowledge on how economic
- transactions transpire in a more realistic setting.
+ transactions transpire in a more realistic setting 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "fitzpatrick2017shopping"
+literal "false"
+
+\end_inset
+
+.
  Second, there is a large literature that investigates differences in bargaining
  behavior between men and women.
  Again, most of this research is situated in a Western context, often focusing
@@ -366,17 +374,12 @@ literal "false"
  outcomes such as the wage gap.
  We investigate the consequences of gendered bargaining processes in the
  context of informal employment in developing countries.
- Finally, we contribute to a recent literature that uses rigorous impact
- evaluation methods to study discrimination in developing countries 
-\begin_inset CommandInset citation
-LatexCommand citep
-before "eg."
-key "CASTILLO201335,delecourt2021does"
-literal "false"
-
-\end_inset
-
-.
+ Third, the large majority of studies that look at discrimination in the
+ market place are mainly concerned about seller-side discrimination, whereby
+ sellers offer different prices depending on minority membership.
+ We focus on buyer-side discrimination, whereby buyers (are willing to)
+ pay more to majority group members.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -417,7 +420,7 @@ literal "false"
 
 ).
  This unsettling regularity has led to a search for the sources of this
- apparent discrimination, generating an equally large body of reseaerch.
+ apparent discrimination, generating an equally large body of research.
  
 \end_layout
 
@@ -466,9 +469,9 @@ ceteris paribus
  question, it is much harder to investigates since gender can not be randomized.
  Second, we will focus on studies that capture at least some elements of
  bilateral bargaining.
- Finally, we differentiate between studies where the gender of the buyer
- is is of primary concern versus studies on the impact of the gender of
- the seller.
+ This excludes studies where only the outcome of the transaction is recorded;
+ most studies we review involve some kind of lab-in-the-field component
+ where actual bargaining between partners for real stakes is observed.
 \end_layout
 
 \begin_layout Standard
@@ -479,8 +482,14 @@ literal "false"
 
 \end_inset
 
- finds that here is a strong tendency for minorities to receive initial
- and final offers that are inferior to those received by majorities.
+ studies bilateral negotiation in the US sports card market, and observes
+ that 1) sellers from minority groups (in terms of gender, race, and age)
+ receive initial and final bids that are lower than those received by majorities
+ and that 2) buyers from minority groups receive initial and final offers
+ that are higher than those received by majority groups.
+ He further finds that the former type of discrimination (that is, consumer-side
+ discrimination) is more pronounced than the latter (seller-side discrimination).
+ Note that in our experiment, we only test for consumer-side discrimination.
 \end_layout
 
 \begin_layout Standard
@@ -494,7 +503,22 @@ literal "false"
 \end_inset
 
 .
+ In their study, seller-side discrimination in the market for new cars is
+ investigated.
  
+\begin_inset CommandInset citation
+LatexCommand citet
+key "825eef39-d1b6-3a49-9884-20578c598ab2"
+literal "false"
+
+\end_inset
+
+ carefully selected mock buyers to resemble each other as closely as possible,
+ and trained them to bargain uniformly through a prespecified bargaining
+ script.
+ From over 300 negotiations at new car dealerships in the US, they conclude
+ that dealers quoted significantly lower prices to white males than to black
+ or female test buyers.
 \end_layout
 
 \begin_layout Standard
@@ -507,14 +531,36 @@ literal "false"
 
  report on a sequential bargaining experiment in the market for taxi rides
  in Lima.
- They are interested in the impact of gender of the customer on the bargaining
- strategies and outcomes of the taxi driver (which are all men).
+ Also here, the focus is on seller-side discrimination, as they are interested
+ in the impact of gender of the customer on the bargaining strategies and
+ outcomes of the taxi driver (which are all men).
  They use a fixed-offer bargaining script that both male and female potential
  passengers follow when interacting with (male) taxi drivers.
+ Interestingly, they find that men are offered and pay higher prices than
+ women.
 \end_layout
 
 \begin_layout Standard
-Our work is also related to 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "fitzpatrick2017shopping"
+literal "false"
+
+\end_inset
+
+ tests whether women pay more or less than men in the Ugandan market for
+ antimalarial drugs in yet another seller-side discrimination audit study.
+ To do so, she started from a census of outlets selling antimalarial drugs
+ in 5 parishes and sent mystery shoppers to purchase an antimalarial drug
+ according to randomly assigned scripts.
+ She finds evidence that women are offered higher prices for the same product
+ as men.
+ However, women are more successful at bargaining, and as a result the transacti
+on price does not differ between male and female buyers anymore.
+\end_layout
+
+\begin_layout Standard
+The only study that investigates buyer-side discrimination is 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "delecourt2021does"
@@ -522,7 +568,7 @@ literal "false"
 
 \end_inset
 
- who start from the observation that women owned micro-businesses are generally
+, who start from the observation that women owned micro-businesses are generally
  less profitable than male owned businesses.
  To separate the effect of differences in business characteristics from
  the gender effect, they conduct two field experiments among Indian vegetable
@@ -531,13 +577,8 @@ literal "false"
  In their experiment, they keep every business aspect (eg location, opening
  hours, stock,...) the same except for the gender of the seller.
  After controlling for supply side factors in this way, they find that earnings
- between male and female vendors does not differ and conclude that the observed
- gender differences in the market are not due to differential demand-side
- constraints.
- An important difference with our study is the context, as in the Indian
- market transactions are fast-paced, short, and without chit-chat and bargaining
- is uncommon.
- 
+ between male and female vendors does not differ and conclude that there
+ is no buyer-side discrimination.
 \end_layout
 
 \begin_layout Section
@@ -601,7 +642,7 @@ Based on this second bid, a third ask price is determined as the farmer's
  last bid price plus 80 percent of the difference between the last ask price
  and the farmer's last bid price.
  Bargaining continues until the farmer accepts an ask price, or the price
- difference between the bid and ask price is smaller than 500 ugandan shilling,
+ difference between the bid and ask price is smaller than 500 Ugandan shilling,
  in which case the computer instructs the enumerator sell at the last price
  the farmer bids.
  If the highest initial offer price of 12000 was drawn and a farmer sticks
@@ -657,15 +698,36 @@ Sample
 \end_layout
 
 \begin_layout Standard
-Include here a table with descriptive statistics.
+The total sample consists of a representative sample of 760 households,
+ drawn from 4 districts in southwestern Uganda (Mayuge, Kamuli, Iganga and
+ Bugiri).
+ These districts were chosen because maize is an important crop, both for
+ food and cash.
+ In these 4 districts, 74 villages were selected with the likelihood of
+ being selected proportional to the number of households that live in these
+ villages.
+ In each village, 10 households were then randomly selected.
  
 \end_layout
 
 \begin_layout Standard
-We find that in our sample, almost 60 percent uses farmer saved seed.
- About 9 percent used bazooka on any of their plots in the last agricultural
- season.
+Enumerators visited these households and asked to speak with the person
+ that generally makes most decisions related to maize growing and input
+ use such as what maize seed to use.
+ These individuals were then subjected to the bargaining experiment and
+ after completing the experiment, we administered a survey.
+ We find that 22 percent of interviewed individuals were women, and the
+ average age was 49 years old.
+ They live in households of about 8 people.
  
+\end_layout
+
+\begin_layout Standard
+Scale
+\end_layout
+
+\begin_layout Standard
+Experience with improved seed
 \end_layout
 
 \begin_layout Section
@@ -1665,6 +1727,19 @@ literal "false"
 
  who finds that "consumer-side" discrimination appears to be more pronounced
  than "seller-side" discrimination.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "delecourt2021does"
+literal "false"
+
+\end_inset
+
+, in contrast, find no evidence of consumer side discrimination in a context
+ that is closer to ours.
+ However, an important difference with our study is that Indian market transacti
+ons tend to be fast-paced, short, and without chit-chat and bargaining is
+ uncommon.
 \end_layout
 
 \begin_layout Standard
@@ -1694,11 +1769,52 @@ Second, for logistical consideration, we did not randomize ex-ante the gender
  of the seller.
  Sellers were sent to farmers based on who was available (hence the larger
  group).
+ As in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "fitzpatrick2017shopping"
+literal "false"
+
+\end_inset
+
+, supervisors were instructed to not assign enumerators to farmers in a
+ systematic fashion.
  While we assume this happened as good as randoms, we do find that women
  sellers had a higher probability of being paired with women buyers than
  male sellers.
  To account for this problem, we include the gender of the buyer in all
  specifications.
+\end_layout
+
+\begin_layout Standard
+Third, our study population may not be representative for real live situations.
+ For instance, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "10.2307/25098677"
+literal "false"
+
+\end_inset
+
+ works with subjects that endogenously select into the market and likely
+ have previous experience in the transactions he is studying.
+ In our case, it may be that participants have never bought seed in the
+ past, and did not intent to do so in the near future.
+ Our study should therefore be regarded as somewhere between an experimental
+ study in a lab environment where certain behavioral patterns and roles
+ are endogenously imposed on study subjects and studies that observe actual
+ individual behaviour in an existing market.
+\end_layout
+
+\begin_layout Standard
+Exley, Christine, Muriel Niederle and Lise Vesterlund.
+ 2018.
+ Knowing When to Ask: The Cost of Leaning-in.
+ Working Paper 6382 Department of Economics, University of Pittsburgh.
+ URL: https://EconPapers.repec.org/RePEc:pit:wpaper:6382 - make the argument
+ that since the discrimination is already there from the initial counter-bid,
+ it is unlikely that differences in outcones are de to differences in negotiatio
+n.
 \end_layout
 
 \begin_layout Standard
