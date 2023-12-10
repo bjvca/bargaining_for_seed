@@ -590,24 +590,20 @@ Farmers are offered the opportunity to buy a bag of seed from a seller in
  a way that is as close as possible as how this happens in a real life setting
  where bargaining is the norm.
  The seller follows a standard script.
- An initial offer price (or ask) is randomly drawn from a set of four prices
+ An initial offer (or ask) price is randomly drawn from a set of four prices
  (12000,11000,10000,9000), with higher probability on the extremes (probabilitie
 s are 0.25, 0.125, 0.125, and 0.25 respectively).
- 
-\end_layout
-
-\begin_layout Standard
-This price is then presented to the farmer as the price of the bag of seed.
+ This price is then presented to the farmer as the price of the bag of seed.
  The seller then explains what kind of seed it is and what the advantages
  are.
- The farmer is than asked if they want to buy the seed for this price.
+ The farmer is then asked if they want to buy the seed for this price.
  If the farmer says no, then they are encouraged to name their counter bid
  price.
  The minimal bid price was 3000, but this lower limit was not communicated
  to the farmer in advance.
- If the farmer's first bid was lower than 3000, it was communicated that
- 3000 was the lowest price and the farmer could revise the first counter
- bid to 3000 or abandon the game.
+ Only if the farmer's initial counter-bid was lower than 3000, it was communicat
+ed that 3000 was the lowest acceptable price and the farmer could revise
+ the first counter bid to 3000 or above, or abandon the game.
 \end_layout
 
 \begin_layout Standard
@@ -621,37 +617,35 @@ literal "false"
 \end_inset
 
 .
- The tablet computer that guides the seller then uses an algorithm to determine
+ The tablet computer that guides the seller uses an algorithm to determine
  a counter-offer that the enumerator asks in a second round of negotiation.
  This new ask price is determined as the farmer's bid price plus 80 percent
  of the difference between the (initial) ask price and the farmer's bid
  price, and this is rounded to the nearest multiple of 500.
- This updated (lower) ask price is the compared to the last bid price of
+ This updated (lower) ask price is then compared to the last bid price of
  the farmer.
  If the difference is smaller than 500, the seller is instructed to accept
  the bid price.
  If the difference between the updated (lower) ask price and the bid price
  is larger than 500, then the updated ask price is presented to the farmer
- and the farmer gets another opportunity to accept or reject.
- If the farmer does not accept, they are encouraged to make a second bid.
+ and the farmer gets a second opportunity to accept or reject.
+ If the farmer does not accept, the farmer is encouraged to make a second
+ bid that should be equal to or higher than the first bid the farmer made.
+ Based on this second bid, a third ask price is determined as the farmer's
+ second bid price plus 80 percent of the difference between the second ask
+ price and the farmer's second bid price.
  
 \end_layout
 
 \begin_layout Standard
-Based on this second bid, a third ask price is determined as the farmer's
- last bid price plus 80 percent of the difference between the last ask price
- and the farmer's last bid price.
- Bargaining continues until the farmer accepts an ask price, or the price
- difference between the bid and ask price is smaller than 500 Ugandan shilling,
- in which case the computer instructs the enumerator sell at the last price
- the farmer bids.
+Bargaining continues in this way until the farmer accepts an ask price,
+ or the price difference between the bid and ask price is smaller than 500
+ Ugandan shilling, in which case the computer instructs the enumerator to
+ sell at the last price the farmer bids.
  If the highest initial offer price of 12000 was drawn and a farmer sticks
  to the lowest possible bid price (3000), the program accepts this bid after
  10 negotiation rounds.
-\end_layout
-
-\begin_layout Standard
-Farmers were not informed about the algorithm.
+ Farmers were not informed about the algorithm.
  That is, they did not know that the seller would eventually accept even
  if they stick to the lowest price.
  We do not expected that farmers would be able to learn about the offer
@@ -661,36 +655,10 @@ Farmers were not informed about the algorithm.
 \end_layout
 
 \begin_layout Standard
-It is important to note that we did not randomize the gender of the buyer,
- and as such can not answer the question if the gender of the buyer has
- an impact on bargaining.
- Answering this question would need a slightly different experiment, were
- we work with a representative sample of agro-input sellers (perhaps stratified
- by gender) and then randomly send male or female buyers to the seller.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-We are currently running an experiment with agro-vet input dealers in southeaste
-rn Uganda that employs a mystery shopper approach to test if dealers provide
- sufficient advise on the use of acaricides.
- In that study, we will randomize the gender of the buyer.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 The experiment was timed to coincide with the start of the harvest season,
- so demand is likely to be high.
- 
-\end_layout
-
-\begin_layout Standard
-We developed a computer program to guide the bargaining process.
- 
+ to ensure high demand for the seed.
+ We had a team of 26 enumerators, of which 10 where female and 16 where
+ male.
 \end_layout
 
 \begin_layout Section
@@ -703,9 +671,9 @@ The total sample consists of a representative sample of 760 households,
  Bugiri).
  These districts were chosen because maize is an important crop, both for
  food and cash.
- In these 4 districts, 74 villages were selected with the likelihood of
- being selected proportional to the number of households that live in these
- villages.
+ In these 4 districts, 76 villages were randomly selected from a list of
+ all villages, with the likelihood of a village being selected proportional
+ to the number of households that live in the village.
  In each village, 10 households were then randomly selected.
  
 \end_layout
@@ -723,11 +691,27 @@ Enumerators visited these households and asked to speak with the person
 \end_layout
 
 \begin_layout Standard
-Scale
+The average household in our sample has about 1.5 maize plots of on average
+ about 1.1 acres each.
+ Yields on an average plot is about 436 kilogram per acre.
+ As such, the average household produces about 700 kilograms of maize.
 \end_layout
 
 \begin_layout Standard
-Experience with improved seed
+A significant share of farmers have experience with seed of an improved
+ variety.
+ We find that about 40 percent of farmers in our sample used seed of an
+ open pollinated or hybrid variety in the previous season (Nsambya of 2022)
+ on any of their plots.
+ However, farmers have less experience with the type of seed that we are
+ offering them in the field experiment (a type popularly known as bazooka).
+ Only about 9 percent of farmers indicate that they used this type of seed
+ on any of their plots in the previous season.
+ We also asked broader questions related to the seed we are using in the
+ experiment.
+ For instance, we find that 53 percent of our farmers know bazooka, but
+ only 13 percent ever tried it.
+ This may be because farmers consider bazooka to be an expensive variety.
 \end_layout
 
 \begin_layout Section
@@ -768,7 +752,7 @@ The bottom panel show that the disadvantage of the female seller already
  buyer names their first counter bid after the seller named the initial
  (randomly assigned) offer price.
  When the seller is man, the most likely price to start from is 5,000.
- When the seller is a women, farmers are more inclined to go the absolute
+ When the seller is a women, farmers are more inclined to quote the absolute
  minimum.
  As, in addition to the fist offer price, the first counter bid price is
  likely to be an important anchoring point for the rest of the negotiation,
@@ -843,10 +827,20 @@ high initial price
 
  that takes the value of one if the initial price was 12,000 or 11,000,
  and zero if it was 9,000 or 10,000.
- In this regression, we control for the gender of the seller.
- Furthermore, as we found some indications earlier of gender matching in
- the negotiation pairing, we control for the gender of the buyer in the
- regressions as well.
+ In this regression, we control for the gender of the seller as the orthogonal
+ treatment.
+ Furthermore, as we found some indications of gender matching in the negotiation
+ pairing (see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Discussion"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), we control for the gender of the buyer in the regressions as well.
 \end_layout
 
 \begin_layout Standard
@@ -854,13 +848,14 @@ In a second model, we look at differential bargaining behaviour based on
  seller gender and regress outcomes and strategies on an indicator of the
  sex of the seller that takes the value of 1 if the seller was a women (and
  zero if it was a man).
- Also here, we control for the gender of the buyer in the regressions as
- well.
+ Also here, we control for the gender of the buyer in the regressions to
+ control for treatment imbalance in this dimension and for level of initial
+ offer price as the orthogonal treatment.
 \end_layout
 
 \begin_layout Standard
 In a third model, we also isolate the interaction effect and include an
- indicator variable that is one if both the 
+ indication variable that is one if both the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -878,12 +873,13 @@ s as well.
 \begin_layout Standard
 For the independent variables, we consider the following outcomes and strategies
 : (1) the likelihood that the buyer accepts the initial offer of the seller
- and so no negotiation ensues, (2) the counter bid price that the buyer
- calls after the initial offer by the seller, (3) the likelihood that initial
- counter bid is the lowest admissible bid (UGX 3,000), (4) the likelihood
- that the buyer sticks to his or her initial bid price, (5) the number of
- negotiation rounds, and (6) the final price at which the transaction took
- place (ie.
+ (and so no negotiation ensues), (2) the counter bid price that the buyer
+ calls after the initial offer by the seller, (3) the likelihood that the
+ initial counter bid is the lowest admissible bid (UGX 3,000), (4) the likelihoo
+d that the buyer sticks to his or her initial bid, (5) the number of negotiation
+ rounds before the buyer accepts or the seller is instructed to accept by
+ the algorithm, and (6) the final price at which the transaction took place
+ (ie.
  the transaction price).
 \end_layout
 
@@ -1585,7 +1581,7 @@ scriptsize
 
 \begin_layout Standard
 As a first outcome of interest, we see that about 30 percent of buyers immediate
-ly accepted the to buy the seed pack at the initial offer price.
+ly accept to buy the seed pack at the initial offer price.
  The likelihood that farmers immediately accept reduces substantially when
  the initial offer is high: If the seller asks for at least 11,000, only
  about 11 percent of buyers accept immediately.
@@ -1604,7 +1600,7 @@ ly accepted the to buy the seed pack at the initial offer price.
 \begin_layout Standard
 We already touched upon the importance of the initial counter bid in the
  negotiation process and revisit the first counter bid of the buyer here
- (see starting price in Table 
+ (see starting price in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:results_seller"
@@ -1638,7 +1634,7 @@ We also find that about 17 percent of buyers started negotiating from UGX
 \end_layout
 
 \begin_layout Standard
-Another interesting negotiation strategy some buyers seen to use is to name
+Another interesting negotiation strategy some buyers seem to use is to name
  an initial counter bid and stick to this price.
  A surprisingly large share of farmers, 40 percent, uses this strategy.
  The use of this strategy does not depend on the initial offer price.
@@ -1670,8 +1666,8 @@ The fact that female sellers face an additional round of bargaining seems
  the buyer agreeing (as opposed to instances where the negotiations ended
  because the difference between ask price and bid price was less than UGX
  500).
- While in about 40 percent of cases the buyer accepts, this percentage is
- indeed almost 12 percentage points lower when the seller is a woman.
+ While in about 40 percent of cases the buyer eventually accepts, this percentag
+e is indeed almost 12 percentage points lower when the seller is a woman.
  A high offer price also leads to lower likelihood that the buyer accepts.
  There is also an interaction effect that counteracts the reduction in the
  likelihood that the buyer accepts.
@@ -1694,26 +1690,23 @@ Finally, we look at arguably the most important outcome.
 \begin_layout Standard
 Looking at these results together shows a clear and substantial effect emanating
  from the gender of the seller.
- The effect has it is origin early in the bargaining process, with a lower
+ The effect has its origin early in the bargaining process, with a lower
  first counter bid and a higher share of buyers that start off at the lowest
  possible bid price when the seller is a woman.
  This lower bound serves as an anchor for subsequent strategies—with buyers
- less likely to accept and hence more negotiation rounds—eventually to a
- significantly lower final price.
+ less likely to accept and hence more negotiation rounds—eventually leading
+ to a significantly lower final price.
 \end_layout
 
 \begin_layout Section
-Implications
-\end_layout
+Discussion, limitations, and way forward
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Discussion"
 
-\begin_layout Standard
-As is generally the case, our study only establishes the existence of discrimina
-tion, but we can only speculate about the nature of discrimination.
- For instance, if female sellers in general provide lower quality maize
- seed, or if the quality of the seed women provide is less certain, buyers
- may engage in statistical discrimination.
- Alternatively, buyers may rely on stereotypes or they may indeed be prejudiced
- against women (leading to taste discrimination).
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1740,10 +1733,42 @@ literal "false"
  However, an important difference with our study is that Indian market transacti
 ons tend to be fast-paced, short, and without chit-chat and bargaining is
  uncommon.
+ Clearly.
+ more studies are needed on both seller-side and consumer-side discrimination
+ in a variety of context and markets.
+ For instance, we are currently running a study where we send farmers to
+ agro-vet shops to buy acaricides in Uganda (a sector in the male domain)
+ and randomly vary the gender of the farmer.
 \end_layout
 
 \begin_layout Standard
-One potential limitations of the study is potential bias from tester behavior.
+As is generally the case, our experiment only establishes the existence
+ of discrimination, but it does not tell us anything about the nature of
+ discrimination.
+ In the economic literature, a distinction is generally made between discriminat
+ion that involves some kind of animus on the one hand and statistical discrimina
+tion on the other hand.
+ While in the former case there is some kind of general distaste for minorities
+ or a "social custom" of discrimination 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1111/1468-0297.00080"
+literal "false"
+
+\end_inset
+
+, in the latter case the apparent discrimination is simply the result of
+ market actors using average group characteristics as a proxy of reservation
+ value.
+ In our case, this would mean that buyers think that women, would be willing
+ to accept lower prices than men.
+ There are several reason why this could be the case.
+ 
+\end_layout
+
+\begin_layout Standard
+Our study has several limitations.
+ One limitations of the study is potential bias from tester behavior.
  For instance, it could be that male sellers bargain harder than female
  sellers.
  Confounding by tester behavior is a known problem in audit studies (that
@@ -1762,13 +1787,15 @@ literal "false"
  preferred.
  We tried to mitigate this problem by instructing our enumerators to strictly
  stick to the script on the tablet computer.
+ However, we can not completely rule out the fact that male sellers behave
+ differently during the field experiment than their female counterparts.
 \end_layout
 
 \begin_layout Standard
-Second, for logistical consideration, we did not randomize ex-ante the gender
- of the seller.
+A second limitation lies in the fact that, for logistical consideration,
+ we did not randomize ex-ante the gender of the seller.
  Sellers were sent to farmers based on who was available (hence the larger
- group).
+ group where the seller was a man).
  As in 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -1813,8 +1840,8 @@ Exley, Christine, Muriel Niederle and Lise Vesterlund.
  Working Paper 6382 Department of Economics, University of Pittsburgh.
  URL: https://EconPapers.repec.org/RePEc:pit:wpaper:6382 - make the argument
  that since the discrimination is already there from the initial counter-bid,
- it is unlikely that differences in outcones are de to differences in negotiatio
-n.
+ it is unlikely that differences in outcomes are due to differences in negotiati
+on.
 \end_layout
 
 \begin_layout Standard

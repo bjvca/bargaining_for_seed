@@ -280,12 +280,21 @@ averages_enumerator_gender <- averages
 
 
 
+dta$age[dta$age==999] <- NA
+summary(dta$age)
+prop.table(table(dta$quality_use))
+prop.table(table(dta$bazo_use))
 
 
+dta$plot_size[dta$plot_size == 999] <- NA
+dta$bag_harv[dta$bag_harv==999] <- NA
+dta$bag_kg[dta$bag_kg==999] <- NA
 
+dta$yield <- dta$bag_harv*dta$bag_kg/dta$plot_size
+dta$yield[dta$yield>20000] <- NA
 
-
-
+prop.table(table(dta$knw_bazo=="Yes"))
+prop.table(table(dta$tried_bazo=="Yes"))
 
 
 
