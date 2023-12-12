@@ -100,13 +100,24 @@ status open
 
 \begin_layout Plain Layout
 
+
+\backslash
+author{
+\end_layout
+
+\begin_layout Plain Layout
+
+Leocardia Nabwire
+\backslash
+thanks{Innovation Policy and Scaling Unit, IFPRI, Uganda},
+\end_layout
+
+\begin_layout Plain Layout
+
 Bjorn Van Campenhout
 \backslash
-thanks{Innovation Policy and Scaling Unit, International Food Policy Research
- Institute, Leuven, Belgium; corresponding author: b.vancampenhout@cgiar.org}
- 
-\backslash
-footnotemark[1]}
+thanks{Innovation Policy and Scaling Unit, IFPRI, Belgium - corresponding
+ author: b.vancampenhout@cgiar.org}}
 \end_layout
 
 \end_inset
@@ -116,10 +127,6 @@ footnotemark[1]}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Title
 The role of gender in bargaining: evidence for selling seed to smallholders
  in Uganda 
 \end_layout
@@ -130,12 +137,12 @@ In rural societies with strong gender norms and customs, small informal
 y generate revenue.
  However, previous research has indicated that female run business may be
  perceived less favorable compared to their male counterparts.
- In this paper, I examine potential consequences of these biased perceptions
+ In this paper, we examine potential consequences of these biased perceptions
  on business transactions.
- More in particular, I test whether the gender of the seller has an impact
+ More in particular, we test whether the gender of the seller has an impact
  on buyers' negotiation strategies and eventual outcomes in bilateral price
  negotiations.
- I do so using a lab-in-the-field experiment in eastern Uganda, where a
+ we do so using a lab-in-the-field experiment in eastern Uganda, where a
  representative sample of smallholder maize farmers are offered the opportunity
  to bargain over a bag of an improved maize seed variety from a male or
  female seller.
@@ -772,13 +779,13 @@ literal "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename bragaining_plot.png
-	scale 25
+	scale 50
 
 \end_inset
 
@@ -1710,6 +1717,23 @@ name "sec:Discussion"
 \end_layout
 
 \begin_layout Standard
+In this paper, we examined the potential consequences of biased perceptions
+ on market transactions.
+ Specifically, we tested whether the gender of seed sellers had an impact
+ on seed buyers' negotiation strategies and eventual outcomes in bilateral
+ price negotiations.
+ This was done through a lab-in-the-field experiment in eastern Uganda,
+ where a representative sample of smallholder maize farmers was given the
+ opportunity to bargain over a bag of an improved maize seed variety from
+ either a male or female seller.
+ The findings revealed that buyers confronted with a female seller were
+ less likely to accept the initial offer price and responded with a lower
+ counter bid compared to farmers faced with a male seller.
+ Negotiations, on average, took one additional round when the seller was
+ a woman and resulted in a transaction price that was almost 9 percent lower.
+\end_layout
+
+\begin_layout Standard
 Our results are in line with 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -1730,15 +1754,23 @@ literal "false"
 
 , in contrast, find no evidence of consumer side discrimination in a context
  that is closer to ours.
- However, an important difference with our study is that Indian market transacti
-ons tend to be fast-paced, short, and without chit-chat and bargaining is
- uncommon.
- Clearly.
- more studies are needed on both seller-side and consumer-side discrimination
- in a variety of context and markets.
- For instance, we are currently running a study where we send farmers to
- agro-vet shops to buy acaricides in Uganda (a sector in the male domain)
- and randomly vary the gender of the farmer.
+ However, an important difference with our study is that in their context—the
+ Indian market—transactions tend to be fast-paced, short and without chit-chat,
+ and bargaining is uncommon.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "exley2020knowing"
+literal "false"
+
+\end_inset
+
+ make the argument that since the discrimination is already there from the
+ initial counter-bid, it is unlikely that differences in outcomes are due
+ to differences in negotiation.
+ Our study indicates that differences in final outcomes have their origin
+ in both the initial counter-bid and the ensuing negotiations.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1762,8 +1794,34 @@ literal "false"
  value.
  In our case, this would mean that buyers think that women, would be willing
  to accept lower prices than men.
- There are several reason why this could be the case.
- 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+There are several reason why this could be the case.
+ During qualitative field work with agro-dealers as a followup for 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "de2022gender"
+literal "false"
+
+\end_inset
+
+, buyers mentioned that they thought 
+\begin_inset Quotes eld
+\end_inset
+
+women are not serious, they do not need the money.
+ They have husbands that should provide for the money
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1782,11 +1840,11 @@ literal "false"
 
 \end_inset
 
- study where Vita of imaginary job candidates with white and non-white sounding
+ study, where CVs of imaginary job candidates with white and non-white sounding
  names are sent to potential employers to screen on discrimination) are
  preferred.
  We tried to mitigate this problem by instructing our enumerators to strictly
- stick to the script on the tablet computer.
+ stick to a script on the tablet computer.
  However, we can not completely rule out the fact that male sellers behave
  differently during the field experiment than their female counterparts.
 \end_layout
@@ -1806,11 +1864,16 @@ literal "false"
 
 , supervisors were instructed to not assign enumerators to farmers in a
  systematic fashion.
- While we assume this happened as good as randoms, we do find that women
- sellers had a higher probability of being paired with women buyers than
- male sellers.
+ While we assume this happened as good as random, we do find that women
+ sellers had a significantly higher probability of being paired with women
+ buyers than male sellers.
  To account for this problem, we include the gender of the buyer in all
  specifications.
+ We further looked at balance on a range of characteristics (such as age,
+ education level, etc) between farmers that were paired to male and female
+ sellers and generally found no significant differences.
+ That said, we can not completely rule out that sellers and buyers were
+ matched on some (unobservable) characteristic.
 \end_layout
 
 \begin_layout Standard
@@ -1834,14 +1897,22 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Exley, Christine, Muriel Niederle and Lise Vesterlund.
- 2018.
- Knowing When to Ask: The Cost of Leaning-in.
- Working Paper 6382 Department of Economics, University of Pittsburgh.
- URL: https://EconPapers.repec.org/RePEc:pit:wpaper:6382 - make the argument
- that since the discrimination is already there from the initial counter-bid,
- it is unlikely that differences in outcomes are due to differences in negotiati
-on.
+In light of the above, we believe more studies are needed on both seller-side
+ and consumer-side discrimination to find out how context matters (eg.
+ perishable versus non-perishable commodities, characteristics of actors,...).
+\end_layout
+
+\begin_layout Section*
+Acknowledgments
+\end_layout
+
+\begin_layout Standard
+We would like to thank Charles Marc Wanume, Leocardia Nabwire, Richard Ariong,
+ and Wilberforce Walukano for their support in the field.
+ The research received funding from the CGIAR Seed Equal Research Initiative,
+ the CGIAR Market Intelligence Research Initiative, and the CGIAR Gender
+ Impact Platform, which are funded by contributors to the CGIAR Fund (https://ww
+w.cgiar.org/funders/).
 \end_layout
 
 \begin_layout Standard
