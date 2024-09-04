@@ -922,18 +922,17 @@ We now turn to a more formal analysis of various bargaining outcomes and
 \end_layout
 
 \begin_layout Standard
-The effect of the initial offer price and the effect of the gender of the
- seller are estimated using a single specification (Equation 
+The effect of the gender of the seller is estimated using Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:no_interact"
+reference "eq:gender"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-).
+.
  In this equation, 
 \begin_inset Formula $y_{i}$
 \end_inset
@@ -960,8 +959,84 @@ i
 
  are indicator functions for the initial offer price and the gender of the
  seller respectively.
- As we found some indications of gender matching in the negotiation pairing
- (see section 
+ There parameter of interest in this equation is 
+\begin_inset Formula $\beta_{g}$
+\end_inset
+
+, the estimate of the effect of the seller being a woman.
+ 
+\end_layout
+
+\begin_layout Standard
+The second experimental factor, the initial offer price, is crossed into
+ the design (much like in factorial designs).
+ It is well know that the most agnostic specification to estimate parameters
+ in crossed designs it to control for the orthogonal experimental factor,
+ as well as for potential interaction effects between the experimental factors
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1162/rest_a_01317"
+literal "false"
+
+\end_inset
+
+.
+ The problem is that modeling interaction effects in a regression with binary
+ treatments essentially splits the sample into four treatment cells, significant
+ly reducing statistical power for comparisons.
+ However, if we treat the orthogonal factor as a co-variate and control
+ for it by entering it in deviations from its mean (and interacted with
+ the main experimental factor) we can pool treatment cells to boost power
+ and obtain an unbiased estimate of 
+\begin_inset Formula $\beta_{g}$
+\end_inset
+
+ even if there is an interaction between the two experimental factors.
+ Therefore, in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gender"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ where the effect of the gender of seller 
+\begin_inset Formula $\left(\beta_{g}\right)$
+\end_inset
+
+ is the effect of interest, the treatment indicator for a initial offer
+ price is entered in deviation from its mean 
+\begin_inset Formula $\left(T_{i}^{p}-\overline{T^{p}}\right)$
+\end_inset
+
+.
+ A similar equation is estimated for when the effect of a high initial offer
+ price 
+\begin_inset Formula $\left(\beta_{p}\right)$
+\end_inset
+
+ is of primary interest (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:price"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ In that case the treatment indicator for the gender of the seller is entered
+ in deviation from its mean 
+\begin_inset Formula $\left(T_{i}^{g}-\overline{T^{g}}\right)$
+\end_inset
+
+.
+ Finally, as we found some indications of gender matching in the negotiation
+ pairing (see section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Discussion"
@@ -976,6 +1051,21 @@ noprefix "false"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+The effect of the initial offer price and the effect of the gender of the
+ seller are estimated using a single specification (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gender"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)..
  
 \begin_inset Formula $\alpha$
 \end_inset
@@ -994,7 +1084,17 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-y_{i}=\alpha+\beta_{p}T_{i}^{p}+\beta_{g}T_{i}^{g}+\gamma x_{i}+\varepsilon_{i}\label{eq:no_interact}
+y_{i}=\alpha+\beta_{g}T_{i}^{g}+\beta_{cp}\left(T_{i}^{p}-\overline{T^{p}}\right)+\beta_{gp}T_{i}^{g}\left(T_{i}^{p}-\overline{T^{p}}\right)+\gamma x_{i}+\varepsilon_{i}\label{eq:gender}
+\end{equation}
+
+\end_inset
+
+
+\backslash
+
+\begin_inset Formula 
+\begin{equation}
+y_{i}=\alpha+\beta_{p}T_{i}^{p}+\beta_{cg}\left(T_{i}^{g}-\overline{T^{g}}\right)+\beta_{pg}T_{i}^{p}\left(T_{i}^{g}-\overline{T^{g}}\right)+\gamma x_{i}+\varepsilon_{i}\label{eq:price}
 \end{equation}
 
 \end_inset
@@ -1082,17 +1182,15 @@ noprefix "false"
 
 \end_inset
 
- reports differences in the dependent variable between negotiations that
- started with a high initial offer price (12,000 or 11,000) and negotiations
- where the initial offer price was low (9,000 or 10,000), corresponding
- to 
-\begin_inset Formula $\beta_{p}$
+ reports differences in the dependent variable between negotiations with
+ a female seller and a male seller, corresponding to 
+\begin_inset Formula $\beta_{g}$
 \end_inset
 
  in equation 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:no_interact"
+reference "eq:gender"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1110,15 +1208,17 @@ noprefix "false"
 
 \end_inset
 
- reports differences in the dependent variable between negotiations with
- a female seller and a male seller, corresponding to 
-\begin_inset Formula $\beta_{g}$
+ reports differences in the dependent variable between negotiations that
+ started with a high initial offer price (12,000 or 11,000) and negotiations
+ where the initial offer price was low (9,000 or 10,000), corresponding
+ to 
+\begin_inset Formula $\beta_{p}$
 \end_inset
 
  in equation 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:no_interact"
+reference "eq:price"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1126,13 +1226,14 @@ noprefix "false"
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1186,7 +1287,7 @@ hline
 
 \begin_layout Plain Layout
 
-& mean &  offer price & seller 
+& mean & seller  & offer price 
 \backslash
 
 \backslash
@@ -1204,7 +1305,7 @@ hline
 
 \begin_layout Plain Layout
 
-& Ctrl & high & woman
+& Ctrl & women & high 
 \backslash
 
 \backslash
@@ -1810,11 +1911,12 @@ Transaction price
 \begin_layout Standard
 As a first outcome of interest, we see that about 30 percent of buyers immediate
 ly accept buying the seed pack at the initial offer price.
- The likelihood that a farmer immediately accepts reduces substantially
- when the initial offer is high: If the seller asks for at least 11,000
- Ugandan shilling, only about 11 percent of buyers accept immediately.
  Interestingly, we see that the likelihood that farmers immediately accept
- also reduces substantially when the seller is a woman.
+ reduces substantially when the seller is a woman.
+ The likelihood that a farmer immediately accepts reduces even more when
+ the initial offer is high: If the seller asks for at least 11,000 Ugandan
+ shilling, only about 11 percent of buyers accept immediately.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1833,32 +1935,33 @@ noprefix "false"
 ).
  The average counter-bid by farmers in response to this initial offer was
  just over UGX6,000.
- For this outcome, there is no significant impact from the initial price
- level.
- However, we do see a significant reduction in the first bid price when
- the seller is a woman.
+ We find a significant reduction in the first bid price when the seller
+ is a woman.
  The effect is also economically significant, amounting to only 87 percent
  of the initial bid price that male sellers are confronted with.
+ For this outcome, there is no significant impact from the initial price
+ level.
 \end_layout
 
 \begin_layout Standard
 We also find that about 17 percent of buyers started negotiating from UGX3,000,
  the lowest possible bid.
+ In line with the previous finding, we see that the share of buyers going
+ for the lowest possible counter-bid is significantly higher if the seller
+ is a woman (although only at the 10 percent level).
  The level of the initial offer price does not seem to affect this share.
- However, in line with the previous finding, we do see that the share of
- buyers going for the lowest possible counter-bid is significantly higher
- if the seller is a woman (although only at the 10 percent level).
 \end_layout
 
 \begin_layout Standard
 Another interesting negotiation strategy some buyers seem to use is to name
  an initial counter-bid and stick to this price.
  A surprisingly large share of farmers (40 percent) uses this strategy.
- The use of this strategy does not depend on the initial offer price.
- However, we do find that a significantly lower share of farmers use this
- strategy when the woman is a seller.
+ We find that a significantly lower share of farmers use this strategy when
+ the woman is a seller.
  Apparently, the lower base price this subgroup starts from increases the
  likelihood that farmers increase bid prices over time.
+ The use of this strategy does not depend on the initial offer price.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1891,10 +1994,10 @@ e is almost 12 percentage points lower when the seller is a woman.
 Finally, we look at what is arguably the most important outcome.
  The average transaction price was about UGX7,000, which was about 70 percent
  of the maximum initial offer price, and 2.3 times the minimal bid price.
- We see that an initially high offer price increases the final price by
- UGX334.
- If the seller is a woman, however, we see that the transaction price is
- about UGX600 lower than when the seller is a man.
+ If the seller is a woman, we see that the transaction price is about UGX600
+ lower than when the seller is a man.
+ An initially high offer price increases the final price by UGX335.
+ 
 \end_layout
 
 \begin_layout Standard

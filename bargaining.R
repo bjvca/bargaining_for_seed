@@ -248,23 +248,28 @@ dta$buyer_accepts <- dta$accepts=="buyer"
 outcomes <- c("initial_accept","starting_price", "bottom_price","buyer_accepts","sticky","rounds","final_price")
 results <- array(NA,c(length(outcomes), 4,4))
 averages <- array(NA,c(length(outcomes),2))
+
+dta$anchor_high_demeaned <- dta$anchor_high - mean(dta$anchor_high)
+dta$enumerator_gender_female_demeaned <-  (dta$enumerator_gender == "Female")  - mean(dta$enumerator_gender == "Female")
+
 t <- 1
 for (i in outcomes) {
   
   averages[t,1] <- mean(dta[dta$anchor_high==FALSE & dta$enumerator_gender=="Male",i], na.rm=T)
   averages[t,2] <- sd(dta[dta$anchor_high==FALSE & dta$enumerator_gender=="Male",i], na.rm=T)
   
-  model <- lm(as.formula(paste(i,"enumerator_gender+anchor_high+gender", sep="~")), data=dta)
+  model <- lm(as.formula(paste(i,"enumerator_gender+enumerator_gender*anchor_high_demeaned+gender", sep="~")), data=dta)
   
 #  print(summary(model))
+  results[t,1,1:2] <- summary(model)$coefficients[2,1:2]
+  results[t,1,3] <- summary(model)$coefficients[2,4]
+  results[t,1,4] <- nobs(model)
+  
+  model <- lm(as.formula(paste(i,"anchor_high+anchor_high*dta$enumerator_gender_female_demeaned+gender", sep="~")), data=dta)
+  
   results[t,2,1:2] <- summary(model)$coefficients[2,1:2]
   results[t,2,3] <- summary(model)$coefficients[2,4]
   results[t,2,4] <- nobs(model)
-  
-  
-  results[t,1,1:2] <- summary(model)$coefficients[3,1:2]
-  results[t,1,3] <- summary(model)$coefficients[3,4]
-  results[t,1,4] <- nobs(model)
   model <- lm(as.formula(paste(i,"enumerator_gender*anchor_high+gender", sep="~")), data=dta)
   
   results[t,3,1:2] <- summary(model)$coefficients[5,1:2]
