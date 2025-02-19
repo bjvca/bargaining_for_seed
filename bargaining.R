@@ -6,7 +6,7 @@ library(ggridges)
 library(car)
 library(plyr)
 library(clubSandwich)
-library(ggpubr)
+#library(ggpubr)
 
 group.center <- function(var,grp) {
   return(var-tapply(var,grp,mean,na.rm=T)[grp])
@@ -176,9 +176,9 @@ ggplot(plt, aes(x = price, y = gender)) + geom_density_ridges2(jittered_points =
                                                                           point_shape = '|', point_size = 3, point_alpha = .5, alpha = 0.5) 
 p1 <-ggplot(plt1, aes(x=price, fill=gender)) +  geom_density(alpha=0.4) +   scale_x_continuous(limits = c(1000, 13500)) +   scale_y_continuous(limits = c(0, 0.000275))
 p2 <-ggplot(plt2, aes(x=price, fill=gender)) +  geom_density(alpha=0.4) +   scale_x_continuous(limits = c(1000, 13500)) +   scale_y_continuous(limits = c(0, 0.000275))
-ggarrange(p2,p1, 
-          labels = c("final price", "first counter bid"),
-          ncol = 1, nrow = 2,heights = c(0.7, 0.7))
+#ggarrange(p2,p1, 
+#          labels = c("final price", "first counter bid"),
+#          ncol = 1, nrow = 2,heights = c(0.7, 0.7))
 
 
 ### question: is gender_enumerator orthogonal to farmer baseline outcomes
