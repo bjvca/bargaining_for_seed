@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -17,7 +17,7 @@
 \begin_modules
 knitr
 \end_modules
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \language english
 \language_package none
 \inputencoding iso8859-15
@@ -29,7 +29,9 @@ knitr
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -63,7 +65,9 @@ knitr
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
 \index Index
 \shortcut idx
 \color #008000
@@ -83,11 +87,16 @@ knitr
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
 \end_header
 
 \begin_body
@@ -110,10 +119,15 @@ author{
 
 Bjorn Van Campenhout
 \backslash
-thanks{Innovation Policy and Scaling Unit, IFPRI, Belgium - corresponding
- author: b.vancampenhout@cgiar.org}, Leocardia Nabwire
+thanks{Innovation Policy and Scaling Unit,
+ IFPRI,
+ Belgium - corresponding author:
+ b.vancampenhout@cgiar.org},
+ Leocardia Nabwire
 \backslash
-thanks{Innovation Policy and Scaling Unit, IFPRI, Uganda}}
+thanks{Innovation Policy and Scaling Unit,
+ IFPRI,
+ Uganda}}
 \end_layout
 
 \end_inset
@@ -123,36 +137,31 @@ thanks{Innovation Policy and Scaling Unit, IFPRI, Uganda}}
 
 \end_inset
 
-The role of gender in bargaining: evidence from selling seed to smallholders
- in Uganda 
+The role of gender in bargaining:
+ evidence from selling seed to smallholders in Uganda 
 \end_layout
 
 \begin_layout Abstract
-In rural societies with strong gender norms and customs, small informal
- agribusinesses may often be one of the few ways in which women can independentl
-y generate revenue.
- However, previous research has indicated that female run businesses may
- be perceived less favorably compared to their male counterparts.
- In this paper, we examine the potential consequences of these biased perception
-s on business transactions.
- In particular, we test whether the gender of the seller has an impact on
- buyers' negotiation strategies and eventual outcomes in bilateral price
- negotiations.
- We use a lab-in-the-field experiment in eastern Uganda, where a representative
- sample of smallholder maize farmers are offered the opportunity to bargain
- over a bag of maize seed of an improved variety from a male or female seller.
- We find that buyers confronted with a female seller are less likely to
- accept the initial offer price and respond with a lower counter-bid than
- farmers faced with a male seller.
- Negotiations take on average one round longer when the seller is a woman
- and the transaction price is almost 9 percent lower.
- For comparison, we also look at the effect of the starting price on the
- same bargaining outcomes and find that the gendered disadvantage is roughly
- equal to a 20 percent higher starting price.
+In rural societies with strong gender norms and customs,
+ small agribusinesses may be one of the few ways in which women can independently generate revenue.
+ Previous research has indicated that female run businesses are perceived less favorably than their male counterparts.
+ We examine the potential consequences of these biased perceptions on business transactions.
+ In particular,
+ we test whether the gender of the seller has an impact on buyers' negotiation strategies and outcomes in bilateral price negotiations.
+ We use a bargaining experiment in eastern Uganda,
+ where a representative sample of smallholder maize farmers are offered the opportunity to bargain over a bag of maize seed of an improved variety from a male or female seller.
+ We find that buyers confronted with a female seller are less likely to accept the initial offer price and respond with a lower counter-bid than farmers faced with a male seller.
+ Negotiations take on average one round longer when the seller is a woman and the transaction price is almost 9 percent lower.
+ For comparison,
+ we also look at the effect of the starting price on the same bargaining outcomes and find that the gendered disadvantage is roughly equal to a 20 percent higher starting price.
 \end_layout
 
 \begin_layout Abstract
-Keywords: gender bias, bargaining, maize seed, Uganda 
+Keywords:
+ gender bias,
+ bargaining,
+ maize seed,
+ Uganda 
 \end_layout
 
 \begin_layout Standard
@@ -161,7 +170,10 @@ status open
 
 \begin_layout Plain Layout
 
-<<standard_beginning, echo=F, warning=F, message=F>>=
+<<standard_beginning,
+ echo=F,
+ warning=F,
+ message=F>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -205,152 +217,81 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Over the past few decades, attention has shifted from considering farm household
-s as a single unit to studying the structure and organization of the household
- as an institution comprised of different actors, each with their own preference
-s, which may or may not align 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "agarwal1997bargaining"
-literal "false"
-
-\end_inset
-
-.
- In the context of collective bargaining models, research has established
- the importance of household members' control over resources for their intra-hou
-sehold bargaining power and outcomes in terms of intra-household equity.
+In this paper,
+ we investigate whether this gender bias in perception extends into price bargaining processes and outcomes.
+ In the context of rural Uganda,
+ haggling over prices is the rule rather than the exception.
+ The bargaining strategies that parties use and the ensuing transaction price is a function of a range of variables,
+ such as (perceptions about) the purchasing power of parties involved,
+ power relationships,
+ and (beliefs about) preferences,
+ among others.
+ If some of these variables are skewed against female informal vendors (such as perceptions related their ability to properly store and handle the goods they sell),
+ gender bias may also manifest in the strategies that negotiating parties use,
+ and the outcome of the process.
 \end_layout
 
 \begin_layout Standard
-In settings characterized by strong gender norms and customs, roles and
- responsibilities within households often have a gendered dimension.
- For instance, men could be responsible for economic activities like maize
- production, while women take care of reproductive activities such as fetching
- water and firewood.
- In settings characterized by subsistence agriculture, entry points for
- women in food supply chains are generally downstream, consisting of activities
- such as light processing and retail.
- Research indeed shows that informal vendors often tend to be self-employed
- or owned and operated by women.
- As such, these forms of informal self-employment often constitute a crucial
- source of income that women can earn independently from the husband 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "GIROUX2021101997"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Unfortunately, even though women are allowed to participate in these roles,
- perceptions may still be stacked against them.
- For instance, previous research with agro-input dealers in Uganda showed
- that female managed agro-input shops are perceived less favorably on a
- range of attributes than their male counterparts.
- This includes perceptions that female-managed shops sold lower quality
- seed, despite the reverse appearing to be true 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "de2024gender"
-literal "false"
-
-\end_inset
-
-.
- The difference in perceptions was greatest when customers were asked to
- rate agro-dealers in terms of price competitiveness, again despite the
- fact that we found no difference between average prices charged by male-
- and female-managed agro-input shops.
-\end_layout
-
-\begin_layout Standard
-In this paper, we investigate whether this gender bias in perception extends
- into price bargaining processes and outcomes.
- In the context of rural Uganda, haggling over prices is the rule rather
- than the exception.
- The bargaining strategies that parties use and the ensuing transaction
- price is a function of a range of variables, such as (perceptions about)
- the purchasing power of parties involved, power relationships, and (beliefs
- about) preferences, among others.
- If some of these variables are skewed against female informal vendors (such
- as perceptions related their ability to properly store and handle the goods
- they sell), gender bias may also manifest in the strategies that negotiating
- parties use, and the outcome of the process.
-\end_layout
-
-\begin_layout Standard
-At the core of our study is a simple lab-in-the-field experiment.
- In particular, we offer the opportunity to a representative group of maize
- farmers to buy a bag of hybrid maize seed.
- A trained enumerator, guided by a script implemented on a tablet computer,
+At the core of our study is a simple bargaining experiment.
+ In particular,
+ we offer the opportunity to a representative group of maize farmers to buy a bag of hybrid maize seed.
+ A trained enumerator,
+ guided by a script implemented on a tablet computer,
  acts as a seller.
  After briefly explaining the virtues of hybrid maize seed to the buyer,
- the seller asks if the buyer wants to buy the seed at an initial offer
- price.
- If the buyer rejects the offer, he or she is encouraged to call out a first
- counter-bid.
- The algorithm on the tablet then determines if the seller agrees on the
- counter-bid (depending on whether the difference between the two bids is
- small enough) or to enter into a second round of negotiations and name
- a second offer price (which is lower than the previous offer price but
- higher than the farmer's previous counter-bid).
+ the seller asks if the buyer wants to buy the seed at an initial offer price.
+ If the buyer rejects the offer,
+ he or she is encouraged to call out a first counter-bid.
+ The algorithm on the tablet then determines if the seller agrees on the counter-bid (depending on whether the difference between the two bids is small enough) or to enter into a second round of negotiations and name a second offer price (which is lower than the previous offer price but higher than the farmer's previous counter-bid).
  This process continues until either the farmer accepts an offer price,
- or the seller is instructed to accept a bid because the difference between
- last bid price and new offer price is lower than a particular threshold.
+ or the seller is instructed to accept a bid because the difference between last bid price and new offer price is lower than a particular threshold.
 \end_layout
 
 \begin_layout Standard
 We provide exogenous variation along two dimensions.
- First, we assign farmers to either a male or female seller in a way that
- is as good as random.
- This allows us to estimate the causal impact of the seller's gender on
- the bargaining process and outcomes.
- Second, we randomly assign the initial offer price that the seller (male
- or female) asks of the farmer, allowing us to estimate the causal impact
- of initial offer price on the bargaining process and outcomes as well as
- to compare the sizes of these two effects.
+ First,
+ we assign farmers to either a male or female seller in a way that is as good as random.
+ This allows us to estimate the causal impact of the seller's gender on the bargaining process and outcomes.
+ Second,
+ we randomly assign the initial offer price that the seller (male or female) asks of the farmer,
+ allowing us to estimate the causal impact of initial offer price on the bargaining process and outcomes as well as to compare the sizes of these two effects.
 \end_layout
 
 \begin_layout Standard
-Our experiment allows us to investigate the effect of the seller's gender
- (and the initial offer price) on various strategies used by the buyer as
- well as on outcomes of the process.
- These include: (1) the likelihood that the buyer immediately accepts at
- the initial offer price (and hence no bargaining takes place); (2) the
- first counter-bid following the initial offer price; (3) the likelihood
- that this first counter-bid is the minimum admissible counter-bid; (4)
- the likelihood that the buyer sticks with the initial counter-bid throughout
- the bargaining process (that is, the buyer plays a non-concessional strategy);
- (5) the number of negotiation rounds before any party accepts; (6) the
- likelihood that the buyer accepts at any point (as opposed to ending negotiatio
-ns because of convergence); and (7) the transaction price.
+Our experiment allows us to investigate the effect of the seller's gender (and the initial offer price) on various strategies used by the buyer as well as on outcomes of the process.
+ These include:
+ (1) the likelihood that the buyer immediately accepts at the initial offer price (and hence no bargaining takes place);
+ (2) the first counter-bid following the initial offer price;
+ (3) the likelihood that this first counter-bid is the minimum admissible counter-bid;
+ (4) the likelihood that the buyer sticks with the initial counter-bid throughout the bargaining process (that is,
+ the buyer plays a non-concessional strategy);
+ (5) the number of negotiation rounds before any party accepts;
+ (6) the likelihood that the buyer accepts at any point (as opposed to ending negotiations because of convergence);
+ and (7) the transaction price.
 \end_layout
 
 \begin_layout Standard
-Results show that the likelihood that the buyer immediately accepts is reduced
- when the seller is a woman.
- Negotiations with female sellers also leads to a substantial decrease in
- buyers' initial counter-bids, and a higher percentage of buyers starting
- with the lowest possible bid.
- The bargaining process with female sellers tends to involve more negotiation
- rounds, indicating increased resistance from buyers, and ultimately resulting
- in transaction prices that are approximately UGX600 lower than transaction
- prices that emerge when the seller is a man.
- In sum, we find that the gendered effect seems to manifest early in the
- negotiation process, influencing initial counter-bids and setting the stage
- for subsequent interactions, emphasizing the significant impact of seller
- gender on bargaining dynamics.
+Results show that the likelihood that the buyer immediately accepts is reduced when the seller is a woman.
+ Negotiations with female sellers also leads to a substantial decrease in buyers' initial counter-bids,
+ and a higher percentage of buyers starting with the lowest possible bid.
+ The bargaining process with female sellers tends to involve more negotiation rounds,
+ indicating increased resistance from buyers,
+ and ultimately resulting in transaction prices that are approximately UGX600 lower than transaction prices that emerge when the seller is a man.
+ In sum,
+ we find that the gendered effect seems to manifest early in the negotiation process,
+ influencing initial counter-bids and setting the stage for subsequent interactions,
+ emphasizing the significant impact of seller gender on bargaining dynamics.
 \end_layout
 
 \begin_layout Standard
 This article contributes to the existing literature in different ways.
- Most research on bargaining uses a WEIRD population (Western, Educated,
- Industrialized, Rich, and Democratic), yet bargaining is much more prevalent
- in non-WEIRD societies, and may also differ in these settings 
+ Most research on bargaining uses a WEIRD population (Western,
+ Educated,
+ Industrialized,
+ Rich,
+ and Democratic),
+ yet bargaining is much more prevalent in non-WEIRD societies,
+ and may also differ in these settings 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "henrich2010weirdest,andersen2018cultural"
@@ -359,10 +300,8 @@ literal "false"
 \end_inset
 
 .
- By implementing a lab-in-the-field experiment in the context of smallholder
- farmers bargaining over seed, we contribute to an emerging literature that
- studies how economic transactions transpire in more realistic settings
- 
+ By implementing a bargaining experiment in the context of smallholder farmers bargaining over seed,
+ we contribute to an emerging literature that studies how economic transactions transpire in more realistic settings 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "fitzpatrick2017shopping,bhattacharya2023undervaluation"
@@ -371,9 +310,9 @@ literal "false"
 \end_inset
 
 .
- Furthermore, the majority of studies that look at discrimination in the
- market place are mainly concerned about seller-side discrimination, where
- sellers offer different prices depending on minority membership 
+ Furthermore,
+ the majority of studies that look at discrimination in the market place are mainly concerned about seller-side discrimination,
+ where sellers offer different prices depending on minority membership 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "CASTILLO201335,825eef39-d1b6-3a49-9884-20578c598ab2,fitzpatrick2017shopping"
@@ -382,39 +321,15 @@ literal "false"
 \end_inset
 
 .
- We focus on buyer-side discrimination, where buyers are willing to pay
- different prices to minority group membership.
+ We focus on buyer-side discrimination,
+ where buyers are willing to pay different prices to minority group membership.
 \end_layout
 
 \begin_layout Standard
-The remainder of this article is organized as follows.
- In the next section, we provide a brief overview of the related literature.
- We then proceed with an in-depth description of the bargaining experiment,
- followed by a description of the study population.
- Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:A-gendered-analysis"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- provides the results of the analysis, and a final section provides a conclusion
-, discusses study limitations, and gives suggestions on the way forward.
-\end_layout
-
-\begin_layout Section
-Related literature
-\end_layout
-
-\begin_layout Standard
-A large number of studies—based on observational data and more rigorous
- field experiments alike—find overwhelming evidence of differences in the
- outcomes of market transactions when minorities (including women) are involved
- as a transacting party (as compared to cases where all transaction parties
- come from the majority, see 
+A large number of studies—
+based on observational data and more rigorous field experiments alike—
+find overwhelming evidence of differences in the outcomes of market transactions when minorities (including women) are involved as a transacting party (as compared to cases where all transaction parties come from the majority,
+ see 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "10.1111/1468-0297.00080"
@@ -423,15 +338,13 @@ literal "false"
 \end_inset
 
 ).
- This unsettling regularity has led to a search for the sources of this
- apparent discrimination, generating an equally large body of research.
+ This unsettling regularity has led to a search for the sources of this apparent discrimination,
+ generating an equally large body of research.
 \end_layout
 
 \begin_layout Standard
-Research on the causes of discrimination is particularly prominent in labour
- economics, where so-called situation or audit tests have been used to estimate
- the effect of race on the likelihood of being invited for a job interview
- 
+Research on the causes of discrimination is particularly prominent in labour economics,
+ where so-called situation or audit tests have been used to estimate the effect of race on the likelihood of being invited for a job interview 
 \begin_inset CommandInset citation
 LatexCommand citep
 before "eg:"
@@ -441,11 +354,11 @@ literal "false"
 \end_inset
 
 .
- The fact that women generally earn less than men is also a fertile breeding
- ground for research.
- Potential explanations include sorting (where women end up in companies
- that pay lower wage premiums), the fact that women are offered lower wages,
- and/or the fact that women negotiate worse wage bargains 
+ Another well-explored topic is the gender wage gap,
+ where women generally earn less than men.
+ Potential explanations include occupational sorting (women working in firms that offer lower wage premiums),
+ differences in initial wage offers,
+ and variations in wage negotiation strategies 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1093/qje/qjv038,leibbrandt2015women"
@@ -454,8 +367,9 @@ literal "false"
 \end_inset
 
 .
- However, recent research also suggests interesting dynamics, where an initial
- gendered disadvantage turns into an advantage over time 
+ However,
+ recent research also suggests interesting dynamics,
+ where an initial gendered disadvantage turns into an advantage over time 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bohren2019dynamics"
@@ -467,23 +381,22 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Given the large volume of research, we focus on a specific set of studies.
- First, we are interested in the effect of gender of one party (the seller)
- on the bargaining behaviour of the other party (the buyer).
- This is different from studies that look at the impact of gender on own
- behavior (for instance, testing if female buyers' initial bid price is
- different from male buyers' initial bid price 
+Given the large volume of research,
+ we focus on a specific set of studies.
+ First,
+ we are interested in the effect of gender of one party (the seller) on the bargaining behaviour of the other party (the buyer).
+ This is different from studies that look at the impact of gender on own behavior (for instance,
+ testing if female buyers' initial bid price is different from male buyers' initial bid price 
 \emph on
 ceteris paribus
 \emph default
 ).
- While the impact of gender on own behaviour is certainly an interesting
- question, it is much harder to investigate since gender cannot be randomized.
- Second, we focus on studies that capture at least some elements of bilateral
- bargaining.
+ While the impact of gender on own behaviour is certainly an interesting question,
+ it is much harder to investigate since gender cannot be randomized.
+ Second,
+ we focus on studies that capture at least some elements of bilateral bargaining.
  This excludes studies where only the outcome of the transaction is recorded;
- most studies we review involve some kind of lab-in-the-field component
- where actual bargaining between partners for real stakes is observed.
+ most studies we review involve some kind of bargaining component where actual bargaining between partners for real stakes is observed.
 \end_layout
 
 \begin_layout Standard
@@ -494,19 +407,18 @@ literal "false"
 
 \end_inset
 
- studies bilateral negotiation in the US sports card market and observes
- that 1) sellers from minority groups (in terms of gender, race, and age)
- receive initial and final bids that are lower than those received by majorities
-, and that 2) buyers from minority groups receive initial and final offers
- that are higher than those received by majority groups.
- He further finds that the former type of discrimination (that is, buyer-side
- discrimination) is more pronounced than the latter (seller-side discrimination).
- Note that in our experiment, we only test for buyer-side discrimination.
+ studies bilateral negotiation in the US sports card market and observes that 1) sellers from minority groups (in terms of gender,
+ race,
+ and age) receive initial and final bids that are lower than those received by majorities,
+ and that 2) buyers from minority groups receive initial and final offers that are higher than those received by majority groups.
+ He further finds that the former type of discrimination (that is,
+ buyer-side discrimination) is more pronounced than the latter (seller-side discrimination).
+ Note that in our experiment,
+ we only test for buyer-side discrimination.
 \end_layout
 
 \begin_layout Standard
-One of the first studies to use identical scripted bargaining strategies
- to study the impact of gender (and race) is 
+One of the first studies to use identical scripted bargaining strategies to study the impact of gender (and race) is 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "825eef39-d1b6-3a49-9884-20578c598ab2"
@@ -515,8 +427,8 @@ literal "false"
 \end_inset
 
 .
- In their study, seller-side discrimination in the market for new cars is
- investigated.
+ In their study,
+ seller-side discrimination in the market for new cars is investigated.
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -525,12 +437,9 @@ literal "false"
 
 \end_inset
 
- carefully selected mock buyers to resemble each other as closely as possible
- and trained them to bargain uniformly through a prespecified bargaining
- script.
- From over 300 negotiations at new car dealerships in the US, they conclude
- that dealers quoted significantly lower prices to white males than to black
- or female test buyers.
+ carefully selected mock buyers to resemble each other as closely as possible and trained them to bargain uniformly through a prespecified bargaining script.
+ From over 300 negotiations at new car dealerships in the US,
+ they conclude that dealers quoted significantly lower prices to white males than to black or female test buyers.
 \end_layout
 
 \begin_layout Standard
@@ -541,15 +450,13 @@ literal "false"
 
 \end_inset
 
- report on a sequential bargaining experiment in the market for taxi rides
- in Lima.
- Here, the focus is also on seller-side discrimination, as they are interested
- in the impact of the customer's gender on bargaining strategies and outcomes
- of the taxi driver (which are all men).
- They use a fixed-offer bargaining script that both male and female potential
- passengers follow when interacting with taxi drivers.
- Interestingly, they find that men are offered and pay higher prices than
- women.
+ report on a sequential bargaining experiment in the market for taxi rides in Lima.
+ Here,
+ the focus is also on seller-side discrimination,
+ as they are interested in the impact of the customer's gender on bargaining strategies and outcomes of the taxi driver (which are all men).
+ They use a fixed-offer bargaining script that both male and female potential passengers follow when interacting with taxi drivers.
+ Interestingly,
+ they find that men are offered and pay higher prices than women.
 \end_layout
 
 \begin_layout Standard
@@ -560,15 +467,15 @@ literal "false"
 
 \end_inset
 
- tests whether women pay more or less than men in the Ugandan market for
- antimalarial drugs in yet another seller-side discrimination audit study.
- To do so, she started from a census of outlets selling antimalarial drugs
- in 5 parishes and sent mystery shoppers to purchase an antimalarial drug
- according to randomly assigned scripts.
- She finds evidence that, for the same product, women are offered higher
- prices than men.
- However, women are more successful at bargaining, and as a result the transacti
-on price does not differ between male and female buyers.
+ tests whether women pay more or less than men in the Ugandan market for antimalarial drugs in yet another seller-side discrimination audit study.
+ To do so,
+ she started from a census of outlets selling antimalarial drugs in 5 parishes and sent mystery shoppers to purchase an antimalarial drug according to randomly assigned scripts.
+ She finds evidence that,
+ for the same product,
+ women are offered higher prices than men.
+ However,
+ women are more successful at bargaining,
+ and as a result the transaction price does not differ between male and female buyers.
 \end_layout
 
 \begin_layout Standard
@@ -580,17 +487,101 @@ literal "false"
 
 \end_inset
 
-, who observe that women-owned micro-businesses are generally less profitable
- than male-owned businesses.
- To separate the effect of differences in business characteristics from
- the gender effect, they conduct a field experiment among Indian vegetable
- sellers where men report earning roughly 50 percent more daily revenue
- than women.
- In their experiment, they keep every business aspect (e.g., location, opening
- hours, stock, etc.) the same except for the gender of the seller.
- After controlling for supply side factors in this way, they find that earnings
- between male and female vendors do not differ and conclude that there is
- no buyer-side discrimination.
+,
+ who observe that women-owned micro-businesses are generally less profitable than male-owned businesses.
+ To separate the effect of differences in business characteristics from the gender effect,
+ they conduct a field experiment among Indian vegetable sellers where men report earning roughly 50 percent more daily revenue than women.
+ In their experiment,
+ they keep every business aspect (e.g.,
+ location,
+ opening hours,
+ stock,
+ etc.) the same except for the gender of the seller.
+ After controlling for supply side factors in this way,
+ they find that earnings between male and female vendors do not differ and conclude that there is no buyer-side discrimination.
+\end_layout
+
+\begin_layout Standard
+What does this mean for welfare and gender-controlle income if women are systematically presented with lower prices?
+ Over the past few decades,
+ attention has shifted from considering farm households as a single unit to studying the structure and organization of the household as an institution comprised of different actors,
+ each with their own preferences,
+ which may or may not align 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "agarwal1997bargaining"
+literal "false"
+
+\end_inset
+
+.
+ In the context of collective bargaining models,
+ research has established the importance of household members' control over resources for their intra-household bargaining power and outcomes in terms of intra-household equity.
+\end_layout
+
+\begin_layout Standard
+In settings characterized by strong gender norms and customs,
+ roles and responsibilities within households often have a gendered dimension.
+ For instance,
+ men could be responsible for economic activities like maize production,
+ while women take care of reproductive activities such as fetching water and firewood.
+ In settings characterized by subsistence agriculture,
+ entry points for women in food supply chains are generally downstream,
+ consisting of activities such as light processing and retail.
+ Research indeed shows that informal vendors often tend to be self-employed or owned and operated by women.
+ As such,
+ these forms of informal self-employment often constitute a crucial source of income that women can earn independently from the husband 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "GIROUX2021101997"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Unfortunately,
+ even though women are allowed to participate in these roles,
+ perceptions may still be stacked against them.
+ For instance,
+ previous research with agro-input dealers in Uganda showed that female managed agro-input shops are perceived less favorably on a range of attributes than their male counterparts.
+ This includes perceptions that female-managed shops sold lower quality seed,
+ despite the reverse appearing to be true 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "de2024gender"
+literal "false"
+
+\end_inset
+
+.
+ The difference in perceptions was greatest when customers were asked to rate agro-dealers in terms of price competitiveness,
+ again despite the fact that we found no difference between average prices charged by male- and female-managed agro-input shops.
+\end_layout
+
+\begin_layout Standard
+The remainder of this article is organized as follows.
+ In the next section,
+ we provide a brief overview of the related literature.
+ We then proceed with an in-depth description of the bargaining experiment,
+ followed by a description of the study population.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:A-gendered-analysis"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ provides the results of the analysis,
+ and a final section provides a conclusion,
+ discusses study limitations,
+ and gives suggestions on the way forward.
 \end_layout
 
 \begin_layout Section
@@ -598,11 +589,11 @@ Bargaining Experiment
 \end_layout
 
 \begin_layout Standard
-In our experiment, farmers are offered the opportunity to buy a bag of seed
- from a seller through a bargaining process.
- Compared to a one-shot, take-it-or-leave it approach (such as the Becker–DeGroo
-t–Marschak method that is often used to measure willingness to pay, as in
- 
+In our experiment,
+ farmers are offered the opportunity to buy a bag of seed from a seller through a bargaining process.
+ Compared to a one-shot,
+ take-it-or-leave it approach (such as the Becker–DeGroot–Marschak method that is often used to measure willingness to pay,
+ as in 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "BURCHARDI2021102701"
@@ -610,19 +601,23 @@ literal "false"
 
 \end_inset
 
-), a bargaining experiment is more realistic in settings where haggling
- over prices is the norm.
+),
+ a bargaining experiment is more realistic in settings where haggling over prices is the norm.
  An initial offer price is randomly drawn from a set of four prices (UGX12,000,
- 11,000, 10,000, and 9,000), with higher probability on the extremes (probabilit
-ies are 0.3, 0.2, 0.2, and 0.3 respectively).
+ 11,000,
+ 10,000,
+ and 9,000),
+ with higher probability on the extremes (probabilities are 0.3,
+ 0.2,
+ 0.2,
+ and 0.3 respectively).
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
 The price at which seed was sold in shops was 12,000.
- As farmers thus receive a discount on the price of seed (unless they draw
- the highest price and immediately accept), we did not offer any additional
- incentives to participate to farmers.
+ As farmers thus receive a discount on the price of seed (unless they draw the highest price and immediately accept),
+ we did not offer any additional incentives to participate to farmers.
 \end_layout
 
 \end_inset
@@ -630,21 +625,19 @@ The price at which seed was sold in shops was 12,000.
  This price is then presented to the farmer as the price of the bag of seed.
  The seller explains what kind of seed it is and what the advantages are,
  and the farmer is asked if they want to buy the seed for this price.
- If the farmer says no, then they are encouraged to name their counter-bid
- price.
- The minimal bid price was UGX3,000, but this lower limit was not communicated
- to the farmer in advance.
- Only when the farmer's initial counter-bid was lower than 3,000 was it
- communicated that this was the lowest acceptable price, and the farmer
- could either revise the first counter-bid to 3,000 or above, or abandon
- the game.
+ If the farmer says no,
+ then they are encouraged to name their counter-bid price.
+ The minimal bid price was UGX3,000,
+ but this lower limit was not communicated to the farmer in advance.
+ Only when the farmer's initial counter-bid was lower than 3,000 was it communicated that this was the lowest acceptable price,
+ and the farmer could either revise the first counter-bid to 3,000 or above,
+ or abandon the game.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-As UGX3,000 is less than a dollar and participating farmers were told to
- bring some money to the experiment (see next section), virtually all farmers
- stayed in the game.
+As UGX3,000 is less than a dollar and participating farmers were told to bring some money to the experiment (see next section),
+ virtually all farmers stayed in the game.
 \end_layout
 
 \end_inset
@@ -654,22 +647,24 @@ As UGX3,000 is less than a dollar and participating farmers were told to
 status collapsed
 
 \begin_layout Plain Layout
-To reduce potential bias from tester behaviour, the seller was instructed
- to follow a standard script: 
+To reduce potential bias from tester behaviour,
+ the seller was instructed to follow a standard script:
+ 
 \begin_inset Quotes eld
 \end_inset
 
 Take one bag of seed and show it to the farmer.
- Read out the following: 'Hello, as part of the research project we introduced
- earlier [during consent], we are giving you the opportunity to buy a bag
- of maize seed of an improved variety to try out in your fields.
+ Read out the following:
+ 'Hello,
+ as part of the research project we introduced earlier [during consent],
+ we are giving you the opportunity to buy a bag of maize seed of an improved variety to try out in your fields.
  The seed is a popular hybrid variety called Bazooka.
- Bazooka is high yielding, tolerant to drought, tolerant to pests and diseases
- for example resistant to kayongo.
- The seed has been obtained from a certified agro-input dealer and we can
- guarantee you that it is fresh and has not been tampered with in any way.
- Would you be interested in buying this? You can use cash or mobile money
- to pay.
+ Bazooka is high yielding,
+ tolerant to drought,
+ tolerant to pests and diseases for example resistant to kayongo.
+ The seed has been obtained from a certified agro-input dealer and we can guarantee you that it is fresh and has not been tampered with in any way.
+ Would you be interested in buying this?
+ You can use cash or mobile money to pay.
  We offer you the seed at [insert randomly selected initial offer price].
  Do you want to buy the seed at this price?'
 \begin_inset Quotes erd
@@ -684,8 +679,7 @@ Take one bag of seed and show it to the farmer.
 \end_layout
 
 \begin_layout Standard
-Sellers then follow a concession script where they split the difference
- between the offer price and the farmer's bid 
+Sellers then follow a concession script where they split the difference between the offer price and the farmer's bid 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.2307/25098677"
@@ -694,116 +688,708 @@ literal "false"
 \end_inset
 
 .
- The tablet computer guiding the seller uses an algorithm to determine a
- counter-offer that the enumerator asks in a second round of negotiation.
- This new offer price is determined as the farmer's bid price plus 80 percent
- of the difference between the (initial) offer price and the farmer's bid
- price, and this is rounded to the nearest multiple of 500.
- This updated (lower) offer price is then compared to the last bid price
- of the farmer.
- If the difference is smaller than 500, the seller is instructed to accept
- the bid price.
- If the difference between the updated (lower) offer price and the bid price
- is larger than 500, then the updated offer price is presented to the farmer,
+ The tablet computer guiding the seller uses an algorithm to determine a counter-offer that the enumerator asks in a second round of negotiation.
+ This new offer price is determined as the farmer's bid price plus 80 percent of the difference between the (initial) offer price and the farmer's bid price,
+ and this is rounded to the nearest multiple of 500.
+ This updated (lower) offer price is then compared to the last bid price of the farmer.
+ If the difference is smaller than 500,
+ the seller is instructed to accept the bid price.
+ If the difference between the updated (lower) offer price and the bid price is larger than 500,
+ then the updated offer price is presented to the farmer,
  and the farmer gets a second opportunity to accept or reject.
- If the farmer does not accept, the farmer is encouraged to make a second
- bid that should be equal to or higher than the first bid the farmer made.
- Based on this second bid, a third offer price is determined as the farmer's
- second bid price plus 80 percent of the difference between the second offer
- price and the farmer's second bid price.
+ If the farmer does not accept,
+ the farmer is encouraged to make a second bid that should be equal to or higher than the first bid the farmer made.
+ Based on this second bid,
+ a third offer price is determined as the farmer's second bid price plus 80 percent of the difference between the second offer price and the farmer's second bid price.
 \end_layout
 
 \begin_layout Standard
 Bargaining continues in this way until the farmer accepts an offer price,
- or the price difference between the bid and offer price is smaller than
- 500 Ugandan shilling, in which case the computer instructs the enumerator
- to sell at the last bid price.
- If the highest initial offer price of UGX12,000 was drawn and a farmer
- sticks to the lowest possible bid price (UGX3,000), the program accepts
- this bid after 10 negotiation rounds.
+ or the price difference between the bid and offer price is smaller than 500 Ugandan shilling,
+ in which case the computer instructs the enumerator to sell at the last bid price.
+ If the highest initial offer price of UGX12,000 was drawn and a farmer sticks to the lowest possible bid price (UGX3,000),
+ the program accepts this bid after 10 negotiation rounds.
  Farmers were not informed about the algorithm.
- That is, they did not know that the seller would eventually accept even
- if they stuck to the lowest price.
- We do not expect that farmers would be able to learn about the offer price
- formation algorithm from a single bargaining experiment, and we also made
- sure that farmers could not communicate with each other by making sure
- the experiments were run in parallel in villages.
- All parameters in the experiment were informed by extensive testing in
- the field.
+ That is,
+ they did not know that the seller would eventually accept even if they stuck to the lowest price.
+ We do not expect that farmers would be able to learn about the offer price formation algorithm from a single bargaining experiment,
+ and we also made sure that farmers could not communicate with each other by making sure the experiments were run in parallel in villages.
+ All parameters in the experiment were informed by extensive testing in the field.
 \end_layout
 
 \begin_layout Standard
-The experiment was timed to coincide with the start of the harvest season
- to ensure high demand for the seed.
- We had a team of 26 enumerators, of which 10 were female and 16 were male.
- While a 50-50 split would have resulted in highest statistical power for
- the comparison we are interested in, the fact that we have more men than
- women does not affect the estimate of the treatment effect which is simply
- the difference in average outcomes in the group of farmers who were confronted
- by a male seller and the group that was confronted by the female seller.
+The experiment was timed to coincide with the start of the harvest season to ensure high demand for the seed.
+ We had a team of 26 enumerators,
+ of which 10 were female and 16 were male.
+ While a 50-50 split would have resulted in highest statistical power for the comparison we are interested in,
+ the fact that we have more men than women does not affect the estimate of the treatment effect which is simply the difference in average outcomes in the group of farmers who were confronted by a male seller and the group that was confronted by the female seller.
 \end_layout
 
 \begin_layout Section
-Sample
+Data and Sample
 \end_layout
 
 \begin_layout Standard
 The total sample consists of a representative sample of 760 households,
- drawn from 4 districts in southeastern Uganda (Mayuge, Kamuli, Iganga,
+ drawn from 4 districts in southeastern Uganda (Mayuge,
+ Kamuli,
+ Iganga,
  and Bugiri).
- These districts were chosen because maize is an important crop for both
- food and cash for smallholder farmers living there.
- In these 4 districts, 76 villages were randomly selected from a list of
- all villages, with the likelihood of a village being selected proportional
- to the number of households that live in the village.
- Within each village, 10 households were randomly selected.
+ These districts were chosen because maize is an important crop for both food and cash for smallholder farmers living there.
+ In these 4 districts,
+ 76 villages were randomly selected from a list of all villages,
+ with the likelihood of a village being selected proportional to the number of households that live in the village.
+ Within each village,
+ 10 households were randomly selected.
 \end_layout
 
 \begin_layout Standard
-Enumerators visited these sampled households and asked to speak with the
- person within the household who generally makes the most decisions related
- to growing maize and input use, such as what type of maize seed to use.
+Enumerators visited these sampled households and asked to speak with the person within the household who generally makes the most decisions related to growing maize and input use,
+ such as what type of maize seed to use.
  An appointment was then made with these individuals for a follow-up visit.
  The farmers were told to 
 \begin_inset Quotes eld
 \end_inset
 
-bring some small money to this follow-up meeting as there may be an opportunity
- to buy something
+bring some small money to this follow-up meeting as there may be an opportunity to buy something
 \begin_inset Quotes erd
 \end_inset
 
 .
- During the follow-up meeting, individuals were subjected to the bargaining
- experiment and after completing the experiment, a short survey was administered.
- We find that 22 percent of interviewed individuals were women.
- The average age of the person that participated in the bargaining experiment
- was 49 years.
+ During the follow-up meeting,
+ individuals were subjected to the bargaining experiment and after completing the experiment,
+ a short survey was administered.
+ 
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:balance"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ summarizes some characteristics of study participants and their households.
+ We find that 85 percent of interviewed individuals were men.
+ The average age of the person that participated in the bargaining experiment was 49 years.
  The sampled households consisted of about 8 people.
- The average household in our sample has about 1.5 maize plots on an average
- of about 1.1 acres each.
- Yields on an average plot were about 436 kilograms per acre in the previous
- agricultural season (Nsambya of 2022).
- As such, the average household produced about 700 kilograms of maize.
+ Farmers cultivate maize on plots that are on average about 1.1 acres each.
+ Yields on an average plot were about 436 kilograms per acre in the previous agricultural season (Nsambya of 2022).
+ As such,
+ the average household produced about 700 kilograms of maize.
 \end_layout
 
 \begin_layout Standard
 A significant share of farmers have experience with improved seed varieties.
- We find that about 40 percent of farmers in our sample used seed of an
- open pollinated or hybrid variety in the previous season on any of their
- plots.
- However, farmers have less experience with the type of seed that we offer
- in the field experiment (a type popularly known as bazooka).
- Only about 9 percent of farmers indicate that they used this type of seed
- on any of their plots in the previous season.
- We also asked broader questions related to the seed we use in the experiment.
- For instance, we find that while 53 percent of sampled farmers know bazooka,
- only 13 percent ever tried it.
- This may be because farmers consider bazooka to be an expensive variety.
+ We find that about 40 percent of farmers in our sample used seed of an open pollinated or hybrid variety in the previous season on any of their plots.
+ However,
+ farmers have less experience with the type of seed that we offer in the field experiment (a type popularly known as bazooka).
+ Only about 9 percent of farmers indicate that they used this type of seed on any of their plots in the previous season.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Descriptives and balance
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:balance"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rcccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& mean & seller  & offer price 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& in &  is & is
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& Ctrl & women & high 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{2-4}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Respondent is male & 
+\backslash
+Sexpr{format(round(averages_balance[1,1],digits=3),nsmall=3)}  & 
+\backslash
+Sexpr{format(round(balance_table[1,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[1,1,3]<.01,"**",ifelse(balance_table[1,1,3]<.05,"*",ifelse(balance_table[1,1,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[1,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[1,2,3]<.01,"**",ifelse(balance_table[1,2,3]<.05,"*",ifelse(balance_table[1,2,3]<.1,"+","")))}}$  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(averages_balance[1,2],digits=3),nsmall=3)})   & (
+\backslash
+Sexpr{format(round(balance_table[1,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(balance_table[1,2,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Respondent age (years) & 
+\backslash
+Sexpr{format(round(averages_balance[2,1],digits=3),nsmall=3)}  & 
+\backslash
+Sexpr{format(round(balance_table[2,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[2,1,3]<.01,"**",ifelse(balance_table[2,1,3]<.05,"*",ifelse(balance_table[2,1,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[2,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[2,2,3]<.01,"**",ifelse(balance_table[2,2,3]<.05,"*",ifelse(balance_table[2,2,3]<.1,"+","")))}}$  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(averages_balance[2,2],digits=3),nsmall=3)})   & (
+\backslash
+Sexpr{format(round(balance_table[2,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(balance_table[2,2,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Household size (nr) & 
+\backslash
+Sexpr{format(round(averages_balance[3,1],digits=3),nsmall=3)}  & 
+\backslash
+Sexpr{format(round(balance_table[3,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[3,1,3]<.01,"**",ifelse(balance_table[3,1,3]<.05,"*",ifelse(balance_table[3,1,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[3,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[3,2,3]<.01,"**",ifelse(balance_table[3,2,3]<.05,"*",ifelse(balance_table[3,2,3]<.1,"+","")))}}$  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(averages_balance[3,2],digits=3),nsmall=3)})   & (
+\backslash
+Sexpr{format(round(balance_table[3,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(balance_table[3,2,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Average size of maize plot (acres) & 
+\backslash
+Sexpr{format(round(averages_balance[4,1],digits=3),nsmall=3)}  & 
+\backslash
+Sexpr{format(round(balance_table[4,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[4,1,3]<.01,"**",ifelse(balance_table[4,1,3]<.05,"*",ifelse(balance_table[4,1,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[4,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[4,2,3]<.01,"**",ifelse(balance_table[4,2,3]<.05,"*",ifelse(balance_table[4,2,3]<.1,"+","")))}}$  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(averages_balance[4,2],digits=3),nsmall=3)})   & (
+\backslash
+Sexpr{format(round(balance_table[4,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(balance_table[4,2,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ Yield (kg/acre) & 
+\backslash
+Sexpr{format(round(averages_balance[5,1],digits=3),nsmall=3)}  & 
+\backslash
+Sexpr{format(round(balance_table[5,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[5,1,3]<.01,"**",ifelse(balance_table[5,1,3]<.05,"*",ifelse(balance_table[5,1,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[5,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[5,2,3]<.01,"**",ifelse(balance_table[5,2,3]<.05,"*",ifelse(balance_table[5,2,3]<.1,"+","")))}}$  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(averages_balance[5,2],digits=3),nsmall=3)})   & (
+\backslash
+Sexpr{format(round(balance_table[5,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(balance_table[5,2,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Used improved seed last year?
+ & 
+\backslash
+Sexpr{format(round(averages_balance[6,1],digits=3),nsmall=3)}  & 
+\backslash
+Sexpr{format(round(balance_table[6,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[6,1,3]<.01,"**",ifelse(balance_table[6,1,3]<.05,"*",ifelse(balance_table[6,1,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[6,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[6,2,3]<.01,"**",ifelse(balance_table[6,2,3]<.05,"*",ifelse(balance_table[6,2,3]<.1,"+","")))}}$  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(averages_balance[6,2],digits=3),nsmall=3)})   & (
+\backslash
+Sexpr{format(round(balance_table[6,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(balance_table[6,2,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+Used bazooka seed last year?
+ & 
+\backslash
+Sexpr{format(round(averages_balance[7,1],digits=3),nsmall=3)}  & 
+\backslash
+Sexpr{format(round(balance_table[7,1,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[7,1,3]<.01,"**",ifelse(balance_table[7,1,3]<.05,"*",ifelse(balance_table[7,1,3]<.1,"+","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[7,2,1],digits=3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[7,2,3]<.01,"**",ifelse(balance_table[7,2,3]<.05,"*",ifelse(balance_table[7,2,3]<.1,"+","")))}}$  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& (
+\backslash
+Sexpr{format(round(averages_balance[7,2],digits=3),nsmall=3)})   & (
+\backslash
+Sexpr{format(round(balance_table[7,1,2],digits=3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(balance_table[7,2,2],digits=3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of Observations & 760  & 760 & 760  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+**,*,
+ and + denote significance at the 1,
+ 5,
+ and 10
+\backslash
+% levels.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:balance"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ also doubles as a balance table,
+ with columns 2 and 3 showing difference between treatment (respectively the seller being a woman and a high initial offer price) and control.
+ Overall,
+ with the exception of the gender of the respondent,
+ we find good overall balance.
+ To account for imbalance with respect to the gender of the respondent,
+ we control for this in the specifications below.
 \end_layout
 
 \begin_layout Section
-A gendered analysis of the bargaining process
+Empirical Strategy
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:A-gendered-analysis"
@@ -814,6 +1400,238 @@ name "sec:A-gendered-analysis"
 \end_layout
 
 \begin_layout Standard
+We now turn to a more formal analysis of various bargaining outcomes and strategies using regression analysis.
+ First,
+ we exploit the fact that the initial offer price was randomly assigned and look at differences in bargaining outcomes and strategies between farmers who were offered a high initial price and those that received a lower initial price.
+ To do so,
+ we construct an indicator variable 
+\begin_inset Formula $\left(T_{i}^{p}\right)$
+\end_inset
+
+ which takes the value of 1 if the initial price was 12,000 or 11,000,
+ and zero if it was 9,000 or 10,000.
+ Second,
+ we look at differences in bargaining outcomes and strategies between farmers who were confronted by male sellers and those who faced female sellers.
+ To do so,
+ we also construct an indicator variable of the gender of the seller 
+\begin_inset Formula $\left(T_{i}^{g}\right)$
+\end_inset
+
+ which takes the value of 1 if the seller was a woman and zero if it was a man.
+\end_layout
+
+\begin_layout Standard
+The effect of the seller's gender is estimated using Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gender"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ In this equation,
+ 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ represents the outcome of interest (for instance,
+ the initial bid price or an indicator that describes the use of a particular strategy such as sticking to the initial bid throughout the entire negotiation process) of farmer 
+\emph on
+i
+\emph default
+.
+ 
+\begin_inset Formula $\varepsilon_{i}$
+\end_inset
+
+ is a buyer specific residual,
+ and 
+\begin_inset Formula $T_{i}^{p}$
+\end_inset
+
+ and 
+\begin_inset Formula $T_{i}^{g}$
+\end_inset
+
+ are indicator functions for the initial offer price and the gender of the seller,
+ respectively.
+ The parameter of interest in this equation is 
+\begin_inset Formula $\beta_{g}$
+\end_inset
+
+,
+ the estimate of the effect of the seller being a woman.
+\end_layout
+
+\begin_layout Standard
+The second experimental factor,
+ the initial offer price,
+ is crossed into the design (much like in factorial designs).
+ It is well known that the most agnostic specification to estimate parameters in crossed designs is to control for the orthogonal experimental factor,
+ as well as for potential interaction effects between the experimental factors 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1162/rest_a_01317"
+literal "false"
+
+\end_inset
+
+.
+ Modeling interaction effects in a regression with binary treatments essentially splits the sample into four treatment cells,
+ significantly reducing statistical power for comparisons,
+ which can pose a problem.
+ However,
+ if we treat the orthogonal factor as a co-variate and control for it by entering it in deviations from its mean (and interacted with the main experimental factor),
+ we can pool treatment cells to boost power and obtain an unbiased estimate of 
+\begin_inset Formula $\beta_{g}$
+\end_inset
+
+ even if there is an interaction between the two experimental factors.
+ Therefore,
+ in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gender"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ where the effect of the seller's gender 
+\begin_inset Formula $\left(\beta_{g}\right)$
+\end_inset
+
+ is the effect of interest,
+ the treatment indicator for a initial offer price is entered in deviation from its mean 
+\begin_inset Formula $\left(T_{i}^{p}-\overline{T^{p}}\right)$
+\end_inset
+
+.
+ A similar equation is estimated for when the effect of a high initial offer price 
+\begin_inset Formula $\left(\beta_{p}\right)$
+\end_inset
+
+ is of primary interest (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:price"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ In this case,
+ the treatment indicator for the gender of the seller is entered in deviation from its mean 
+\begin_inset Formula $\left(T_{i}^{g}-\overline{T^{g}}\right)$
+\end_inset
+
+.
+ Finally,
+ because we found some indications of gender matching in the negotiation pairing (see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Discussion"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+),
+ we control for the gender of the buyer in the regressions as well 
+\begin_inset Formula $\left(x_{i}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The effect of the initial offer price and the effect of the seller's gender are estimated using a single specification (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gender"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is a constant to be estimated,
+ 
+\begin_inset Formula $\beta_{p}$
+\end_inset
+
+ is the estimate of the impact of a high starting price,
+ and 
+\begin_inset Formula $\beta_{g}$
+\end_inset
+
+ is the estimate of the effect of the seller being a woman.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y_{i}=\alpha+\beta_{g}T_{i}^{g}+\beta_{cp}\left(T_{i}^{p}-\overline{T^{p}}\right)+\beta_{gp}T_{i}^{g}\left(T_{i}^{p}-\overline{T^{p}}\right)+\gamma x_{i}+\varepsilon_{i}\label{eq:gender}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+y_{i}=\alpha+\beta_{p}T_{i}^{p}+\beta_{cg}\left(T_{i}^{g}-\overline{T^{g}}\right)+\beta_{pg}T_{i}^{p}\left(T_{i}^{g}-\overline{T^{g}}\right)+\gamma x_{i}+\varepsilon_{i}\label{eq:price}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The central parameter in this research is the effect of the gender the the seller 
+\begin_inset Formula $\left(\beta_{g}\right)$
+\end_inset
+
+.
+ The effect of the initial offer price was included as a benchmark to which the effect of the seller's gender can be compared to judge economic significance.
+ However,
+ we also added the randomized starting price to compensate for the fact that we did not do ex-ante power calculations for the gender comparison.
+ Adding a treatment that is known to work on an experiment is a strategy sometimes employed in clinical trials to demonstrate that a particular implementation of a design with a given sample size is powered to detect a treatment effect that is at least as as large.
+ In our case,
+ we argue that being able to replicate an established finding (that the initial offer price affects the entire bargaining process that follows—
+see for instance 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "chertkoff1967opening,ochs1989experimental,kahneman1992reference"
+literal "false"
+
+\end_inset
+
+) means that we are powered to detect effects that are at least as large.
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Standard
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -821,31 +1639,27 @@ reference "fig:Prices"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- shows that the bargaining process is more likely to converge at a low price
- when the seller is a woman than when the seller is a man.
- When the seller is a woman, there is a clear peak in the density around
- UGX5,000.
- When the seller is a man, there is also some bunching around 5,000, but
- the likelihood that the eventual transaction price is around 5,000 does
- not differ all that much from the likelihood that the negotiation ends
- up at around 10,000.
+ shows that the bargaining process is more likely to converge at a low price when the seller is a woman than when the seller is a man.
+ When the seller is a woman,
+ there is a clear peak in the density around UGX5,000.
+ When the seller is a man,
+ there is also some bunching around 5,000,
+ but the likelihood that the eventual transaction price is around 5,000 does not differ all that much from the likelihood that the negotiation ends up at around 10,000.
 \end_layout
 
 \begin_layout Standard
-The bottom panel shows that the disadvantage of the female seller immediately
- manifests itself at the start of the negotiation process when the buyer
- names their first counter-bid after the seller named the initial (randomly
- assigned) offer price.
- When the seller is man, a first counter bid of 5,000 is most likely.
- When the seller is a woman, farmers are equally likely to quote the absolute
- minimum as 5,000.
- As with the first offer price, the first counter-bid price is likely to
- be an important anchoring point for the rest of the negotiation, and the
- gendered effect is likely to affect a range of other outcomes in the bargaining
- process 
+The bottom panel shows that the disadvantage of the female seller immediately manifests itself at the start of the negotiation process when the buyer names their first counter-bid after the seller named the initial (randomly assigned) offer price.
+ When the seller is man,
+ a first counter bid of 5,000 is most likely.
+ When the seller is a woman,
+ farmers are equally likely to quote the absolute minimum as 5,000.
+ As with the first offer price,
+ the first counter-bid price is likely to be an important anchoring point for the rest of the negotiation,
+ and the gendered effect is likely to affect a range of other outcomes in the bargaining process 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "galinsky2001first"
@@ -858,9 +1672,11 @@ literal "false"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -892,257 +1708,18 @@ name "fig:Prices"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-We now turn to a more formal analysis of various bargaining outcomes and
- strategies using regression analysis.
- First, we exploit the fact that the initial offer price was randomly assigned
- and look at differences in bargaining outcomes and strategies between farmers
- who were offered a high initial price and those that received a lower initial
- price.
- To do so, we construct an indicator variable 
-\begin_inset Formula $\left(T_{i}^{p}\right)$
-\end_inset
-
- which takes the value of 1 if the initial price was 12,000 or 11,000, and
- zero if it was 9,000 or 10,000.
- Second, we look at differences in bargaining outcomes and strategies between
- farmers who were confronted by male sellers and those who faced female
- sellers.
- To do so, we also construct an indicator variable of the gender of the
- seller 
-\begin_inset Formula $\left(T_{i}^{g}\right)$
-\end_inset
-
- which takes the value of 1 if the seller was a woman and zero if it was
- a man.
-\end_layout
-
-\begin_layout Standard
-The effect of the seller's gender is estimated using Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:gender"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- In this equation, 
-\begin_inset Formula $y_{i}$
-\end_inset
-
- represents the outcome of interest (for instance, the initial bid price
- or an indicator that describes the use of a particular strategy such as
- sticking to the initial bid throughout the entire negotiation process)
- of farmer 
-\emph on
-i
-\emph default
-.
- 
-\begin_inset Formula $\varepsilon_{i}$
-\end_inset
-
- is a buyer specific residual, and 
-\begin_inset Formula $T_{i}^{p}$
-\end_inset
-
- and 
-\begin_inset Formula $T_{i}^{g}$
-\end_inset
-
- are indicator functions for the initial offer price and the gender of the
- seller, respectively.
- The parameter of interest in this equation is 
-\begin_inset Formula $\beta_{g}$
-\end_inset
-
-, the estimate of the effect of the seller being a woman.
-\end_layout
-
-\begin_layout Standard
-The second experimental factor, the initial offer price, is crossed into
- the design (much like in factorial designs).
- It is well known that the most agnostic specification to estimate parameters
- in crossed designs is to control for the orthogonal experimental factor,
- as well as for potential interaction effects between the experimental factors
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "10.1162/rest_a_01317"
-literal "false"
-
-\end_inset
-
-.
- Modeling interaction effects in a regression with binary treatments essentially
- splits the sample into four treatment cells, significantly reducing statistical
- power for comparisons, which can pose a problem.
- However, if we treat the orthogonal factor as a co-variate and control
- for it by entering it in deviations from its mean (and interacted with
- the main experimental factor), we can pool treatment cells to boost power
- and obtain an unbiased estimate of 
-\begin_inset Formula $\beta_{g}$
-\end_inset
-
- even if there is an interaction between the two experimental factors.
- Therefore, in Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:gender"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- where the effect of the seller's gender 
-\begin_inset Formula $\left(\beta_{g}\right)$
-\end_inset
-
- is the effect of interest, the treatment indicator for a initial offer
- price is entered in deviation from its mean 
-\begin_inset Formula $\left(T_{i}^{p}-\overline{T^{p}}\right)$
-\end_inset
-
-.
- A similar equation is estimated for when the effect of a high initial offer
- price 
-\begin_inset Formula $\left(\beta_{p}\right)$
-\end_inset
-
- is of primary interest (Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:price"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-).
- In this case, the treatment indicator for the gender of the seller is entered
- in deviation from its mean 
-\begin_inset Formula $\left(T_{i}^{g}-\overline{T^{g}}\right)$
-\end_inset
-
-.
- Finally, because we found some indications of gender matching in the negotiatio
-n pairing (see section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Discussion"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-), we control for the gender of the buyer in the regressions as well 
-\begin_inset Formula $\left(x_{i}\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-The effect of the initial offer price and the effect of the seller's gender
- are estimated using a single specification (Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:gender"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-).
- 
-\begin_inset Formula $\alpha$
-\end_inset
-
- is a constant to be estimated, 
-\begin_inset Formula $\beta_{p}$
-\end_inset
-
- is the estimate of the impact of a high starting price, and 
-\begin_inset Formula $\beta_{g}$
-\end_inset
-
- is the estimate of the effect of the seller being a woman.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-y_{i}=\alpha+\beta_{g}T_{i}^{g}+\beta_{cp}\left(T_{i}^{p}-\overline{T^{p}}\right)+\beta_{gp}T_{i}^{g}\left(T_{i}^{p}-\overline{T^{p}}\right)+\gamma x_{i}+\varepsilon_{i}\label{eq:gender}
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-y_{i}=\alpha+\beta_{p}T_{i}^{p}+\beta_{cg}\left(T_{i}^{g}-\overline{T^{g}}\right)+\beta_{pg}T_{i}^{p}\left(T_{i}^{g}-\overline{T^{g}}\right)+\gamma x_{i}+\varepsilon_{i}\label{eq:price}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The central parameter in this research is the effect of the gender the the
- seller 
-\begin_inset Formula $\left(\beta_{g}\right)$
-\end_inset
-
-.
- The effect of the initial offer price was included as a benchmark to which
- the effect of the seller's gender can be compared to judge economic significanc
-e.
- However, we also added the randomized starting price to compensate for
- the fact that we did not do ex-ante power calculations for the gender compariso
-n.
- Adding a treatment that is known to work on an experiment is a strategy
- sometimes employed in clinical trials to demonstrate that a particular
- implementation of a design with a given sample size is powered to detect
- a treatment effect that is at least as as large.
- In our case, we argue that being able to replicate an established finding
- (that the initial offer price affects the entire bargaining process that
- follows—see for instance 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "chertkoff1967opening,ochs1989experimental,kahneman1992reference"
-literal "false"
-
-\end_inset
-
-) means that we are powered to detect effects that are at least as large.
-\end_layout
-
-\begin_layout Standard
-We consider the following outcomes and strategies to judge impact of the
- gender of the seller (and initial offer price): (1) the likelihood that
- the buyer accepts the initial offer of the seller (and thus no negotiation
- ensues); (2) the counter-bid price that the buyer calls after the initial
- offer by the seller; (3) the likelihood that the initial counter bid is
- the lowest admissible bid (UGX3,000); (4) the likelihood that the buyer
- sticks to their initial bid; (5) the number of negotiation rounds before
- the buyer accepts or the seller is instructed to accept by the algorithm;
+We consider the following outcomes and strategies to judge impact of the gender of the seller (and initial offer price):
+ (1) the likelihood that the buyer accepts the initial offer of the seller (and thus no negotiation ensues);
+ (2) the counter-bid price that the buyer calls after the initial offer by the seller;
+ (3) the likelihood that the initial counter bid is the lowest admissible bid (UGX3,000);
+ (4) the likelihood that the buyer sticks to their initial bid;
+ (5) the number of negotiation rounds before the buyer accepts or the seller is instructed to accept by the algorithm;
  and (6) the final transaction price.
 \end_layout
 
@@ -1154,24 +1731,25 @@ reference "tab:results_seller"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
-, which shows different outcomes and strategies as rows and control group
- means and differences in these outcomes between treatment groups in columns.
- In particular, the first column of Table 
+,
+ which shows different outcomes and strategies as rows and control group means and differences in these outcomes between treatment groups in columns.
+ In particular,
+ the first column of Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:results_seller"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- shows overall averages for the control group (the subset of buyers that
- negotiated with a male seller and started from a low initial offer prices
- of UGX9,000 or 10,000).
+ shows overall averages for the control group (the subset of buyers that negotiated with a male seller and started from a low initial offer prices of UGX9,000 or 10,000).
  The second column in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1179,11 +1757,12 @@ reference "tab:results_seller"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- reports differences in the dependent variable between negotiations with
- a female seller and a male seller, corresponding to 
+ reports differences in the dependent variable between negotiations with a female seller and a male seller,
+ corresponding to 
 \begin_inset Formula $\beta_{g}$
 \end_inset
 
@@ -1194,6 +1773,7 @@ reference "eq:gender"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -1205,13 +1785,12 @@ reference "tab:results_seller"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- reports differences in the dependent variable between negotiations that
- started with a high initial offer price (12,000 or 11,000) and negotiations
- where the initial offer price was low (9,000 or 10,000), corresponding
- to 
+ reports differences in the dependent variable between negotiations that started with a high initial offer price (12,000 or 11,000) and negotiations where the initial offer price was low (9,000 or 10,000),
+ corresponding to 
 \begin_inset Formula $\beta_{p}$
 \end_inset
 
@@ -1222,6 +1801,7 @@ reference "eq:price"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -1230,9 +1810,11 @@ noprefix "false"
 
 \begin_layout Standard
 \begin_inset Float table
+placement document
+alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1333,14 +1915,11 @@ Initial accept (
 \backslash
 %) & 
 \backslash
-Sexpr{format(round(averages_enumerator_gender[1,1],digits=3),nsmall=3)}
-  & 
+Sexpr{format(round(averages_enumerator_gender[1,1],digits=3),nsmall=3)}  & 
 \backslash
 Sexpr{format(round(results_enumerator_gender[1,1,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[1,1,3]<.01,"**",ifelse(results_enumerator_
-gender[1,1,3]<.05,"*",ifelse(results_enumerator_gender[1,1,3]<.1,"+","")))}}$
- &
+Sexpr{ifelse(results_enumerator_gender[1,1,3]<.01,"**",ifelse(results_enumerator_gender[1,1,3]<.05,"*",ifelse(results_enumerator_gender[1,1,3]<.1,"+","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
@@ -1349,9 +1928,7 @@ gender[1,1,3]<.05,"*",ifelse(results_enumerator_gender[1,1,3]<.1,"+","")))}}$
 \backslash
 Sexpr{format(round(results_enumerator_gender[1,2,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[1,2,3]<.01,"**",ifelse(results_enumerator_
-gender[1,2,3]<.05,"*",ifelse(results_enumerator_gender[1,2,3]<.1,"+","")))}}$
-  
+Sexpr{ifelse(results_enumerator_gender[1,2,3]<.01,"**",ifelse(results_enumerator_gender[1,2,3]<.05,"*",ifelse(results_enumerator_gender[1,2,3]<.1,"+","")))}}$  
 \backslash
 
 \backslash
@@ -1366,14 +1943,11 @@ gender[1,2,3]<.05,"*",ifelse(results_enumerator_gender[1,2,3]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(averages_enumerator_gender[1,2],digits=3),nsmall=3)})
-   & (
+Sexpr{format(round(averages_enumerator_gender[1,2],digits=3),nsmall=3)})   & (
 \backslash
-Sexpr{format(round(results_enumerator_gender[1,1,2],digits=3),nsmall=3)})
- & (
+Sexpr{format(round(results_enumerator_gender[1,1,2],digits=3),nsmall=3)}) & (
 \backslash
-Sexpr{format(round(results_enumerator_gender[1,2,2],digits=3),nsmall=3)})
- 
+Sexpr{format(round(results_enumerator_gender[1,2,2],digits=3),nsmall=3)}) 
 \backslash
 
 \backslash
@@ -1393,14 +1967,11 @@ Sexpr{format(round(results_enumerator_gender[1,2,2],digits=3),nsmall=3)})
 
 Starting price (UGX) & 
 \backslash
-Sexpr{format(round(averages_enumerator_gender[2,1],digits=0),nsmall=0)}
- & 
+Sexpr{format(round(averages_enumerator_gender[2,1],digits=0),nsmall=0)} & 
 \backslash
 Sexpr{format(round(results_enumerator_gender[2,1,1],digits=0),nsmall=0)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[2,1,3]<.01,"**",ifelse(results_enumerator_
-gender[2,1,3]<.05,"*",ifelse(results_enumerator_gender[2,1,3]<.1,"+","")))}}$
- &
+Sexpr{ifelse(results_enumerator_gender[2,1,3]<.01,"**",ifelse(results_enumerator_gender[2,1,3]<.05,"*",ifelse(results_enumerator_gender[2,1,3]<.1,"+","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
@@ -1409,9 +1980,7 @@ gender[2,1,3]<.05,"*",ifelse(results_enumerator_gender[2,1,3]<.1,"+","")))}}$
 \backslash
 Sexpr{format(round(results_enumerator_gender[2,2,1],digits=0),nsmall=0)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[2,2,3]<.01,"**",ifelse(results_enumerator_
-gender[2,2,3]<.05,"*",ifelse(results_enumerator_gender[2,2,3]<.1,"+","")))}}$
-   
+Sexpr{ifelse(results_enumerator_gender[2,2,3]<.01,"**",ifelse(results_enumerator_gender[2,2,3]<.05,"*",ifelse(results_enumerator_gender[2,2,3]<.1,"+","")))}}$   
 \backslash
 
 \backslash
@@ -1426,14 +1995,11 @@ gender[2,2,3]<.05,"*",ifelse(results_enumerator_gender[2,2,3]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(averages_enumerator_gender[2,2],digits=0),nsmall=0)})
-  & (
+Sexpr{format(round(averages_enumerator_gender[2,2],digits=0),nsmall=0)})  & (
 \backslash
-Sexpr{format(round(results_enumerator_gender[2,1,2],digits=0),nsmall=0)})
- & (
+Sexpr{format(round(results_enumerator_gender[2,1,2],digits=0),nsmall=0)}) & (
 \backslash
-Sexpr{format(round(results_enumerator_gender[2,2,2],digits=0),nsmall=0)})
-   
+Sexpr{format(round(results_enumerator_gender[2,2,2],digits=0),nsmall=0)})   
 \backslash
 
 \backslash
@@ -1455,14 +2021,11 @@ Bottom price (
 \backslash
 %) & 
 \backslash
-Sexpr{format(round(averages_enumerator_gender[3,1],digits=3),nsmall=3)}
- & 
+Sexpr{format(round(averages_enumerator_gender[3,1],digits=3),nsmall=3)} & 
 \backslash
 Sexpr{format(round(results_enumerator_gender[3,1,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[3,1,3]<.01,"**",ifelse(results_enumerator_
-gender[3,1,3]<.05,"*",ifelse(results_enumerator_gender[3,1,3]<.1,"+","")))}}$
- &
+Sexpr{ifelse(results_enumerator_gender[3,1,3]<.01,"**",ifelse(results_enumerator_gender[3,1,3]<.05,"*",ifelse(results_enumerator_gender[3,1,3]<.1,"+","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
@@ -1471,9 +2034,7 @@ gender[3,1,3]<.05,"*",ifelse(results_enumerator_gender[3,1,3]<.1,"+","")))}}$
 \backslash
 Sexpr{format(round(results_enumerator_gender[3,2,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[3,2,3]<.01,"**",ifelse(results_enumerator_
-gender[3,2,3]<.05,"*",ifelse(results_enumerator_gender[3,2,3]<.1,"+","")))}}$
-  
+Sexpr{ifelse(results_enumerator_gender[3,2,3]<.01,"**",ifelse(results_enumerator_gender[3,2,3]<.05,"*",ifelse(results_enumerator_gender[3,2,3]<.1,"+","")))}}$  
 \backslash
 
 \backslash
@@ -1488,11 +2049,9 @@ gender[3,2,3]<.05,"*",ifelse(results_enumerator_gender[3,2,3]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(averages_enumerator_gender[3,2],digits=3),nsmall=3)})
- & (
+Sexpr{format(round(averages_enumerator_gender[3,2],digits=3),nsmall=3)}) & (
 \backslash
-Sexpr{format(round(results_enumerator_gender[3,1,2],digits=3),nsmall=3)})
- & (
+Sexpr{format(round(results_enumerator_gender[3,1,2],digits=3),nsmall=3)}) & (
 \backslash
 Sexpr{format(round(results_enumerator_gender[3,2,2],digits=3),nsmall=3)})
 \end_layout
@@ -1521,14 +2080,11 @@ Sticky strategy (
 \backslash
 %) & 
 \backslash
-Sexpr{format(round(averages_enumerator_gender[5,1],digits=3),nsmall=3)}
- & 
+Sexpr{format(round(averages_enumerator_gender[5,1],digits=3),nsmall=3)} & 
 \backslash
 Sexpr{format(round(results_enumerator_gender[5,1,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[5,1,3]<.01,"**",ifelse(results_enumerator_
-gender[5,1,3]<.05,"*",ifelse(results_enumerator_gender[5,1,3]<.1,"+","")))}}$
- &
+Sexpr{ifelse(results_enumerator_gender[5,1,3]<.01,"**",ifelse(results_enumerator_gender[5,1,3]<.05,"*",ifelse(results_enumerator_gender[5,1,3]<.1,"+","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
@@ -1537,9 +2093,7 @@ gender[5,1,3]<.05,"*",ifelse(results_enumerator_gender[5,1,3]<.1,"+","")))}}$
 \backslash
 Sexpr{format(round(results_enumerator_gender[5,2,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[5,2,3]<.01,"**",ifelse(results_enumerator_
-gender[5,2,3]<.05,"*",ifelse(results_enumerator_gender[5,2,3]<.1,"+","")))}}$
-  
+Sexpr{ifelse(results_enumerator_gender[5,2,3]<.01,"**",ifelse(results_enumerator_gender[5,2,3]<.05,"*",ifelse(results_enumerator_gender[5,2,3]<.1,"+","")))}}$  
 \backslash
 
 \backslash
@@ -1554,14 +2108,11 @@ gender[5,2,3]<.05,"*",ifelse(results_enumerator_gender[5,2,3]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(averages_enumerator_gender[5,2],digits=3),nsmall=3)})
-  & (
+Sexpr{format(round(averages_enumerator_gender[5,2],digits=3),nsmall=3)})  & (
 \backslash
-Sexpr{format(round(results_enumerator_gender[5,1,2],digits=3),nsmall=3)})
- & (
+Sexpr{format(round(results_enumerator_gender[5,1,2],digits=3),nsmall=3)}) & (
 \backslash
-Sexpr{format(round(results_enumerator_gender[5,2,2],digits=3),nsmall=3)})
-  
+Sexpr{format(round(results_enumerator_gender[5,2,2],digits=3),nsmall=3)})  
 \backslash
 
 \backslash
@@ -1585,14 +2136,11 @@ Sexpr{format(round(results_enumerator_gender[5,2,2],digits=3),nsmall=3)})
 
 Rounds (number) & 
 \backslash
-Sexpr{format(round(averages_enumerator_gender[6,1],digits=3),nsmall=3)}
- & 
+Sexpr{format(round(averages_enumerator_gender[6,1],digits=3),nsmall=3)} & 
 \backslash
 Sexpr{format(round(results_enumerator_gender[6,1,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[6,1,3]<.01,"**",ifelse(results_enumerator_
-gender[6,1,3]<.05,"*",ifelse(results_enumerator_gender[6,1,3]<.1,"+","")))}}$
- &
+Sexpr{ifelse(results_enumerator_gender[6,1,3]<.01,"**",ifelse(results_enumerator_gender[6,1,3]<.05,"*",ifelse(results_enumerator_gender[6,1,3]<.1,"+","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
@@ -1601,8 +2149,7 @@ gender[6,1,3]<.05,"*",ifelse(results_enumerator_gender[6,1,3]<.1,"+","")))}}$
 \backslash
 Sexpr{format(round(results_enumerator_gender[6,2,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[6,2,3]<.01,"**",ifelse(results_enumerator_
-gender[6,2,3]<.05,"*",ifelse(results_enumerator_gender[6,2,3]<.1,"+","")))}}$
+Sexpr{ifelse(results_enumerator_gender[6,2,3]<.01,"**",ifelse(results_enumerator_gender[6,2,3]<.05,"*",ifelse(results_enumerator_gender[6,2,3]<.1,"+","")))}}$
 \backslash
 
 \backslash
@@ -1617,11 +2164,9 @@ gender[6,2,3]<.05,"*",ifelse(results_enumerator_gender[6,2,3]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(averages_enumerator_gender[6,2],digits=3),nsmall=3)})
-  & (
+Sexpr{format(round(averages_enumerator_gender[6,2],digits=3),nsmall=3)})  & (
 \backslash
-Sexpr{format(round(results_enumerator_gender[6,1,2],digits=3),nsmall=3)})
- & (
+Sexpr{format(round(results_enumerator_gender[6,1,2],digits=3),nsmall=3)}) & (
 \backslash
 Sexpr{format(round(results_enumerator_gender[6,2,2],digits=3),nsmall=3)})
 \backslash
@@ -1645,14 +2190,11 @@ Buyer accepts (
 \backslash
 %) & 
 \backslash
-Sexpr{format(round(averages_enumerator_gender[4,1],digits=3),nsmall=3)}
- & 
+Sexpr{format(round(averages_enumerator_gender[4,1],digits=3),nsmall=3)} & 
 \backslash
 Sexpr{format(round(results_enumerator_gender[4,1,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[4,1,3]<.01,"**",ifelse(results_enumerator_
-gender[4,1,3]<.05,"*",ifelse(results_enumerator_gender[4,1,3]<.1,"+","")))}}$
- &
+Sexpr{ifelse(results_enumerator_gender[4,1,3]<.01,"**",ifelse(results_enumerator_gender[4,1,3]<.05,"*",ifelse(results_enumerator_gender[4,1,3]<.1,"+","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
@@ -1661,9 +2203,7 @@ gender[4,1,3]<.05,"*",ifelse(results_enumerator_gender[4,1,3]<.1,"+","")))}}$
 \backslash
 Sexpr{format(round(results_enumerator_gender[4,2,1],digits=3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[4,2,3]<.01,"**",ifelse(results_enumerator_
-gender[4,2,3]<.05,"*",ifelse(results_enumerator_gender[4,2,3]<.1,"+","")))}}$
-  
+Sexpr{ifelse(results_enumerator_gender[4,2,3]<.01,"**",ifelse(results_enumerator_gender[4,2,3]<.05,"*",ifelse(results_enumerator_gender[4,2,3]<.1,"+","")))}}$  
 \backslash
 
 \backslash
@@ -1678,11 +2218,9 @@ gender[4,2,3]<.05,"*",ifelse(results_enumerator_gender[4,2,3]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(averages_enumerator_gender[4,2],digits=3),nsmall=3)})
- & (
+Sexpr{format(round(averages_enumerator_gender[4,2],digits=3),nsmall=3)}) & (
 \backslash
-Sexpr{format(round(results_enumerator_gender[4,1,2],digits=3),nsmall=3)})
- & (
+Sexpr{format(round(results_enumerator_gender[4,1,2],digits=3),nsmall=3)}) & (
 \backslash
 Sexpr{format(round(results_enumerator_gender[4,2,2],digits=3),nsmall=3)})
 \end_layout
@@ -1709,14 +2247,11 @@ Sexpr{format(round(results_enumerator_gender[4,2,2],digits=3),nsmall=3)})
 
 Transaction price (UGX) & 
 \backslash
-Sexpr{format(round(averages_enumerator_gender[7,1],digits=0),nsmall=0)}
- & 
+Sexpr{format(round(averages_enumerator_gender[7,1],digits=0),nsmall=0)} & 
 \backslash
 Sexpr{format(round(results_enumerator_gender[7,1,1],digits=0),nsmall=0)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[7,1,3]<.01,"**",ifelse(results_enumerator_
-gender[7,1,3]<.05,"*",ifelse(results_enumerator_gender[7,1,3]<.1,"+","")))}}$
- &
+Sexpr{ifelse(results_enumerator_gender[7,1,3]<.01,"**",ifelse(results_enumerator_gender[7,1,3]<.05,"*",ifelse(results_enumerator_gender[7,1,3]<.1,"+","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
@@ -1725,8 +2260,7 @@ gender[7,1,3]<.05,"*",ifelse(results_enumerator_gender[7,1,3]<.1,"+","")))}}$
 \backslash
 Sexpr{format(round(results_enumerator_gender[7,2,1],digits=0),nsmall=0)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[7,2,3]<.01,"**",ifelse(results_enumerator_
-gender[7,2,3]<.05,"*",ifelse(results_enumerator_gender[7,2,3]<.1,"+","")))}}$
+Sexpr{ifelse(results_enumerator_gender[7,2,3]<.01,"**",ifelse(results_enumerator_gender[7,2,3]<.05,"*",ifelse(results_enumerator_gender[7,2,3]<.1,"+","")))}}$
 \backslash
 
 \backslash
@@ -1741,14 +2275,11 @@ gender[7,2,3]<.05,"*",ifelse(results_enumerator_gender[7,2,3]<.1,"+","")))}}$
 
 & (
 \backslash
-Sexpr{format(round(averages_enumerator_gender[7,2],digits=0),nsmall=0)})
-  & (
+Sexpr{format(round(averages_enumerator_gender[7,2],digits=0),nsmall=0)})  & (
 \backslash
-Sexpr{format(round(results_enumerator_gender[7,1,2],digits=0),nsmall=0)})
- & (
+Sexpr{format(round(results_enumerator_gender[7,1,2],digits=0),nsmall=0)}) & (
 \backslash
-Sexpr{format(round(results_enumerator_gender[7,2,2],digits=0),nsmall=0)})
- 
+Sexpr{format(round(results_enumerator_gender[7,2,2],digits=0),nsmall=0)}) 
 \backslash
 
 \backslash
@@ -1817,12 +2348,18 @@ footnotesize
 
 \begin_layout Plain Layout
 
-Note: 
+Note:
+ 
 \end_layout
 
 \begin_layout Plain Layout
 
-**,*, and + denote significance at the 1, 5, and 10% levels.
+**,*,
+ and + denote significance at the 1,
+ 5,
+ and 10
+\backslash
+% levels.
  
 \begin_inset Quotes eld
 \end_inset
@@ -1831,8 +2368,8 @@ Initial accept
 \begin_inset Quotes erd
 \end_inset
 
- is the likelihood that the buyer immediately accept to buy the seed pack
- at the initial offer price of the seller; 
+ is the likelihood that the buyer immediately accept to buy the seed pack at the initial offer price of the seller;
+ 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1840,8 +2377,8 @@ Starting price
 \begin_inset Quotes erd
 \end_inset
 
- is the initial counter bid by the buyer following the initial offer price
- of the seller; 
+ is the initial counter bid by the buyer following the initial offer price of the seller;
+ 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1849,8 +2386,8 @@ Bottom price
 \begin_inset Quotes erd
 \end_inset
 
- is the likelihood that the buyer responds to the initial offer price of
- the seller with the lowest admissible bid price (UGX3000); 
+ is the likelihood that the buyer responds to the initial offer price of the seller with the lowest admissible bid price (UGX3000);
+ 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1858,8 +2395,8 @@ Sticky strategy
 \begin_inset Quotes erd
 \end_inset
 
- is the likelihood that the buyer sticks to his or her initial counter-bid
- throughout the bargaining process; 
+ is the likelihood that the buyer sticks to his or her initial counter-bid throughout the bargaining process;
+ 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1867,7 +2404,8 @@ Rounds
 \begin_inset Quotes erd
 \end_inset
 
- refers to the number of negotiation rounds; 
+ refers to the number of negotiation rounds;
+ 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1875,9 +2413,9 @@ Buyer accepts
 \begin_inset Quotes erd
 \end_inset
 
- is the likelihood that the buyer accepts (as opposed to situations where
- negotiation ends because the last bid and offer price is smaller than the
- threshold, and the seller accepts); and 
+ is the likelihood that the buyer accepts (as opposed to situations where negotiation ends because the last bid and offer price is smaller than the threshold,
+ and the seller accepts);
+ and 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1900,106 +2438,96 @@ Transaction price
 \end_layout
 
 \begin_layout Standard
-As a first outcome of interest, we see that about 30 percent of buyers immediate
-ly accept buying the seed pack at the initial offer price.
- Interestingly, we see that the likelihood that farmers immediately accept
- decreases substantially when the seller is a woman.
- The likelihood that a farmer immediately accepts decreases even more when
- the initial offer is high: If the seller asks for at least UGX11,000, only
- about 11 percent of buyers accept immediately.
+As a first outcome of interest,
+ we see that about 30 percent of buyers immediately accept buying the seed pack at the initial offer price.
+ Interestingly,
+ we see that the likelihood that farmers immediately accept decreases substantially when the seller is a woman.
+ The likelihood that a farmer immediately accepts decreases even more when the initial offer is high:
+ If the seller asks for at least UGX11,000,
+ only about 11 percent of buyers accept immediately.
 \end_layout
 
 \begin_layout Standard
-Having already touched upon the importance of the initial counter-bid in
- the negotiation process, we revisit the first counter-bid of the buyer
- here (see starting price in Figure 
+Having already touched upon the importance of the initial counter-bid in the negotiation process,
+ we revisit the first counter-bid of the buyer here (see starting price in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:results_seller"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
 ).
- The average counter-bid by farmers in response to this initial offer was
- just over UGX6,000.
- We find a significant reduction in the first bid price when the seller
- is a woman.
- The effect is also economically significant, amounting to only 87 percent
- of the initial bid price that male sellers are confronted with.
- For this outcome, there is no significant impact from the initial price
- level.
+ The average counter-bid by farmers in response to this initial offer was just over UGX6,000.
+ We find a significant reduction in the first bid price when the seller is a woman.
+ The effect is also economically significant,
+ amounting to only 87 percent of the initial bid price that male sellers are confronted with.
+ For this outcome,
+ there is no significant impact from the initial price level.
 \end_layout
 
 \begin_layout Standard
 We also find that about 17 percent of buyers started negotiating from UGX3,000,
  the lowest possible bid.
- In line with the previous finding, we see that the share of buyers going
- for the lowest possible counter-bid is significantly higher if the seller
- is a woman (although only at the 10–percent level).
+ In line with the previous finding,
+ we see that the share of buyers going for the lowest possible counter-bid is significantly higher if the seller is a woman (although only at the 10–percent level).
  The initial price level does not seem to affect this share.
 \end_layout
 
 \begin_layout Standard
-Another interesting negotiation strategy some buyers seem to use is to name
- an initial counter-bid and stick to this price.
+Another interesting negotiation strategy some buyers seem to use is to name an initial counter-bid and stick to this price.
  A surprisingly large share of farmers (40 percent) use this strategy.
- We find that a significantly lower share of farmers use this strategy when
- the woman is a seller.
- Apparently, the lower base price this subgroup starts from increases the
- likelihood that farmers increase bid prices over time.
+ We find that a significantly lower share of farmers use this strategy when the woman is a seller.
+ Apparently,
+ the lower base price this subgroup starts from increases the likelihood that farmers increase bid prices over time.
  The use of this strategy does not depend on the initial offer price.
 \end_layout
 
 \begin_layout Standard
-The average negotiation took almost 5 rounds before the buyer agreed or
- the difference between the last bid and the last offer was smaller than
- the threshold at which the seller was instructed to agree.
- We find that negotiation increases to about 7 rounds if the seller started
- with a high initial offer price.
- The significant and positive effect is not surprising given that sellers
- follow a concessional script where the steps are a direct function of the
- initial offer price.
- More interestingly, when the seller is a woman, this adds an additional
- round to the negotiation process.
+The average negotiation took almost 5 rounds before the buyer agreed or the difference between the last bid and the last offer was smaller than the threshold at which the seller was instructed to agree.
+ We find that negotiation increases to about 7 rounds if the seller started with a high initial offer price.
+ The significant and positive effect is not surprising given that sellers follow a concessional script where the steps are a direct function of the initial offer price.
+ More interestingly,
+ when the seller is a woman,
+ this adds an additional round to the negotiation process.
 \end_layout
 
 \begin_layout Standard
-The fact that female sellers face an additional round of bargaining seems
- to suggest that farmers who negotiate with a woman are less likely to agree
- with an offer price.
- We thus look at the share of negotiations that were concluded with the
- buyer agreeing (as opposed to instances where the negotiations ended because
- the difference between offer price and bid price was less than UGX500).
- While in about 40 percent of cases the buyer eventually accepts, this percentag
-e is almost 12 percentage points lower when the seller is a woman.
+The fact that female sellers face an additional round of bargaining seems to suggest that farmers who negotiate with a woman are less likely to agree with an offer price.
+ We thus look at the share of negotiations that were concluded with the buyer agreeing (as opposed to instances where the negotiations ended because the difference between offer price and bid price was less than UGX500).
+ While in about 40 percent of cases the buyer eventually accepts,
+ this percentage is almost 12 percentage points lower when the seller is a woman.
  A high offer price also leads to a lower likelihood that the buyer accepts.
 \end_layout
 
 \begin_layout Standard
-Finally, we look at what is arguably the most important outcome.
- The average transaction price was about UGX7,000, which was about 70 percent
- of the maximum initial offer price, and 2.3 times the minimum bid price.
- If the seller is a woman, we see that the transaction price is about UGX600
- lower than when the seller is a man.
+Finally,
+ we look at what is arguably the most important outcome.
+ The average transaction price was about UGX7,000,
+ which was about 70 percent of the maximum initial offer price,
+ and 2.3 times the minimum bid price.
+ If the seller is a woman,
+ we see that the transaction price is about UGX600 lower than when the seller is a man.
  An initially high offer price increases the final price by UGX335.
 \end_layout
 
 \begin_layout Standard
-Together, these results show a clear and substantial effect emanating from
- the seller's gender.
- The effect originates early in the bargaining process, with a lower first
- counter-bid and a higher share of buyers that start off at the lowest possible
- bid price when the seller is a woman.
- This lower bound appears to serve as an anchor for subsequent strategies—with
- buyers less likely to accept and hence more negotiation rounds—eventually
- leading to a significantly lower price at which the transaction takes place.
+Together,
+ these results show a clear and substantial effect emanating from the seller's gender.
+ The effect originates early in the bargaining process,
+ with a lower first counter-bid and a higher share of buyers that start off at the lowest possible bid price when the seller is a woman.
+ This lower bound appears to serve as an anchor for subsequent strategies—
+with buyers less likely to accept and hence more negotiation rounds—
+eventually leading to a significantly lower price at which the transaction takes place.
 \end_layout
 
 \begin_layout Section
-Discussion, limitations, and the way forward
+Discussion,
+ limitations,
+ and the way forward
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Discussion"
@@ -2010,21 +2538,16 @@ name "sec:Discussion"
 \end_layout
 
 \begin_layout Standard
-In this paper, we examined the potential consequences of gender-related
- discrimination on market transactions.
- Specifically, we tested whether the gender of seed sellers had an impact
- on seed buyers' negotiation strategies and eventual outcomes in bilateral
- price negotiations.
- This was done through a lab-in-the-field experiment in eastern Uganda,
- where a representative sample of smallholder maize farmers were given the
- opportunity to bargain over a bag of maize seed of an improved variety
- from either a male or female seller.
- The findings revealed that buyers confronted with a female seller were
- less likely to accept the initial offer price and responded with a lower
- counter-bid compared to farmers faced with a male seller.
- Negotiations, on average, took one additional round longer when the seller
- was a woman and resulted in a transaction price that was almost 9 percent
- lower.
+In this paper,
+ we examined the potential consequences of gender-related discrimination on market transactions.
+ Specifically,
+ we tested whether the gender of seed sellers had an impact on seed buyers' negotiation strategies and eventual outcomes in bilateral price negotiations.
+ This was done through a bargaining experiment in eastern Uganda,
+ where a representative sample of smallholder maize farmers were given the opportunity to bargain over a bag of maize seed of an improved variety from either a male or female seller.
+ The findings revealed that buyers confronted with a female seller were less likely to accept the initial offer price and responded with a lower counter-bid compared to farmers faced with a male seller.
+ Negotiations,
+ on average,
+ took one additional round longer when the seller was a woman and resulted in a transaction price that was almost 9 percent lower.
 \end_layout
 
 \begin_layout Standard
@@ -2036,8 +2559,7 @@ literal "false"
 
 \end_inset
 
- who finds that buyer-side discrimination appears to be more pronounced
- than seller-side discrimination.
+ who finds that buyer-side discrimination appears to be more pronounced than seller-side discrimination.
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -2046,10 +2568,14 @@ literal "false"
 
 \end_inset
 
-, in contrast, find no evidence of buyer-side discrimination in a context
- closer to ours.
- However, an important difference in our study is that in their context—the
- Indian market—transactions tend to be fast-paced, short and without chit-chat,
+,
+ in contrast,
+ find no evidence of buyer-side discrimination in a context closer to ours.
+ However,
+ an important difference in our study is that in their context—
+the Indian market—
+transactions tend to be fast-paced,
+ short and without chit-chat,
  and bargaining is uncommon.
  
 \begin_inset CommandInset citation
@@ -2059,22 +2585,18 @@ literal "false"
 
 \end_inset
 
- make the argument that since discrimination is already present from the
- initial counter-bid, it is unlikely that differences in outcomes are due
- to differences in negotiation.
- Our study indicates that differences in final outcomes have their origin
- in both the initial counter-bid and the ensuing negotiations.
+ make the argument that since discrimination is already present from the initial counter-bid,
+ it is unlikely that differences in outcomes are due to differences in negotiation.
+ Our study indicates that differences in final outcomes have their origin in both the initial counter-bid and the ensuing negotiations.
 \end_layout
 
 \begin_layout Standard
-As is generally the case, our experiment only establishes the existence
- of discrimination, but it does not tell us anything about the nature of
- discrimination.
- In the economic literature, a distinction is generally made between discriminat
-ion that involves some kind of animus on the one hand and statistical discrimina
-tion on the other.
- While in the former case there is some kind of general distaste for minorities
- or a 
+As is generally the case,
+ our experiment only establishes the existence of discrimination,
+ but it does not tell us anything about the nature of discrimination.
+ In the economic literature,
+ a distinction is generally made between discrimination that involves some kind of animus on the one hand and statistical discrimination on the other.
+ While in the former case there is some kind of general distaste for minorities or a 
 \begin_inset Quotes qld
 \end_inset
 
@@ -2090,18 +2612,17 @@ literal "false"
 
 \end_inset
 
-, in the latter case the apparent discrimination is simply the result of
- market actors using average group characteristics as a proxy of reservation
- value.
- In our case, statistical discrimination would mean that buyers think that
- women would be willing to accept lower prices than men.
+,
+ in the latter case the apparent discrimination is simply the result of market actors using average group characteristics as a proxy of reservation value.
+ In our case,
+ statistical discrimination would mean that buyers think that women would be willing to accept lower prices than men.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
 There are several reason why this could be the case.
- As an example, during qualitative field work with agro-dealers as a followup
- for 
+ As an example,
+ during qualitative field work with agro-dealers as a followup for 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "de2022gender"
@@ -2109,11 +2630,13 @@ literal "false"
 
 \end_inset
 
-, buyers mentioned that they thought 
+,
+ buyers mentioned that they thought 
 \begin_inset Quotes eld
 \end_inset
 
-women, they do not need the money.
+women,
+ they do not need the money.
  They have husbands that should provide for the money
 \begin_inset Quotes erd
 \end_inset
@@ -2129,11 +2652,11 @@ women, they do not need the money.
 \begin_layout Standard
 Our study has several limitations.
  One limitation of the study is potential bias from tester behavior.
- For instance, it could be that male sellers bargain harder than female
- sellers.
- Confounding by tester behavior is a known problem in audit studies that
- involve actual people in the transactions, and a reason why correspondence
- studies (where personal contact is avoided, such as in the 
+ For instance,
+ it could be that male sellers bargain harder than female sellers.
+ Confounding by tester behavior is a known problem in audit studies that involve actual people in the transactions,
+ and a reason why correspondence studies (where personal contact is avoided,
+ such as in the 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "10.1257/0002828042002561"
@@ -2141,20 +2664,18 @@ literal "false"
 
 \end_inset
 
- study, where CVs of imaginary job candidates with white and non-white sounding
- names are sent to potential employers to screen on discrimination) are
- preferred.
- We tried to mitigate this problem by instructing our enumerators to strictly
- stick to a script on the tablet computer.
- However, we cannot completely rule out the fact that male sellers behaved
- differently during the field experiment than their female counterparts.
+ study,
+ where CVs of imaginary job candidates with white and non-white sounding names are sent to potential employers to screen on discrimination) are preferred.
+ We tried to mitigate this problem by instructing our enumerators to strictly stick to a script on the tablet computer.
+ However,
+ we cannot completely rule out the fact that male sellers behaved differently during the field experiment than their female counterparts.
 \end_layout
 
 \begin_layout Standard
-A second limitation lies in the fact that, for logistical consideration,
+A second limitation lies in the fact that,
+ for logistical consideration,
  we did not randomize the seller's gender ex-ante.
- Sellers were sent to farmers based on who was available (hence the larger
- group where the seller was a man).
+ Sellers were sent to farmers based on who was available (hence the larger group where the seller was a man).
  As in 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -2163,23 +2684,24 @@ literal "false"
 
 \end_inset
 
-, supervisors were instructed not to assign enumerators to farmers in a
- systematic fashion.
- While we assume this happened randomly, we do find that women sellers had
- a significantly higher probability of being paired with women buyers than
- male sellers.
- To account for this, we include the gender of the buyer as a control variable
- in the regression model.
+,
+ supervisors were instructed not to assign enumerators to farmers in a systematic fashion.
+ While we assume this happened randomly,
+ we do find that women sellers had a significantly higher probability of being paired with women buyers than male sellers.
+ To account for this,
+ we include the gender of the buyer as a control variable in the regression model.
  We further looked at balance on a range of characteristics (such as age,
- education level, etc.) between farmers that were paired to male and female
- sellers and generally found no significant differences.
- That said, we cannot completely rule out that sellers and buyers were matched
- on some other (unobservable) characteristics.
+ education level,
+ etc.) between farmers that were paired to male and female sellers and generally found no significant differences.
+ That said,
+ we cannot completely rule out that sellers and buyers were matched on some other (unobservable) characteristics.
 \end_layout
 
 \begin_layout Standard
-Third, our study population may not be representative for real-life situations.
- For instance, 
+Third,
+ our study population may not be representative for real-life situations.
+ For instance,
+ 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "10.2307/25098677"
@@ -2187,23 +2709,20 @@ literal "false"
 
 \end_inset
 
- works with subjects that endogenously select into the market and likely
- have previous experience in the transactions he is studying.
- In our case, it may be that participants have never bought seed in the
- past and did not intend to do so in the near future.
- Furthermore, it is not common for seed sellers to approach potential buyers
- at their homes; normally farmers would go to agro-input shops to buy seed.
- Our study should therefore be regarded as somewhere in-between an experimental
- study in a lab environment where certain behavioral patterns and roles
- are endogenously imposed on study subjects and studies that observe actual
- individual behaviour in an existing market.
+ works with subjects that endogenously select into the market and likely have previous experience in the transactions he is studying.
+ In our case,
+ it may be that participants have never bought seed in the past and did not intend to do so in the near future.
+ Furthermore,
+ it is not common for seed sellers to approach potential buyers at their homes;
+ normally farmers would go to agro-input shops to buy seed.
+ Our study should therefore be regarded as somewhere in-between an experimental study in a lab environment where certain behavioral patterns and roles are endogenously imposed on study subjects and studies that observe actual individual behaviour in an existing market.
 \end_layout
 
 \begin_layout Standard
-Fourth, our study does not look at heterogeneity in bias.
- One obvious source of heterogeneity in this context would be the gender
- of the buyer, as gender homophily effects have been found in a wide range
- of interactions 
+Fourth,
+ our study does not look at heterogeneity in bias.
+ One obvious source of heterogeneity in this context would be the gender of the buyer,
+ as gender homophily effects have been found in a wide range of interactions 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "facd5bfb-620b-3f71-8412-0c6d4aa71a2e"
@@ -2212,16 +2731,17 @@ literal "false"
 \end_inset
 
 .
- If we consider the gender of the buyer, we see that the reduction in both
- initial and transaction prices due to the seller being a woman is largest
- for female buyers.
+ If we consider the gender of the buyer,
+ we see that the reduction in both initial and transaction prices due to the seller being a woman is largest for female buyers.
  This suggests that female buyers appear to be even more biased than men.
- However, the difference is insignificant, and the parameter estimate is
- likely to suffer from small sample size.
+ However,
+ the difference is insignificant,
+ and the parameter estimate is likely to suffer from small sample size.
 \end_layout
 
 \begin_layout Standard
-In light of the above, we can only echo 
+In light of the above,
+ we can only echo 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "baranski2023experiment"
@@ -2230,9 +2750,10 @@ literal "false"
 \end_inset
 
 .
- More studies are needed on both seller-side and consumer-side discrimination
- to better understand how context matters (e.g., perishable versus non-perishable
- commodities, characteristics of actors, etc.).
+ More studies are needed on both seller-side and consumer-side discrimination to better understand how context matters (e.g.,
+ perishable versus non-perishable commodities,
+ characteristics of actors,
+ etc.).
 \end_layout
 
 \begin_layout Section*
@@ -2240,12 +2761,13 @@ Acknowledgments
 \end_layout
 
 \begin_layout Standard
-We would like to thank Charles Marc Wanume, Richard Ariong, and Wilberforce
- Walukano for their support in the field.
+We would like to thank Charles Marc Wanume,
+ Richard Ariong,
+ and Wilberforce Walukano for their support in the field.
  The research received funding from the CGIAR Seed Equal Research Initiative,
- the CGIAR Market Intelligence Research Initiative, and the CGIAR Gender
- Impact Platform, which are funded by contributors to the CGIAR Fund (https://ww
-w.cgiar.org/funders/).
+ the CGIAR Market Intelligence Research Initiative,
+ and the CGIAR Gender Impact Platform,
+ which are funded by contributors to the CGIAR Fund (https://www.cgiar.org/funders/).
 \end_layout
 
 \begin_layout Standard

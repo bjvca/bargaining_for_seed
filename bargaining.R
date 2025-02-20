@@ -262,13 +262,13 @@ for (i in outcomes) {
   
 #  print(summary(model))
   results[t,1,1:2] <- summary(model)$coefficients[2,1:2]
-  results[t,1,3] <- summary(model)$coefficients[2,4]
+  results[t,1,3] <- anova(model)[1,5]
   results[t,1,4] <- nobs(model)
   
   model <- lm(as.formula(paste(i,"anchor_high+anchor_high*dta$enumerator_gender_female_demeaned+gender", sep="~")), data=dta)
   
   results[t,2,1:2] <- summary(model)$coefficients[2,1:2]
-  results[t,2,3] <- summary(model)$coefficients[2,4]
+  results[t,2,3] <- anova(model)[1,5]
   results[t,2,4] <- nobs(model)
   model <- lm(as.formula(paste(i,"enumerator_gender*anchor_high+gender", sep="~")), data=dta)
   
@@ -300,5 +300,48 @@ dta$yield[dta$yield>20000] <- NA
 
 prop.table(table(dta$knw_bazo=="Yes"))
 prop.table(table(dta$tried_bazo=="Yes"))
+#balance table
+dta$gender <- dta$gender == "Male"
+dta$quality_use <- dta$quality_use == "Yes"
+dta$bazo_use <- dta$bazo_use == "Yes"
+dta$knw_bazo <- dta$knw_bazo == "Yes"
+dta$tried_bazo <- dta$tried_bazo == "Yes"
+outcomes <- c("gender","age","hh_size","plot_size","yield","quality_use","bazo_use","knw_bazo","tried_bazo")
+results <- array(NA,c(length(outcomes), 4,4))
+averages <- array(NA,c(length(outcomes),2))
+
+dta$anchor_high_demeaned <- dta$anchor_high - mean(dta$anchor_high)
+dta$enumerator_gender_female_demeaned <-  (dta$enumerator_gender == "Female")  - mean(dta$enumerator_gender == "Female")
+
+t <- 1
+for (i in outcomes) {
+  
+  averages[t,1] <- mean(dta[dta$anchor_high==FALSE & dta$enumerator_gender=="Male",i], na.rm=T)
+  averages[t,2] <- sd(dta[dta$anchor_high==FALSE & dta$enumerator_gender=="Male",i], na.rm=T)
+  
+  model <- lm(as.formula(paste(i,"enumerator_gender+enumerator_gender*anchor_high_demeaned", sep="~")), data=dta)
+  
+#  print(summary(model))
+  results[t,1,1:2] <- summary(model)$coefficients[2,1:2]
+  results[t,1,3] <- anova(model)[1,5]
+  results[t,1,4] <- nobs(model)
+  
+  model <- lm(as.formula(paste(i,"anchor_high+anchor_high*dta$enumerator_gender_female_demeaned", sep="~")), data=dta)
+  
+  results[t,2,1:2] <- summary(model)$coefficients[2,1:2]
+  results[t,2,3] <- anova(model)[1,5]
+  results[t,2,4] <- nobs(model)
+  model <- lm(as.formula(paste(i,"enumerator_gender*anchor_high", sep="~")), data=dta)
+  
+  results[t,3,1:2] <- summary(model)$coefficients[4,1:2]
+  results[t,3,3] <- summary(model)$coefficients[4,4]
+  results[t,3,4] <- nobs(model)
+
+  t <- t + 1
+} 
+
+
+balance_table <- results 
+averages_balance <- averages
 
 
