@@ -1,6 +1,6 @@
 #
 rm(list = ls())
-
+library(andersonTools)
 library(ggplot2)
 library(ggridges)
 library(car)
@@ -17,6 +17,9 @@ path <- getwd()
 
 path <- strsplit(path, "/bargaining_for_seed")[[1]]
 dta <- read.csv(paste(path,"baseline/data/public/baseline.csv", sep="/"))
+
+###use Anderson sharpened q-values
+sharp <- TRUE
 #These are the inital (random) prices offered:
 #dta$P1_pric
 
@@ -229,6 +232,7 @@ dta$enumerator_gender <- relevel(factor(dta$enumerator_gender), ref = "Male")
 dta$initial_accept <- dta$paid.start_neg == "Yes"
 dta$bottom_price <- dta$starting_price==3000
 
+dta$age[dta$age==999] <- NA
 
 #level 1 - gender of the buyer (controling for gender of the seller in regressions)
 ### look at gender balance for randomized offer price
@@ -246,7 +250,7 @@ dta$anchor_high <- dta$anchor %in% c("11000","12000")
 dta$buyer_accepts <- dta$accepts=="buyer"
 ###collect results in matrix
 outcomes <- c("initial_accept","starting_price", "bottom_price","buyer_accepts","sticky","rounds","final_price")
-results <- array(NA,c(length(outcomes), 4,4))
+results <- array(NA,c(length(outcomes),13,4))
 averages <- array(NA,c(length(outcomes),2))
 
 dta$anchor_high_demeaned <- dta$anchor_high - mean(dta$anchor_high)
@@ -258,26 +262,59 @@ for (i in outcomes) {
   averages[t,1] <- mean(dta[dta$anchor_high==FALSE & dta$enumerator_gender=="Male",i], na.rm=T)
   averages[t,2] <- sd(dta[dta$anchor_high==FALSE & dta$enumerator_gender=="Male",i], na.rm=T)
   
-  model <- lm(as.formula(paste(i,"enumerator_gender+enumerator_gender*anchor_high_demeaned+gender", sep="~")), data=dta)
+  model <- lm(as.formula(paste(i,"enumerator_gender+enumerator_gender*anchor_high_demeaned+gender+age", sep="~")), data=dta)
   
 #  print(summary(model))
   results[t,1,1:2] <- summary(model)$coefficients[2,1:2]
-  results[t,1,3] <- anova(model)[1,5]
+  results[t,1,3] <- summary(model)$coefficients[2,4]
+  results[t,9,1:2] <- summary(model)$coefficients[3,1:2]
+  results[t,9,3] <- summary(model)$coefficients[3,4]
+  results[t,10,1:2] <- summary(model)$coefficients[6,1:2]
+  results[t,10,3] <- summary(model)$coefficients[6,4]
+  results[t,11,1:2] <- summary(model)$coefficients[4,1:2] #respondent gender ctrl
+  results[t,11,3] <- summary(model)$coefficients[4,4] 
+  results[t,12,1:2] <- summary(model)$coefficients[5,1:2] #age ctrl
+  results[t,12,3] <- summary(model)$coefficients[5,4]
+  results[t,13,1] <- summary(model)$fstatistic["value"]
+  results[t,13,2] <- pf(summary(model)$fstatistic["value"], summary(model)$fstatistic["numdf"], summary(model)$fstatistic["dendf"], lower.tail = FALSE)
+ 
+
   results[t,1,4] <- nobs(model)
   
-  model <- lm(as.formula(paste(i,"anchor_high+anchor_high*dta$enumerator_gender_female_demeaned+gender", sep="~")), data=dta)
+  model <- lm(as.formula(paste(i,"anchor_high+anchor_high*dta$enumerator_gender_female_demeaned+gender+age", sep="~")), data=dta)
   
   results[t,2,1:2] <- summary(model)$coefficients[2,1:2]
-  results[t,2,3] <- anova(model)[1,5]
+  results[t,2,3] <- summary(model)$coefficients[2,4]
   results[t,2,4] <- nobs(model)
-  model <- lm(as.formula(paste(i,"enumerator_gender*anchor_high+gender", sep="~")), data=dta)
+  model <- lm(as.formula(paste(i,"enumerator_gender*anchor_high+gender+age", sep="~")), data=dta)
   
-  results[t,3,1:2] <- summary(model)$coefficients[5,1:2]
-  results[t,3,3] <- summary(model)$coefficients[5,4]
+  results[t,3,1:2] <- summary(model)$coefficients[2,1:2]
+  results[t,3,3] <- summary(model)$coefficients[2,4]
+  results[t,4,1:2] <- summary(model)$coefficients[3,1:2]
+  results[t,4,3] <- summary(model)$coefficients[3,4]
+  results[t,5,1:2] <- summary(model)$coefficients[6,1:2]
+  results[t,5,3] <- summary(model)$coefficients[6,4]
+  results[t,6,1:2] <- summary(model)$coefficients[4,1:2] #respondent gender ctrl
+  results[t,6,3] <- summary(model)$coefficients[4,4] 
+  results[t,7,1:2] <- summary(model)$coefficients[5,1:2] #age ctrl
+  results[t,7,3] <- summary(model)$coefficients[5,4]
+  results[t,8,1] <- summary(model)$fstatistic["value"]
+  results[t,8,2] <- pf(summary(model)$fstatistic["value"], summary(model)$fstatistic["numdf"], summary(model)$fstatistic["dendf"], lower.tail = FALSE)
+ 
+
   results[t,3,4] <- nobs(model)
 
   t <- t + 1
-} 
+}
+
+if (sharp == TRUE){
+	results[1:(length(outcomes)),1,3] <- anderson_sharp_q(results[1:(length(outcomes)),1,3] ) 
+	a_sharp <- anderson_sharp_q(c(results[,3,3],results[,4,3],results[,5,3]))
+
+	results[1:(length(outcomes)),3,3] <- a_sharp[1:(length(outcomes))] 
+	results[1:(length(outcomes)),4,3] <- a_sharp[(length(outcomes)+1):(2*length(outcomes))]  
+	results[1:(length(outcomes)),5,3] <- a_sharp[(2*length(outcomes)+1):(3*length(outcomes))]
+}
 
 
 results_enumerator_gender <- results 
@@ -285,7 +322,6 @@ averages_enumerator_gender <- averages
 
 
 
-dta$age[dta$age==999] <- NA
 summary(dta$age)
 prop.table(table(dta$quality_use))
 prop.table(table(dta$bazo_use))
@@ -306,8 +342,8 @@ dta$quality_use <- dta$quality_use == "Yes"
 dta$bazo_use <- dta$bazo_use == "Yes"
 dta$knw_bazo <- dta$knw_bazo == "Yes"
 dta$tried_bazo <- dta$tried_bazo == "Yes"
-outcomes <- c("gender","age","hh_size","plot_size","yield","quality_use","bazo_use","knw_bazo","tried_bazo")
-results <- array(NA,c(length(outcomes), 4,4))
+outcomes <- c("gender","age","hh_size","plot_size","yield","quality_use","bazo_use")
+results <- array(NA,c(length(outcomes), 6,4))
 averages <- array(NA,c(length(outcomes),2))
 
 dta$anchor_high_demeaned <- dta$anchor_high - mean(dta$anchor_high)
@@ -315,7 +351,7 @@ dta$enumerator_gender_female_demeaned <-  (dta$enumerator_gender == "Female")  -
 
 t <- 1
 for (i in outcomes) {
-  
+ 
   averages[t,1] <- mean(dta[dta$anchor_high==FALSE & dta$enumerator_gender=="Male",i], na.rm=T)
   averages[t,2] <- sd(dta[dta$anchor_high==FALSE & dta$enumerator_gender=="Male",i], na.rm=T)
   
@@ -323,22 +359,41 @@ for (i in outcomes) {
   
 #  print(summary(model))
   results[t,1,1:2] <- summary(model)$coefficients[2,1:2]
-  results[t,1,3] <- anova(model)[1,5]
+  results[t,1,3] <- summary(model)$coefficients[2,4]
   results[t,1,4] <- nobs(model)
   
   model <- lm(as.formula(paste(i,"anchor_high+anchor_high*dta$enumerator_gender_female_demeaned", sep="~")), data=dta)
   
   results[t,2,1:2] <- summary(model)$coefficients[2,1:2]
-  results[t,2,3] <- anova(model)[1,5]
+  results[t,2,3] <- summary(model)$coefficients[2,4]
   results[t,2,4] <- nobs(model)
+  ###F test that all treatment cells are jointly zero
   model <- lm(as.formula(paste(i,"enumerator_gender*anchor_high", sep="~")), data=dta)
   
-  results[t,3,1:2] <- summary(model)$coefficients[4,1:2]
-  results[t,3,3] <- summary(model)$coefficients[4,4]
+  results[t,3,1:2] <- summary(model)$coefficients[2,1:2]
+  results[t,3,3] <- summary(model)$coefficients[2,4]
+
+  results[t,4,3] <- summary(model)$coefficients[3,4]
+  results[t,4,1:2] <- summary(model)$coefficients[3,1:2]
+  
+  results[t,5,1:2] <- summary(model)$coefficients[4,1:2]
+  results[t,5,3] <- summary(model)$coefficients[4,4]
+  results[t,6,1] <- summary(model)$fstatistic["value"]
+  results[t,6,2] <- pf(summary(model)$fstatistic["value"], summary(model)$fstatistic["numdf"], summary(model)$fstatistic["dendf"], lower.tail = FALSE)
   results[t,3,4] <- nobs(model)
 
   t <- t + 1
 } 
+
+
+if (sharp == TRUE){
+	a_sharp <- anderson_sharp_q(c(results[,3,3],results[,4,3],results[,5,3]))
+
+	results[1:(length(outcomes)),3,3] <- a_sharp[1:(length(outcomes))] 
+	results[1:(length(outcomes)),4,3] <- a_sharp[(length(outcomes)+1):(2*length(outcomes))]  
+	results[1:(length(outcomes)),5,3] <- a_sharp[(2*length(outcomes)+1):(3*length(outcomes))]
+}
+
 
 
 balance_table <- results 

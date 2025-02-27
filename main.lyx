@@ -248,7 +248,8 @@ At the core of our study is a simple bargaining experiment.
 \end_layout
 
 \begin_layout Standard
-We provide exogenous variation along two dimensions.
+Even to the primary focus of this study is the gender of the seller,
+ we provide exogenous variation along two dimensions.
  First,
  we assign farmers to either a male or female seller in a way that is as good as random.
  This allows us to estimate the causal impact of the seller's gender on the bargaining process and outcomes.
@@ -766,7 +767,7 @@ bring some small money to this follow-up meeting as there may be an opportunity 
 Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:balance"
+reference "tab:balance-alt"
 plural "false"
 caps "false"
 noprefix "false"
@@ -789,7 +790,7 @@ A significant share of farmers have experience with improved seed varieties.
  We find that about 40 percent of farmers in our sample used seed of an open pollinated or hybrid variety in the previous season on any of their plots.
  However,
  farmers have less experience with the type of seed that we offer in the field experiment (a type popularly known as bazooka).
- Only about 9 percent of farmers indicate that they used this type of seed on any of their plots in the previous season.
+ Only about 9.5 percent of farmers indicate that they used this type of seed on any of their plots in the previous season.
  
 \end_layout
 
@@ -798,7 +799,7 @@ A significant share of farmers have experience with improved seed varieties.
 placement document
 alignment document
 wide false
-sideways false
+sideways true
 status collapsed
 
 \begin_layout Plain Layout
@@ -808,7 +809,7 @@ status collapsed
 Descriptives and balance
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:balance"
+name "tab:balance-alt"
 
 \end_inset
 
@@ -835,7 +836,7 @@ begin{center}
 
 
 \backslash
-begin{tabular}{rcccc}
+begin{tabular}{lccccccc}
 \end_layout
 
 \begin_layout Plain Layout
@@ -849,29 +850,7 @@ hline
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-& mean & seller  & offer price 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& in &  is & is
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& Ctrl & women & high 
+ & (1) & (2) & (3) & (4) & (5) & (6) & (7) 
 \backslash
 
 \backslash
@@ -882,64 +861,75 @@ hline
 
 
 \backslash
-cline{2-4}
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Seller is Female & 
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-
+Sexpr{format(round(balance_table[1,3,1],3),nsmall=3)}$^{
 \backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Respondent is male & 
-\backslash
-Sexpr{format(round(averages_balance[1,1],digits=3),nsmall=3)}  & 
-\backslash
-Sexpr{format(round(balance_table[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(balance_table[1,1,3]<.01,"**",ifelse(balance_table[1,1,3]<.05,"*",ifelse(balance_table[1,1,3]<.1,"+","")))}}$ &
+Sexpr{ifelse(balance_table[1,3,3]<.01,"***",ifelse(balance_table[1,3,3]<.05,"**",ifelse(balance_table[1,3,3]<.1,"*","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{format(round(balance_table[1,2,1],digits=3),nsmall=3)}$^{
+Sexpr{format(round(balance_table[2,3,1],3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(balance_table[1,2,3]<.01,"**",ifelse(balance_table[1,2,3]<.05,"*",ifelse(balance_table[1,2,3]<.1,"+","")))}}$  
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(averages_balance[1,2],digits=3),nsmall=3)})   & (
-\backslash
-Sexpr{format(round(balance_table[1,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(balance_table[1,2,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
+Sexpr{ifelse(balance_table[2,3,3]<.01,"***",ifelse(balance_table[2,3,3]<.05,"**",ifelse(balance_table[2,3,3]<.1,"*","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
 
 
+\backslash
+Sexpr{format(round(balance_table[3,3,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[3,3,3]<.01,"***",ifelse(balance_table[3,3,3]<.05,"**",ifelse(balance_table[3,3,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[4,3,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[4,3,3]<.01,"***",ifelse(balance_table[4,3,3]<.05,"**",ifelse(balance_table[4,3,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[5,3,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[5,3,3]<.01,"***",ifelse(balance_table[5,3,3]<.05,"**",ifelse(balance_table[5,3,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[6,3,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[6,3,3]<.01,"***",ifelse(balance_table[6,3,3]<.05,"**",ifelse(balance_table[6,3,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[7,3,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[7,3,3]<.01,"***",ifelse(balance_table[7,3,3]<.05,"**",ifelse(balance_table[7,3,3]<.1,"*","")))}}$ 
 \backslash
 
 \backslash
@@ -952,78 +942,51 @@ Sexpr{format(round(balance_table[1,2,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-Respondent age (years) & 
+ & (
 \backslash
-Sexpr{format(round(averages_balance[2,1],digits=3),nsmall=3)}  & 
-\backslash
-Sexpr{format(round(balance_table[2,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(balance_table[2,1,3]<.01,"**",ifelse(balance_table[2,1,3]<.05,"*",ifelse(balance_table[2,1,3]<.1,"+","")))}}$ &
+Sexpr{format(round(balance_table[1,3,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-
+ (
 \backslash
-Sexpr{format(round(balance_table[2,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(balance_table[2,2,3]<.01,"**",ifelse(balance_table[2,2,3]<.05,"*",ifelse(balance_table[2,2,3]<.1,"+","")))}}$  
-\backslash
-
-\backslash
-
+Sexpr{format(round(balance_table[2,3,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
+ (
+\backslash
+Sexpr{format(round(balance_table[3,3,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-& (
+ (
 \backslash
-Sexpr{format(round(averages_balance[2,2],digits=3),nsmall=3)})   & (
-\backslash
-Sexpr{format(round(balance_table[2,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(balance_table[2,2,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
+Sexpr{format(round(balance_table[4,3,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-
+ (
 \backslash
-
-\backslash
-
+Sexpr{format(round(balance_table[5,3,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
+ (
+\backslash
+Sexpr{format(round(balance_table[6,3,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-Household size (nr) & 
+ (
 \backslash
-Sexpr{format(round(averages_balance[3,1],digits=3),nsmall=3)}  & 
-\backslash
-Sexpr{format(round(balance_table[3,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(balance_table[3,1,3]<.01,"**",ifelse(balance_table[3,1,3]<.05,"*",ifelse(balance_table[3,1,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(balance_table[3,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(balance_table[3,2,3]<.01,"**",ifelse(balance_table[3,2,3]<.05,"*",ifelse(balance_table[3,2,3]<.1,"+","")))}}$  
+Sexpr{format(round(balance_table[7,3,2],3),nsmall=3)}) 
 \backslash
 
 \backslash
@@ -1036,78 +999,70 @@ Sexpr{ifelse(balance_table[3,2,3]<.01,"**",ifelse(balance_table[3,2,3]<.05,"*",i
 
 \begin_layout Plain Layout
 
-& (
-\backslash
-Sexpr{format(round(averages_balance[3,2],digits=3),nsmall=3)})   & (
-\backslash
-Sexpr{format(round(balance_table[3,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(balance_table[3,2,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
+Offer Price is High  & 
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-
+Sexpr{format(round(balance_table[1,4,1],3),nsmall=3)}$^{
 \backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Average size of maize plot (acres) & 
-\backslash
-Sexpr{format(round(averages_balance[4,1],digits=3),nsmall=3)}  & 
-\backslash
-Sexpr{format(round(balance_table[4,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(balance_table[4,1,3]<.01,"**",ifelse(balance_table[4,1,3]<.05,"*",ifelse(balance_table[4,1,3]<.1,"+","")))}}$ &
+Sexpr{ifelse(balance_table[1,4,3]<.01,"***",ifelse(balance_table[1,4,3]<.05,"**",ifelse(balance_table[1,4,3]<.1,"*","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{format(round(balance_table[4,2,1],digits=3),nsmall=3)}$^{
+Sexpr{format(round(balance_table[2,4,1],3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(balance_table[4,2,3]<.01,"**",ifelse(balance_table[4,2,3]<.05,"*",ifelse(balance_table[4,2,3]<.1,"+","")))}}$  
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(averages_balance[4,2],digits=3),nsmall=3)})   & (
-\backslash
-Sexpr{format(round(balance_table[4,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(balance_table[4,2,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
+Sexpr{ifelse(balance_table[2,4,3]<.01,"***",ifelse(balance_table[2,4,3]<.05,"**",ifelse(balance_table[2,4,3]<.1,"*","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
 
 
+\backslash
+Sexpr{format(round(balance_table[3,4,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[3,4,3]<.01,"***",ifelse(balance_table[3,4,3]<.05,"**",ifelse(balance_table[3,4,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[4,4,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[4,4,3]<.01,"***",ifelse(balance_table[4,4,3]<.05,"**",ifelse(balance_table[4,4,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[5,4,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[5,4,3]<.01,"***",ifelse(balance_table[5,4,3]<.05,"**",ifelse(balance_table[5,4,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[6,4,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[6,4,3]<.01,"***",ifelse(balance_table[6,4,3]<.05,"**",ifelse(balance_table[6,4,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[7,4,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[7,4,3]<.01,"***",ifelse(balance_table[7,4,3]<.05,"**",ifelse(balance_table[7,4,3]<.1,"*","")))}}$ 
 \backslash
 
 \backslash
@@ -1120,79 +1075,51 @@ Sexpr{format(round(balance_table[4,2,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
- Yield (kg/acre) & 
+ & (
 \backslash
-Sexpr{format(round(averages_balance[5,1],digits=3),nsmall=3)}  & 
-\backslash
-Sexpr{format(round(balance_table[5,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(balance_table[5,1,3]<.01,"**",ifelse(balance_table[5,1,3]<.05,"*",ifelse(balance_table[5,1,3]<.1,"+","")))}}$ &
+Sexpr{format(round(balance_table[1,4,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-
+ (
 \backslash
-Sexpr{format(round(balance_table[5,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(balance_table[5,2,3]<.01,"**",ifelse(balance_table[5,2,3]<.05,"*",ifelse(balance_table[5,2,3]<.1,"+","")))}}$  
-\backslash
-
-\backslash
-
+Sexpr{format(round(balance_table[2,4,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
+ (
+\backslash
+Sexpr{format(round(balance_table[3,4,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-& (
+ (
 \backslash
-Sexpr{format(round(averages_balance[5,2],digits=3),nsmall=3)})   & (
-\backslash
-Sexpr{format(round(balance_table[5,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(balance_table[5,2,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
+Sexpr{format(round(balance_table[4,4,2],3),nsmall=3)}) & 
 \end_layout
 
 \begin_layout Plain Layout
 
-
+(
 \backslash
-
-\backslash
-
+Sexpr{format(round(balance_table[5,4,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
+ (
+\backslash
+Sexpr{format(round(balance_table[6,4,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-Used improved seed last year?
- & 
+ (
 \backslash
-Sexpr{format(round(averages_balance[6,1],digits=3),nsmall=3)}  & 
-\backslash
-Sexpr{format(round(balance_table[6,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(balance_table[6,1,3]<.01,"**",ifelse(balance_table[6,1,3]<.05,"*",ifelse(balance_table[6,1,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(balance_table[6,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(balance_table[6,2,3]<.01,"**",ifelse(balance_table[6,2,3]<.05,"*",ifelse(balance_table[6,2,3]<.1,"+","")))}}$  
+Sexpr{format(round(balance_table[7,4,2],3),nsmall=3)}) 
 \backslash
 
 \backslash
@@ -1205,13 +1132,70 @@ Sexpr{ifelse(balance_table[6,2,3]<.01,"**",ifelse(balance_table[6,2,3]<.05,"*",i
 
 \begin_layout Plain Layout
 
-& (
+Offer Price is High x Seller is Female & 
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-Sexpr{format(round(averages_balance[6,2],digits=3),nsmall=3)})   & (
+Sexpr{format(round(balance_table[1,5,1],3),nsmall=3)}$^{
 \backslash
-Sexpr{format(round(balance_table[6,1,2],digits=3),nsmall=3)}) & (
+Sexpr{ifelse(balance_table[1,5,3]<.01,"***",ifelse(balance_table[1,5,3]<.05,"**",ifelse(balance_table[1,5,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-Sexpr{format(round(balance_table[6,2,2],digits=3),nsmall=3)}) 
+Sexpr{format(round(balance_table[2,5,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[2,5,3]<.01,"***",ifelse(balance_table[2,5,3]<.05,"**",ifelse(balance_table[2,5,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[3,5,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[3,5,3]<.01,"***",ifelse(balance_table[3,5,3]<.05,"**",ifelse(balance_table[3,5,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[4,5,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[4,5,3]<.01,"***",ifelse(balance_table[4,5,3]<.05,"**",ifelse(balance_table[4,5,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[5,5,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[5,5,3]<.01,"***",ifelse(balance_table[5,5,3]<.05,"**",ifelse(balance_table[5,5,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[6,5,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[6,5,3]<.01,"***",ifelse(balance_table[6,5,3]<.05,"**",ifelse(balance_table[6,5,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[7,5,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[7,5,3]<.01,"***",ifelse(balance_table[7,5,3]<.05,"**",ifelse(balance_table[7,5,3]<.1,"*","")))}}$ 
 \backslash
 
 \backslash
@@ -1220,37 +1204,247 @@ Sexpr{format(round(balance_table[6,2,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
+\end_layout
 
+\begin_layout Plain Layout
+
+ & (
+\backslash
+Sexpr{format(round(balance_table[1,5,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(balance_table[2,5,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(balance_table[3,5,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(balance_table[4,5,2],3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(balance_table[5,5,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(balance_table[6,5,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(balance_table[7,5,2],3),nsmall=3)}) 
 \backslash
 
 \backslash
 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Control Mean & 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_balance[1,1],3),nsmall=3)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_balance[2,1],3),nsmall=3)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_balance[3,1],3),nsmall=3)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_balance[4,1],3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(averages_balance[5,1],3),nsmall=3)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_balance[6,1],3),nsmall=3)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_balance[7,1],3),nsmall=3)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & (
+\backslash
+Sexpr{format(round(averages_balance[1,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(averages_balance[2,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(averages_balance[3,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(averages_balance[4,2],3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(averages_balance[5,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(averages_balance[6,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(averages_balance[7,2],3),nsmall=3)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+F-test & 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[1,6,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[1,6,2]<.01,"***",ifelse(balance_table[1,6,2]<.05,"**",ifelse(balance_table[1,6,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[2,6,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[2,6,2]<.01,"***",ifelse(balance_table[2,6,2]<.05,"**",ifelse(balance_table[2,6,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[3,6,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[3,6,2]<.01,"***",ifelse(balance_table[3,6,2]<.05,"**",ifelse(balance_table[3,6,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[4,6,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[4,6,2]<.01,"***",ifelse(balance_table[4,6,2]<.05,"**",ifelse(balance_table[4,6,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[5,6,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[5,6,2]<.01,"***",ifelse(balance_table[5,6,2]<.05,"**",ifelse(balance_table[5,6,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[6,6,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[6,6,2]<.01,"***",ifelse(balance_table[6,6,2]<.05,"**",ifelse(balance_table[6,6,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[7,6,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(balance_table[7,6,2]<.01,"***",ifelse(balance_table[7,6,2]<.05,"**",ifelse(balance_table[7,6,2]<.1,"*","")))}}$
 \end_layout
 
 \begin_layout Plain Layout
 
  
-\end_layout
-
-\begin_layout Plain Layout
-
-Used bazooka seed last year?
- & 
-\backslash
-Sexpr{format(round(averages_balance[7,1],digits=3),nsmall=3)}  & 
-\backslash
-Sexpr{format(round(balance_table[7,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(balance_table[7,1,3]<.01,"**",ifelse(balance_table[7,1,3]<.05,"*",ifelse(balance_table[7,1,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(balance_table[7,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(balance_table[7,2,3]<.01,"**",ifelse(balance_table[7,2,3]<.05,"*",ifelse(balance_table[7,2,3]<.1,"+","")))}}$  
 \backslash
 
 \backslash
@@ -1263,13 +1457,46 @@ Sexpr{ifelse(balance_table[7,2,3]<.01,"**",ifelse(balance_table[7,2,3]<.05,"*",i
 
 \begin_layout Plain Layout
 
-& (
+Number of Observations &  
 \backslash
-Sexpr{format(round(averages_balance[7,2],digits=3),nsmall=3)})   & (
+Sexpr{format(round(balance_table[1,3,4],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-Sexpr{format(round(balance_table[7,1,2],digits=3),nsmall=3)}) & (
+Sexpr{format(round(balance_table[2,3,4],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-Sexpr{format(round(balance_table[7,2,2],digits=3),nsmall=3)}) 
+Sexpr{format(round(balance_table[3,3,4],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[4,3,4],0),nsmall=0)} & 
+\backslash
+Sexpr{format(round(balance_table[5,3,4],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[6,3,4],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(balance_table[7,3,4],0),nsmall=0)} 
 \backslash
 
 \backslash
@@ -1278,31 +1505,9 @@ Sexpr{format(round(balance_table[7,2,2],digits=3),nsmall=3)})
 
 \begin_layout Plain Layout
 
-
-\backslash
-
-\backslash
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Number of Observations & 760  & 760 & 760  
-\backslash
-
-\backslash
 
 \end_layout
 
@@ -1343,17 +1548,20 @@ footnotesize
 \begin_layout Plain Layout
 
 Note:
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-**,*,
- and + denote significance at the 1,
+ ***,**,
+ and denote significance at the 1,
  5,
  and 10
 \backslash
-% levels.
+% levels  based on sharpened q-values 
+\backslash
+citep{benjamini2006adaptive}.
+ (1) Respondent is male,
+ (2) Age,(3) Household Size,
+ (4) Plot Size,(5) Yield (kg/acre),
+ (6) Used Improved Seed,
+ (7) Used Bazooka Seed.
+ Control mean is for male seller and low initial offer price.
  
 \end_layout
 
@@ -1371,7 +1579,7 @@ Note:
 Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:balance"
+reference "tab:balance-alt"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1380,11 +1588,11 @@ nolink "false"
 \end_inset
 
  also doubles as a balance table,
- with columns 2 and 3 showing difference between treatment (respectively the seller being a woman and a high initial offer price) and control.
+ with rows 1 and 3 showing difference between treatment (respectively the seller being a woman and a high initial offer price) and control (and corresponding standard errors in brackets below).
  Overall,
- with the exception of the gender of the respondent,
+ with the exception of the gender of the respondent and maybe age,
  we find good overall balance.
- To account for imbalance with respect to the gender of the respondent,
+ To account for imbalance with respect to the gender of the respondent and age,
  we control for this in the specifications below.
 \end_layout
 
@@ -1401,23 +1609,23 @@ name "sec:A-gendered-analysis"
 
 \begin_layout Standard
 We now turn to a more formal analysis of various bargaining outcomes and strategies using regression analysis.
- First,
- we exploit the fact that the initial offer price was randomly assigned and look at differences in bargaining outcomes and strategies between farmers who were offered a high initial price and those that received a lower initial price.
- To do so,
- we construct an indicator variable 
-\begin_inset Formula $\left(T_{i}^{p}\right)$
-\end_inset
-
- which takes the value of 1 if the initial price was 12,000 or 11,000,
- and zero if it was 9,000 or 10,000.
- Second,
- we look at differences in bargaining outcomes and strategies between farmers who were confronted by male sellers and those who faced female sellers.
+ The primary focus is on estimating differences in bargaining outcomes and strategies between farmers who were confronted by male sellers and those who faced female sellers.
  To do so,
  we also construct an indicator variable of the gender of the seller 
 \begin_inset Formula $\left(T_{i}^{g}\right)$
 \end_inset
 
  which takes the value of 1 if the seller was a woman and zero if it was a man.
+ However,
+ recall that we also have a second experimental factor—
+the initial offer price—
+that is crossed into the design.
+ We thus also construct an indicator variable 
+\begin_inset Formula $\left(T_{i}^{p}\right)$
+\end_inset
+
+ which takes the value of 1 if the initial price was 12,000 or 11,000,
+ and zero if it was 9,000 or 10,000.
 \end_layout
 
 \begin_layout Standard
@@ -1432,7 +1640,8 @@ nolink "false"
 
 \end_inset
 
-.
+,
+ which is a standard regression model used to analyze factorial designs.
  In this equation,
  
 \begin_inset Formula $y_{i}$
@@ -1464,15 +1673,118 @@ i
 \end_inset
 
 ,
- the estimate of the effect of the seller being a woman.
+ the estimate of the effect of the seller being a woman,
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is a constant to be estimated,
+ 
+\begin_inset Formula $\beta_{p}$
+\end_inset
+
+ is the estimate of the impact of a high starting price,
+ and 
+\begin_inset Formula $\beta_{gp}$
+\end_inset
+
+ a potential interaction effect.
+ Finally,
+ because we found some indications of gender matching in the negotiation pairing (see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Discussion"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+),
+ we control for the gender of the buyer and age of the buyer in the regressions as well 
+\begin_inset Formula $\left(x_{i}\right)$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-The second experimental factor,
- the initial offer price,
- is crossed into the design (much like in factorial designs).
- It is well known that the most agnostic specification to estimate parameters in crossed designs is to control for the orthogonal experimental factor,
- as well as for potential interaction effects between the experimental factors 
+\begin_inset Formula 
+\begin{equation}
+y_{i}=\alpha+\beta_{g}T_{i}^{g}+\beta_{p}T_{i}^{p}+\beta_{gp}T_{i}^{g}T_{i}^{p}+\gamma x_{i}+\varepsilon_{i}\label{eq:gender}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The above fully saturated model is the most agnostic specification to estimate parameters in crossed designs .
+ However,
+ such models with binary treatments essentially split the sample into four treatment cells,
+ significantly reducing statistical power for comparisons.
+ However,
+ by re-specifying the model,
+ we can boost power by pooling treatments (comparing buyers that face female sellers to buyers that face male sellers,
+ regardless of the level of the initial offer price).
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+It is important to note that this pooled coefficient also has a slightly different interpretation than 
+\begin_inset Formula $\beta_{g}$
+\end_inset
+
+ in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gender"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ While 
+\begin_inset Formula $\beta_{g}$
+\end_inset
+
+ is an estimate of the effect of the gender of the seller when the initial price is low,
+ the pooled coefficient is a weighted average of the effect of gender of the seller when initial price is low and the effect of gender of the seller with the initial price is high.
+ In factorial experiments where the orthogonal factor has a control level,
+ 
+\begin_inset Formula $\beta_{g}$
+\end_inset
+
+ is likely to be the preferred estimand,
+ as this provides the pure treatment effect (in the absence of any other treatment).
+ However,
+ in our case,
+ it may be reasonable to remain agnostic about the initial offer price,
+ and so the effect of the gender of the seller averaged over both high and low initial prices may be the appropriate estimand.
+\end_layout
+
+\end_inset
+
+ This is often done by simply dropping the interaction term in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gender"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ however,
+ this leads to biased estimates if the interaction effect is not zero,
+ something that is hard to test in small samples 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1162/rest_a_01317"
@@ -1481,21 +1793,13 @@ literal "false"
 \end_inset
 
 .
- Modeling interaction effects in a regression with binary treatments essentially splits the sample into four treatment cells,
- significantly reducing statistical power for comparisons,
- which can pose a problem.
- However,
- if we treat the orthogonal factor as a co-variate and control for it by entering it in deviations from its mean (and interacted with the main experimental factor),
- we can pool treatment cells to boost power and obtain an unbiased estimate of 
-\begin_inset Formula $\beta_{g}$
-\end_inset
-
- even if there is an interaction between the two experimental factors.
+ Fortunately,
+ there is a way to recover an unbiased estimate of the pooled regression coefficient if we treat the orthogonal factor as a co-variate and control for it by entering it in deviations from its mean (and interacted with the main experimental factor).
  Therefore,
  in Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:gender"
+reference "eq:price"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1513,90 +1817,13 @@ nolink "false"
 \end_inset
 
 .
- A similar equation is estimated for when the effect of a high initial offer price 
-\begin_inset Formula $\left(\beta_{p}\right)$
-\end_inset
-
- is of primary interest (Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:price"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-).
- In this case,
- the treatment indicator for the gender of the seller is entered in deviation from its mean 
-\begin_inset Formula $\left(T_{i}^{g}-\overline{T^{g}}\right)$
-\end_inset
-
-.
- Finally,
- because we found some indications of gender matching in the negotiation pairing (see section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Discussion"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-),
- we control for the gender of the buyer in the regressions as well 
-\begin_inset Formula $\left(x_{i}\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-The effect of the initial offer price and the effect of the seller's gender are estimated using a single specification (Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:gender"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-).
  
-\begin_inset Formula $\alpha$
-\end_inset
-
- is a constant to be estimated,
- 
-\begin_inset Formula $\beta_{p}$
-\end_inset
-
- is the estimate of the impact of a high starting price,
- and 
-\begin_inset Formula $\beta_{g}$
-\end_inset
-
- is the estimate of the effect of the seller being a woman.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-y_{i}=\alpha+\beta_{g}T_{i}^{g}+\beta_{cp}\left(T_{i}^{p}-\overline{T^{p}}\right)+\beta_{gp}T_{i}^{g}\left(T_{i}^{p}-\overline{T^{p}}\right)+\gamma x_{i}+\varepsilon_{i}\label{eq:gender}
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-y_{i}=\alpha+\beta_{p}T_{i}^{p}+\beta_{cg}\left(T_{i}^{g}-\overline{T^{g}}\right)+\beta_{pg}T_{i}^{p}\left(T_{i}^{g}-\overline{T^{g}}\right)+\gamma x_{i}+\varepsilon_{i}\label{eq:price}
+y_{i}=\alpha+\beta_{g}^{pooled}T_{i}^{g}+\beta_{p}\left(T_{i}^{p}-\overline{T^{p}}\right)+\beta_{pg}T_{i}^{g}\left(T_{i}^{p}-\overline{T^{p}}\right)+\gamma x_{i}+\varepsilon_{i}\label{eq:price}
 \end{equation}
 
 \end_inset
@@ -1727,7 +1954,7 @@ We consider the following outcomes and strategies to judge impact of the gender 
 Results of the analysis are in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:results_seller"
+reference "tab:results_seller-wide"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1741,7 +1968,7 @@ nolink "false"
  the first column of Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:results_seller"
+reference "tab:results_seller-wide"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1753,7 +1980,7 @@ nolink "false"
  The second column in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:results_seller"
+reference "tab:results_seller-wide"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1781,7 +2008,7 @@ nolink "false"
  The third column in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:results_seller"
+reference "tab:results_seller-wide"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1813,7 +2040,7 @@ nolink "false"
 placement document
 alignment document
 wide false
-sideways false
+sideways true
 status collapsed
 
 \begin_layout Plain Layout
@@ -1823,7 +2050,7 @@ status collapsed
 Effect of high price and gender of seller on bargaining
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:results_seller"
+name "tab:results_seller-wide"
 
 \end_inset
 
@@ -1850,7 +2077,7 @@ begin{center}
 
 
 \backslash
-begin{tabular}{rcccc}
+begin{tabular}{lccccccc}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1864,29 +2091,7 @@ hline
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-& mean & seller  & offer price 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& in &  is & is
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& Ctrl & women & high 
+ & (1) & (2) & (3) & (4) & (5) & (6) &(7) 
 \backslash
 
 \backslash
@@ -1897,90 +2102,75 @@ hline
 
 
 \backslash
-cline{2-4}
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Seller is Female & 
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-
+Sexpr{format(round(results_enumerator_gender[1,3,1],3),nsmall=3)}$^{
 \backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Initial accept (
-\backslash
-%) & 
-\backslash
-Sexpr{format(round(averages_enumerator_gender[1,1],digits=3),nsmall=3)}  & 
-\backslash
-Sexpr{format(round(results_enumerator_gender[1,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[1,1,3]<.01,"**",ifelse(results_enumerator_gender[1,1,3]<.05,"*",ifelse(results_enumerator_gender[1,1,3]<.1,"+","")))}}$ &
+Sexpr{ifelse(results_enumerator_gender[1,3,3]<.01,"***",ifelse(results_enumerator_gender[1,3,3]<.05,"**",ifelse(results_enumerator_gender[1,3,3]<.1,"*","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{format(round(results_enumerator_gender[1,2,1],digits=3),nsmall=3)}$^{
+Sexpr{format(round(results_enumerator_gender[2,3,1],0),nsmall=0)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[1,2,3]<.01,"**",ifelse(results_enumerator_gender[1,2,3]<.05,"*",ifelse(results_enumerator_gender[1,2,3]<.1,"+","")))}}$  
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(averages_enumerator_gender[1,2],digits=3),nsmall=3)})   & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[1,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[1,2,2],digits=3),nsmall=3)}) 
-\backslash
-
-\backslash
-
+Sexpr{ifelse(results_enumerator_gender[2,3,3]<.01,"***",ifelse(results_enumerator_gender[2,3,3]<.05,"**",ifelse(results_enumerator_gender[2,3,3]<.1,"*","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-
+Sexpr{format(round(results_enumerator_gender[3,3,1],3),nsmall=3)}$^{
 \backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Starting price (UGX) & 
-\backslash
-Sexpr{format(round(averages_enumerator_gender[2,1],digits=0),nsmall=0)} & 
-\backslash
-Sexpr{format(round(results_enumerator_gender[2,1,1],digits=0),nsmall=0)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[2,1,3]<.01,"**",ifelse(results_enumerator_gender[2,1,3]<.05,"*",ifelse(results_enumerator_gender[2,1,3]<.1,"+","")))}}$ &
+Sexpr{ifelse(results_enumerator_gender[3,3,3]<.01,"***",ifelse(results_enumerator_gender[3,3,3]<.05,"**",ifelse(results_enumerator_gender[3,3,3]<.1,"*","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{format(round(results_enumerator_gender[2,2,1],digits=0),nsmall=0)}$^{
+Sexpr{format(round(results_enumerator_gender[4,3,1],3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[2,2,3]<.01,"**",ifelse(results_enumerator_gender[2,2,3]<.05,"*",ifelse(results_enumerator_gender[2,2,3]<.1,"+","")))}}$   
+Sexpr{ifelse(results_enumerator_gender[4,3,3]<.01,"***",ifelse(results_enumerator_gender[4,3,3]<.05,"**",ifelse(results_enumerator_gender[4,3,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,3,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,3,3]<.01,"***",ifelse(results_enumerator_gender[5,3,3]<.05,"**",ifelse(results_enumerator_gender[5,3,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,3,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,3,3]<.01,"***",ifelse(results_enumerator_gender[6,3,3]<.05,"**",ifelse(results_enumerator_gender[6,3,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,3,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,3,3]<.01,"***",ifelse(results_enumerator_gender[7,3,3]<.05,"**",ifelse(results_enumerator_gender[7,3,3]<.1,"*","")))}}$ 
 \backslash
 
 \backslash
@@ -1993,107 +2183,46 @@ Sexpr{ifelse(results_enumerator_gender[2,2,3]<.01,"**",ifelse(results_enumerator
 
 \begin_layout Plain Layout
 
-& (
+ & (
 \backslash
-Sexpr{format(round(averages_enumerator_gender[2,2],digits=0),nsmall=0)})  & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[2,1,2],digits=0),nsmall=0)}) & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[2,2,2],digits=0),nsmall=0)})   
-\backslash
-
-\backslash
-
+Sexpr{format(round(results_enumerator_gender[1,3,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-
+ (
 \backslash
-
-\backslash
-
+Sexpr{format(round(results_enumerator_gender[2,3,2],0),nsmall=0)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-Bottom price (
+ (
 \backslash
-%) & 
-\backslash
-Sexpr{format(round(averages_enumerator_gender[3,1],digits=3),nsmall=3)} & 
-\backslash
-Sexpr{format(round(results_enumerator_gender[3,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[3,1,3]<.01,"**",ifelse(results_enumerator_gender[3,1,3]<.05,"*",ifelse(results_enumerator_gender[3,1,3]<.1,"+","")))}}$ &
+Sexpr{format(round(results_enumerator_gender[3,3,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-
+ (
 \backslash
-Sexpr{format(round(results_enumerator_gender[3,2,1],digits=3),nsmall=3)}$^{
+Sexpr{format(round(results_enumerator_gender[4,3,2],3),nsmall=3)}) & (
 \backslash
-Sexpr{ifelse(results_enumerator_gender[3,2,3]<.01,"**",ifelse(results_enumerator_gender[3,2,3]<.05,"*",ifelse(results_enumerator_gender[3,2,3]<.1,"+","")))}}$  
-\backslash
-
-\backslash
-
+Sexpr{format(round(results_enumerator_gender[5,3,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,3,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-& (
+ (
 \backslash
-Sexpr{format(round(averages_enumerator_gender[3,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[3,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[3,2,2],digits=3),nsmall=3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Sticky strategy (
-\backslash
-%) & 
-\backslash
-Sexpr{format(round(averages_enumerator_gender[5,1],digits=3),nsmall=3)} & 
-\backslash
-Sexpr{format(round(results_enumerator_gender[5,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[5,1,3]<.01,"**",ifelse(results_enumerator_gender[5,1,3]<.05,"*",ifelse(results_enumerator_gender[5,1,3]<.1,"+","")))}}$ &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{format(round(results_enumerator_gender[5,2,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[5,2,3]<.01,"**",ifelse(results_enumerator_gender[5,2,3]<.05,"*",ifelse(results_enumerator_gender[5,2,3]<.1,"+","")))}}$  
+Sexpr{format(round(results_enumerator_gender[7,3,2],0),nsmall=0)}) 
 \backslash
 
 \backslash
@@ -2106,104 +2235,70 @@ Sexpr{ifelse(results_enumerator_gender[5,2,3]<.01,"**",ifelse(results_enumerator
 
 \begin_layout Plain Layout
 
-& (
-\backslash
-Sexpr{format(round(averages_enumerator_gender[5,2],digits=3),nsmall=3)})  & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[5,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[5,2,2],digits=3),nsmall=3)})  
-\backslash
-
-\backslash
-
+Offer Price is High & 
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-
+Sexpr{format(round(results_enumerator_gender[1,4,1],3),nsmall=3)}$^{
 \backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Rounds (number) & 
-\backslash
-Sexpr{format(round(averages_enumerator_gender[6,1],digits=3),nsmall=3)} & 
-\backslash
-Sexpr{format(round(results_enumerator_gender[6,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[6,1,3]<.01,"**",ifelse(results_enumerator_gender[6,1,3]<.05,"*",ifelse(results_enumerator_gender[6,1,3]<.1,"+","")))}}$ &
+Sexpr{ifelse(results_enumerator_gender[1,4,3]<.01,"***",ifelse(results_enumerator_gender[1,4,3]<.05,"**",ifelse(results_enumerator_gender[1,4,3]<.1,"*","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{format(round(results_enumerator_gender[6,2,1],digits=3),nsmall=3)}$^{
+Sexpr{format(round(results_enumerator_gender[2,4,1],0),nsmall=0)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[6,2,3]<.01,"**",ifelse(results_enumerator_gender[6,2,3]<.05,"*",ifelse(results_enumerator_gender[6,2,3]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& (
-\backslash
-Sexpr{format(round(averages_enumerator_gender[6,2],digits=3),nsmall=3)})  & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[6,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[6,2,2],digits=3),nsmall=3)})
-\backslash
-
-\backslash
-
+Sexpr{ifelse(results_enumerator_gender[2,4,3]<.01,"***",ifelse(results_enumerator_gender[2,4,3]<.05,"**",ifelse(results_enumerator_gender[2,4,3]<.1,"*","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-
+Sexpr{format(round(results_enumerator_gender[3,4,1],3),nsmall=3)}$^{
 \backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Buyer accepts (
-\backslash
-%) & 
-\backslash
-Sexpr{format(round(averages_enumerator_gender[4,1],digits=3),nsmall=3)} & 
-\backslash
-Sexpr{format(round(results_enumerator_gender[4,1,1],digits=3),nsmall=3)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[4,1,3]<.01,"**",ifelse(results_enumerator_gender[4,1,3]<.05,"*",ifelse(results_enumerator_gender[4,1,3]<.1,"+","")))}}$ &
+Sexpr{ifelse(results_enumerator_gender[3,4,3]<.01,"***",ifelse(results_enumerator_gender[3,4,3]<.05,"**",ifelse(results_enumerator_gender[3,4,3]<.1,"*","")))}}$ &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{format(round(results_enumerator_gender[4,2,1],digits=3),nsmall=3)}$^{
+Sexpr{format(round(results_enumerator_gender[4,4,1],3),nsmall=3)}$^{
 \backslash
-Sexpr{ifelse(results_enumerator_gender[4,2,3]<.01,"**",ifelse(results_enumerator_gender[4,2,3]<.05,"*",ifelse(results_enumerator_gender[4,2,3]<.1,"+","")))}}$  
+Sexpr{ifelse(results_enumerator_gender[4,4,3]<.01,"***",ifelse(results_enumerator_gender[4,4,3]<.05,"**",ifelse(results_enumerator_gender[4,4,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,4,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,4,3]<.01,"***",ifelse(results_enumerator_gender[5,4,3]<.05,"**",ifelse(results_enumerator_gender[5,4,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,4,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,4,3]<.01,"***",ifelse(results_enumerator_gender[6,4,3]<.05,"**",ifelse(results_enumerator_gender[6,4,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,4,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,4,3]<.01,"***",ifelse(results_enumerator_gender[7,4,3]<.05,"**",ifelse(results_enumerator_gender[7,4,3]<.1,"*","")))}}$ 
 \backslash
 
 \backslash
@@ -2216,70 +2311,51 @@ Sexpr{ifelse(results_enumerator_gender[4,2,3]<.01,"**",ifelse(results_enumerator
 
 \begin_layout Plain Layout
 
-& (
+ & (
 \backslash
-Sexpr{format(round(averages_enumerator_gender[4,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[4,1,2],digits=3),nsmall=3)}) & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[4,2,2],digits=3),nsmall=3)})
+Sexpr{format(round(results_enumerator_gender[1,4,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-
+ (
 \backslash
-
-\backslash
-
+Sexpr{format(round(results_enumerator_gender[2,4,2],0),nsmall=0)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-
+ (
 \backslash
-
-\backslash
-
+Sexpr{format(round(results_enumerator_gender[3,4,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-Transaction price (UGX) & 
+ (
 \backslash
-Sexpr{format(round(averages_enumerator_gender[7,1],digits=0),nsmall=0)} & 
-\backslash
-Sexpr{format(round(results_enumerator_gender[7,1,1],digits=0),nsmall=0)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[7,1,3]<.01,"**",ifelse(results_enumerator_gender[7,1,3]<.05,"*",ifelse(results_enumerator_gender[7,1,3]<.1,"+","")))}}$ &
+Sexpr{format(round(results_enumerator_gender[4,4,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-
+(
 \backslash
-Sexpr{format(round(results_enumerator_gender[7,2,1],digits=0),nsmall=0)}$^{
-\backslash
-Sexpr{ifelse(results_enumerator_gender[7,2,3]<.01,"**",ifelse(results_enumerator_gender[7,2,3]<.05,"*",ifelse(results_enumerator_gender[7,2,3]<.1,"+","")))}}$
-\backslash
-
-\backslash
-
+Sexpr{format(round(results_enumerator_gender[5,4,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,4,2],3),nsmall=3)}) &
 \end_layout
 
 \begin_layout Plain Layout
 
-& (
+ (
 \backslash
-Sexpr{format(round(averages_enumerator_gender[7,2],digits=0),nsmall=0)})  & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[7,1,2],digits=0),nsmall=0)}) & (
-\backslash
-Sexpr{format(round(results_enumerator_gender[7,2,2],digits=0),nsmall=0)}) 
+Sexpr{format(round(results_enumerator_gender[7,4,2],0),nsmall=0)}) 
 \backslash
 
 \backslash
@@ -2292,7 +2368,70 @@ Sexpr{format(round(results_enumerator_gender[7,2,2],digits=0),nsmall=0)})
 
 \begin_layout Plain Layout
 
+Seller is Female  x Offer price is High &
+\end_layout
 
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,5,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[1,5,3]<.01,"***",ifelse(results_enumerator_gender[1,5,3]<.05,"**",ifelse(results_enumerator_gender[1,5,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,5,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[2,5,3]<.01,"***",ifelse(results_enumerator_gender[2,5,3]<.05,"**",ifelse(results_enumerator_gender[2,5,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,5,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[3,5,3]<.01,"***",ifelse(results_enumerator_gender[3,5,3]<.05,"**",ifelse(results_enumerator_gender[3,5,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,5,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,5,3]<.01,"***",ifelse(results_enumerator_gender[4,5,3]<.05,"**",ifelse(results_enumerator_gender[4,5,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,5,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,5,3]<.01,"***",ifelse(results_enumerator_gender[5,5,3]<.05,"**",ifelse(results_enumerator_gender[5,5,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,5,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,5,3]<.01,"***",ifelse(results_enumerator_gender[6,5,3]<.05,"**",ifelse(results_enumerator_gender[6,5,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,5,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,5,3]<.01,"***",ifelse(results_enumerator_gender[7,5,3]<.05,"**",ifelse(results_enumerator_gender[7,5,3]<.1,"*","")))}}$ 
 \backslash
 
 \backslash
@@ -2305,7 +2444,588 @@ Sexpr{format(round(results_enumerator_gender[7,2,2],digits=0),nsmall=0)})
 
 \begin_layout Plain Layout
 
-Number of Observations & 760  & 760 & 760  
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,5,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,5,2],0),nsmall=0)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,5,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,5,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,5,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,5,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,5,2],0),nsmall=0)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Buyer is Male &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,6,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[1,6,3]<.01,"***",ifelse(results_enumerator_gender[1,6,3]<.05,"**",ifelse(results_enumerator_gender[1,6,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,6,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[2,6,3]<.01,"***",ifelse(results_enumerator_gender[2,6,3]<.05,"**",ifelse(results_enumerator_gender[2,6,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,6,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[3,6,3]<.01,"***",ifelse(results_enumerator_gender[3,6,3]<.05,"**",ifelse(results_enumerator_gender[3,6,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,6,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,6,3]<.01,"***",ifelse(results_enumerator_gender[4,6,3]<.05,"**",ifelse(results_enumerator_gender[4,6,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,6,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,6,3]<.01,"***",ifelse(results_enumerator_gender[5,6,3]<.05,"**",ifelse(results_enumerator_gender[5,6,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,6,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,6,3]<.01,"***",ifelse(results_enumerator_gender[6,6,3]<.05,"**",ifelse(results_enumerator_gender[6,6,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,6,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,6,3]<.01,"***",ifelse(results_enumerator_gender[7,6,3]<.05,"**",ifelse(results_enumerator_gender[7,6,3]<.1,"*","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,6,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,6,2],0),nsmall=0)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,6,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,6,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,6,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,6,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,6,2],0),nsmall=0)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Buyer Age &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,7,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[1,7,3]<.01,"***",ifelse(results_enumerator_gender[1,7,3]<.05,"**",ifelse(results_enumerator_gender[1,7,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,7,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[2,7,3]<.01,"***",ifelse(results_enumerator_gender[2,7,3]<.05,"**",ifelse(results_enumerator_gender[2,7,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,7,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[3,7,3]<.01,"***",ifelse(results_enumerator_gender[3,7,3]<.05,"**",ifelse(results_enumerator_gender[3,7,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,7,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,7,3]<.01,"***",ifelse(results_enumerator_gender[4,7,3]<.05,"**",ifelse(results_enumerator_gender[4,7,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,7,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,7,3]<.01,"***",ifelse(results_enumerator_gender[5,7,3]<.05,"**",ifelse(results_enumerator_gender[5,7,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,7,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,7,3]<.01,"***",ifelse(results_enumerator_gender[6,7,3]<.05,"**",ifelse(results_enumerator_gender[6,7,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,7,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,7,3]<.01,"***",ifelse(results_enumerator_gender[7,7,3]<.05,"**",ifelse(results_enumerator_gender[7,7,3]<.1,"*","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,7,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,7,2],0),nsmall=0)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,7,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,7,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,7,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,7,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,7,2],0),nsmall=0)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Control Mean & 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_enumerator_gender[1,1],3),nsmall=3)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_enumerator_gender[2,1],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_enumerator_gender[3,1],3),nsmall=3)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_enumerator_gender[4,1],3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(averages_enumerator_gender[5,1],3),nsmall=3)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_enumerator_gender[6,1],3),nsmall=3)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_enumerator_gender[7,1],0),nsmall=0)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(averages_enumerator_gender[1,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(averages_enumerator_gender[2,2],0),nsmall=0)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(averages_enumerator_gender[3,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(averages_enumerator_gender[4,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(averages_enumerator_gender[5,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(averages_enumerator_gender[6,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(averages_enumerator_gender[7,2],0),nsmall=0)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+F-test & 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,8,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[1,8,2]<.01,"***",ifelse(results_enumerator_gender[1,8,2]<.05,"**",ifelse(results_enumerator_gender[1,8,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,8,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[2,8,2]<.01,"***",ifelse(results_enumerator_gender[2,8,2]<.05,"**",ifelse(results_enumerator_gender[2,8,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,8,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[3,8,2]<.01,"***",ifelse(results_enumerator_gender[3,8,2]<.05,"**",ifelse(results_enumerator_gender[3,8,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,8,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,8,2]<.01,"***",ifelse(results_enumerator_gender[4,8,2]<.05,"**",ifelse(results_enumerator_gender[4,8,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,8,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,8,2]<.01,"***",ifelse(results_enumerator_gender[5,8,2]<.05,"**",ifelse(results_enumerator_gender[5,8,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,8,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,8,2]<.01,"***",ifelse(results_enumerator_gender[6,8,2]<.05,"**",ifelse(results_enumerator_gender[6,8,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,8,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,8,2]<.01,"***",ifelse(results_enumerator_gender[7,8,2]<.05,"**",ifelse(results_enumerator_gender[7,8,2]<.1,"*","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of Observations &  
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,3,4],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,3,4],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,3,4],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,3,4],0),nsmall=0)} & 
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,3,4],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,3,4],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,3,4],0),nsmall=0)} 
 \backslash
 
 \backslash
@@ -2354,72 +3074,80 @@ Note:
 
 \begin_layout Plain Layout
 
-**,*,
- and + denote significance at the 1,
+***,**,
+ and * denote significance at the 1,
  5,
  and 10
 \backslash
 % levels.
- 
+ (1) 
 \begin_inset Quotes eld
 \end_inset
 
-Initial accept
+Initial accept (
+\backslash
+%)
 \begin_inset Quotes erd
 \end_inset
 
  is the likelihood that the buyer immediately accept to buy the seed pack at the initial offer price of the seller;
- 
+ (2) 
 \begin_inset Quotes eld
 \end_inset
 
-Starting price
+Starting price (UGX)
 \begin_inset Quotes erd
 \end_inset
 
  is the initial counter bid by the buyer following the initial offer price of the seller;
- 
+ (3) 
 \begin_inset Quotes eld
 \end_inset
 
-Bottom price
+Bottom price (
+\backslash
+%)
 \begin_inset Quotes erd
 \end_inset
 
  is the likelihood that the buyer responds to the initial offer price of the seller with the lowest admissible bid price (UGX3000);
- 
+ (4) 
 \begin_inset Quotes eld
 \end_inset
 
-Sticky strategy
+Sticky strategy (
+\backslash
+%)
 \begin_inset Quotes erd
 \end_inset
 
  is the likelihood that the buyer sticks to his or her initial counter-bid throughout the bargaining process;
- 
+ (5) 
 \begin_inset Quotes eld
 \end_inset
 
-Rounds
-\begin_inset Quotes erd
-\end_inset
-
- refers to the number of negotiation rounds;
- 
-\begin_inset Quotes eld
-\end_inset
-
-Buyer accepts
+Buyer accepts (
+\backslash
+%)
 \begin_inset Quotes erd
 \end_inset
 
  is the likelihood that the buyer accepts (as opposed to situations where negotiation ends because the last bid and offer price is smaller than the threshold,
  and the seller accepts);
- and 
+ (6) 
 \begin_inset Quotes eld
 \end_inset
 
-Transaction price
+Rounds (nr)
+\begin_inset Quotes erd
+\end_inset
+
+ refers to the number of negotiation rounds;
+ and (7) 
+\begin_inset Quotes eld
+\end_inset
+
+Transaction price (UGX)
 \begin_inset Quotes erd
 \end_inset
 
@@ -2452,7 +3180,7 @@ Having already touched upon the importance of the initial counter-bid in the neg
  we revisit the first counter-bid of the buyer here (see starting price in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:results_seller"
+reference "tab:results_seller-wide"
 plural "false"
 caps "false"
 noprefix "false"
@@ -2522,6 +3250,1136 @@ Together,
  This lower bound appears to serve as an anchor for subsequent strategies—
 with buyers less likely to accept and hence more negotiation rounds—
 eventually leading to a significantly lower price at which the transaction takes place.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Effect of high price and gender of seller on bargaining
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:results_seller-wide-pooled"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lccccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+ & (1) & (2) & (3) & (4) & (5) & (6) &(7) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Seller is Female & 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,1,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[1,1,3]<.01,"***",ifelse(results_enumerator_gender[1,1,3]<.05,"**",ifelse(results_enumerator_gender[1,1,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,1,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[2,1,3]<.01,"***",ifelse(results_enumerator_gender[2,1,3]<.05,"**",ifelse(results_enumerator_gender[2,1,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,1,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[3,1,3]<.01,"***",ifelse(results_enumerator_gender[3,1,3]<.05,"**",ifelse(results_enumerator_gender[3,1,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,1,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,1,3]<.01,"***",ifelse(results_enumerator_gender[4,1,3]<.05,"**",ifelse(results_enumerator_gender[4,1,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,1,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,1,3]<.01,"***",ifelse(results_enumerator_gender[5,1,3]<.05,"**",ifelse(results_enumerator_gender[5,1,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,1,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,1,3]<.01,"***",ifelse(results_enumerator_gender[6,1,3]<.05,"**",ifelse(results_enumerator_gender[6,1,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,1,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,1,3]<.01,"***",ifelse(results_enumerator_gender[7,1,3]<.05,"**",ifelse(results_enumerator_gender[7,1,3]<.1,"*","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,1,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,1,2],0),nsmall=0)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,1,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,1,2],3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,1,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,1,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,1,2],0),nsmall=0)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Offer Price is High & 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,9,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[1,9,3]<.01,"***",ifelse(results_enumerator_gender[1,9,3]<.05,"**",ifelse(results_enumerator_gender[1,9,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,9,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[2,9,3]<.01,"***",ifelse(results_enumerator_gender[2,9,3]<.05,"**",ifelse(results_enumerator_gender[2,9,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,9,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[3,9,3]<.01,"***",ifelse(results_enumerator_gender[3,9,3]<.05,"**",ifelse(results_enumerator_gender[3,9,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,9,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,9,3]<.01,"***",ifelse(results_enumerator_gender[4,9,3]<.05,"**",ifelse(results_enumerator_gender[4,9,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,9,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,9,3]<.01,"***",ifelse(results_enumerator_gender[5,9,3]<.05,"**",ifelse(results_enumerator_gender[5,9,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,9,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,9,3]<.01,"***",ifelse(results_enumerator_gender[6,9,3]<.05,"**",ifelse(results_enumerator_gender[6,9,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,9,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,9,3]<.01,"***",ifelse(results_enumerator_gender[7,9,3]<.05,"**",ifelse(results_enumerator_gender[7,9,3]<.1,"*","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,9,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,9,2],0),nsmall=0)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,9,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,9,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,9,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,9,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,9,2],0),nsmall=0)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Seller is Female  x Offer price is High &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,10,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[1,10,3]<.01,"***",ifelse(results_enumerator_gender[1,10,3]<.05,"**",ifelse(results_enumerator_gender[1,10,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,10,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[2,10,3]<.01,"***",ifelse(results_enumerator_gender[2,10,3]<.05,"**",ifelse(results_enumerator_gender[2,10,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,10,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[3,10,3]<.01,"***",ifelse(results_enumerator_gender[3,10,3]<.05,"**",ifelse(results_enumerator_gender[3,10,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,10,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,10,3]<.01,"***",ifelse(results_enumerator_gender[4,10,3]<.05,"**",ifelse(results_enumerator_gender[4,10,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,10,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,10,3]<.01,"***",ifelse(results_enumerator_gender[5,10,3]<.05,"**",ifelse(results_enumerator_gender[5,10,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,10,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,10,3]<.01,"***",ifelse(results_enumerator_gender[6,10,3]<.05,"**",ifelse(results_enumerator_gender[6,10,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,10,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,10,3]<.01,"***",ifelse(results_enumerator_gender[7,10,3]<.05,"**",ifelse(results_enumerator_gender[7,10,3]<.1,"*","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,10,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,10,2],0),nsmall=0)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,10,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,10,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,10,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,10,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,10,2],0),nsmall=0)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Buyer is Male &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,11,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[1,11,3]<.01,"***",ifelse(results_enumerator_gender[1,11,3]<.05,"**",ifelse(results_enumerator_gender[1,11,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,11,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[2,11,3]<.01,"***",ifelse(results_enumerator_gender[2,11,3]<.05,"**",ifelse(results_enumerator_gender[2,11,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,11,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[3,11,3]<.01,"***",ifelse(results_enumerator_gender[3,11,3]<.05,"**",ifelse(results_enumerator_gender[3,11,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,11,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,11,3]<.01,"***",ifelse(results_enumerator_gender[4,11,3]<.05,"**",ifelse(results_enumerator_gender[4,11,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,11,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,11,3]<.01,"***",ifelse(results_enumerator_gender[5,11,3]<.05,"**",ifelse(results_enumerator_gender[5,11,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,11,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,11,3]<.01,"***",ifelse(results_enumerator_gender[6,11,3]<.05,"**",ifelse(results_enumerator_gender[6,11,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,11,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,11,3]<.01,"***",ifelse(results_enumerator_gender[7,11,3]<.05,"**",ifelse(results_enumerator_gender[7,11,3]<.1,"*","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,11,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,11,2],0),nsmall=0)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,11,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,11,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,11,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,11,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,11,2],0),nsmall=0)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Buyer Age &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,12,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[1,12,3]<.01,"***",ifelse(results_enumerator_gender[1,12,3]<.05,"**",ifelse(results_enumerator_gender[1,12,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,12,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[2,12,3]<.01,"***",ifelse(results_enumerator_gender[2,12,3]<.05,"**",ifelse(results_enumerator_gender[2,12,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,12,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[3,12,3]<.01,"***",ifelse(results_enumerator_gender[3,12,3]<.05,"**",ifelse(results_enumerator_gender[3,12,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,12,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,12,3]<.01,"***",ifelse(results_enumerator_gender[4,12,3]<.05,"**",ifelse(results_enumerator_gender[4,12,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,12,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,12,3]<.01,"***",ifelse(results_enumerator_gender[5,12,3]<.05,"**",ifelse(results_enumerator_gender[5,12,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,12,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,12,3]<.01,"***",ifelse(results_enumerator_gender[6,12,3]<.05,"**",ifelse(results_enumerator_gender[6,12,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,12,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,12,3]<.01,"***",ifelse(results_enumerator_gender[7,12,3]<.05,"**",ifelse(results_enumerator_gender[7,12,3]<.1,"*","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,12,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,12,2],0),nsmall=0)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,12,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,12,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,12,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,12,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,12,2],0),nsmall=0)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Control Mean & 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_enumerator_gender[1,1],3),nsmall=3)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_enumerator_gender[2,1],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_enumerator_gender[3,1],3),nsmall=3)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_enumerator_gender[4,1],3),nsmall=3)} & 
+\backslash
+Sexpr{format(round(averages_enumerator_gender[5,1],3),nsmall=3)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_enumerator_gender[6,1],3),nsmall=3)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(averages_enumerator_gender[7,1],0),nsmall=0)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(averages_enumerator_gender[1,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(averages_enumerator_gender[2,2],0),nsmall=0)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(averages_enumerator_gender[3,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(averages_enumerator_gender[4,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(averages_enumerator_gender[5,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(averages_enumerator_gender[6,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+(
+\backslash
+Sexpr{format(round(averages_enumerator_gender[7,2],0),nsmall=0)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+F-test & 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,13,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[1,13,2]<.01,"***",ifelse(results_enumerator_gender[1,13,2]<.05,"**",ifelse(results_enumerator_gender[1,13,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,13,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[2,13,2]<.01,"***",ifelse(results_enumerator_gender[2,13,2]<.05,"**",ifelse(results_enumerator_gender[2,13,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,13,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[3,13,2]<.01,"***",ifelse(results_enumerator_gender[3,13,2]<.05,"**",ifelse(results_enumerator_gender[3,13,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,13,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,13,2]<.01,"***",ifelse(results_enumerator_gender[4,13,2]<.05,"**",ifelse(results_enumerator_gender[4,13,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,13,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,13,2]<.01,"***",ifelse(results_enumerator_gender[5,13,2]<.05,"**",ifelse(results_enumerator_gender[5,13,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,13,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,13,2]<.01,"***",ifelse(results_enumerator_gender[6,13,2]<.05,"**",ifelse(results_enumerator_gender[6,13,2]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,13,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,13,2]<.01,"***",ifelse(results_enumerator_gender[7,13,2]<.05,"**",ifelse(results_enumerator_gender[7,13,2]<.1,"*","")))}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of Observations &  
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,1,4],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,1,4],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,1,4],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,1,4],0),nsmall=0)} & 
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,1,4],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,1,4],0),nsmall=0)} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,1,4],0),nsmall=0)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+***,**,
+ and * denote significance at the 1,
+ 5,
+ and 10
+\backslash
+% levels.
+ (1) 
+\begin_inset Quotes eld
+\end_inset
+
+Initial accept (
+\backslash
+%)
+\begin_inset Quotes erd
+\end_inset
+
+ is the likelihood that the buyer immediately accept to buy the seed pack at the initial offer price of the seller;
+ (2) 
+\begin_inset Quotes eld
+\end_inset
+
+Starting price (UGX)
+\begin_inset Quotes erd
+\end_inset
+
+ is the initial counter bid by the buyer following the initial offer price of the seller;
+ (3) 
+\begin_inset Quotes eld
+\end_inset
+
+Bottom price (
+\backslash
+%)
+\begin_inset Quotes erd
+\end_inset
+
+ is the likelihood that the buyer responds to the initial offer price of the seller with the lowest admissible bid price (UGX3000);
+ (4) 
+\begin_inset Quotes eld
+\end_inset
+
+Sticky strategy (
+\backslash
+%)
+\begin_inset Quotes erd
+\end_inset
+
+ is the likelihood that the buyer sticks to his or her initial counter-bid throughout the bargaining process;
+ (5) 
+\begin_inset Quotes eld
+\end_inset
+
+Buyer accepts (
+\backslash
+%)
+\begin_inset Quotes erd
+\end_inset
+
+ is the likelihood that the buyer accepts (as opposed to situations where negotiation ends because the last bid and offer price is smaller than the threshold,
+ and the seller accepts);
+ (6) 
+\begin_inset Quotes eld
+\end_inset
+
+Rounds (nr)
+\begin_inset Quotes erd
+\end_inset
+
+ refers to the number of negotiation rounds;
+ and (7) 
+\begin_inset Quotes eld
+\end_inset
+
+Transaction price (UGX)
+\begin_inset Quotes erd
+\end_inset
+
+ is the price at which the transaction was concluded.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
