@@ -590,6 +590,35 @@ Bargaining Experiment
 \end_layout
 
 \begin_layout Standard
+Studies of gender-based discrimination often employ audit studies,
+ a research method designed to isolate discrimination by controlling for all factors except the characteristic being tested (in this case,
+ gender).
+ In these studies,
+ the same individual interacts with different counterparts while varying only a key trait—
+such as the gender of the person they engage with.
+ This approach allows researchers to measure within-subject differences in how people respond to individuals of different genders under otherwise identical circumstances.
+ 
+\end_layout
+
+\begin_layout Standard
+While audit studies are well-suited for detecting seller-side discrimination,
+ where identical products or services are offered to individuals of different genders,
+ they may be less effective for identifying buyer-side discrimination.
+ This is because buyers typically make one-time purchases,
+ meaning that requiring the same buyer to interact with both male and female sellers could influence their behavior,
+ thereby affecting the external validity of the study.
+ In real-world settings,
+ buyers do not usually face repeated,
+ identical purchasing decisions,
+ and forcing such interactions within a study may create artificial decision-making patterns that do not reflect typical market behavior.
+ As a result,
+ a between-subjects design,
+ in which different buyers are randomly assigned to interact with either male or female sellers,
+ is likely a more appropriate approach.
+ This ensures that observed differences in purchasing behavior reflect genuine gender-based discrimination rather than experimental artifacts introduced by repeated exposure to different seller types.
+\end_layout
+
+\begin_layout Standard
 In our experiment,
  farmers are offered the opportunity to buy a bag of seed from a seller through a bargaining process.
  Compared to a one-shot,
@@ -727,6 +756,309 @@ The experiment was timed to coincide with the start of the harvest season to ens
 \end_layout
 
 \begin_layout Section
+Empirical Strategy
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:A-gendered-analysis"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The primary focus is on estimating differences in bargaining outcomes and strategies between farmers who were confronted by male sellers and those who faced female sellers.
+ To do so,
+ we construct an indicator variable of the gender of the seller 
+\begin_inset Formula $\left(T_{i}^{g}\right)$
+\end_inset
+
+ which takes the value of one if the seller was a woman and zero if it was a man.
+ However,
+ recall that we also have a second experimental factor—
+the initial offer price—
+that is crossed into the design.
+ We thus also construct an indicator variable 
+\begin_inset Formula $\left(T_{i}^{p}\right)$
+\end_inset
+
+ which takes the value of 1 if the initial price was 12,000 or 11,000,
+ and zero if it was 9,000 or 10,000.
+\end_layout
+
+\begin_layout Standard
+The effect of the seller's gender is estimated using Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gender"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ which is a standard fully saturated regression model that is often used to analyze cross-randomized designs.
+ In this equation,
+ 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ represents the outcome of interest (for instance,
+ the initial counter-bid price,
+ or an indicator that describes the use of a particular strategy such as sticking to the initial bid throughout the entire negotiation process) of farmer 
+\emph on
+i
+\emph default
+.
+ The parameter of interest in this equation is 
+\begin_inset Formula $\beta_{g}$
+\end_inset
+
+,
+ the estimate of the effect of the seller being a woman.
+ Other parameters include 
+\begin_inset Formula $\varepsilon_{i}$
+\end_inset
+
+,
+ a buyer specific residual,
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+,
+ a constant to be estimated,
+ 
+\begin_inset Formula $\beta_{p}$
+\end_inset
+
+,
+ the estimate of the impact of a high starting price,
+ and 
+\begin_inset Formula $\beta_{gp}$
+\end_inset
+
+,
+ a potential interaction effect.
+ Finally,
+ because we found some indications of gender matching in the negotiation pairing (see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Discussion"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) and some imbalance with respect to buyer age in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:balance-alt"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ we control for the gender of the buyer and age of the buyer in the regressions as well 
+\begin_inset Formula $\left(x_{i}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y_{i}=\alpha+\beta_{g}T_{i}^{g}+\beta_{p}T_{i}^{p}+\beta_{gp}T_{i}^{g}T_{i}^{p}+\gamma x_{i}+\varepsilon_{i}\label{eq:gender}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The above fully saturated model is the most agnostic specification to estimate parameters in crossed designs.
+ However,
+ such models with binary treatments essentially split the sample into four treatment cells,
+ significantly reducing statistical power as only half of the sample is used for any comparison.
+ However,
+ by re-specifying the model,
+ we can boost power by pooling treatments (comparing buyers that face female sellers to buyers that face male sellers,
+ regardless of the level of the initial offer price).
+ This is usually done by simply dropping the interaction term in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gender"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and focus on the main treatment effects.
+ However,
+ this leads to specification bias if the true interaction effect is not zero,
+ something that is hard to test in small samples 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "10.1162/rest_a_01317"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Fortunately,
+ there is a way to recover an unbiased estimate of the pooled regression coefficient if we treat the orthogonal factor as a co-variate and control for it by entering it in deviations from its mean (and interact it with the main experimental factor to avoid specification bias).
+ Therefore,
+ in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:price"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ where the effect of the seller's gender 
+\begin_inset Formula $\left(\beta_{g}^{pooled}\right)$
+\end_inset
+
+ is the effect of interest,
+ the treatment indicator for a initial offer price is entered in deviation from its mean 
+\begin_inset Formula $\left(T_{i}^{p}-\overline{T^{p}}\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y_{i}=\alpha+\beta_{g}^{pooled}T_{i}^{g}+\beta_{p}\left(T_{i}^{p}-\overline{T^{p}}\right)+\beta_{pg}T_{i}^{g}\left(T_{i}^{p}-\overline{T^{p}}\right)+\gamma x_{i}+\varepsilon_{i}\label{eq:price}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is important to note that 
+\begin_inset Formula $\beta_{g}^{pooled}$
+\end_inset
+
+ in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:price"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ has a slightly different interpretation than 
+\begin_inset Formula $\beta_{g}$
+\end_inset
+
+ in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gender"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ While 
+\begin_inset Formula $\beta_{g}$
+\end_inset
+
+ is an estimate of the effect of the gender of the seller when the initial price is low,
+ 
+\begin_inset Formula $\beta_{g}^{pooled}$
+\end_inset
+
+ is a weighted average of the effect of gender of the seller when initial price is low and the effect of gender of the seller when the initial price is high.
+ In factorial experiments where the orthogonal factor has a control level,
+ 
+\begin_inset Formula $\beta_{g}$
+\end_inset
+
+ is likely to be the preferred estimand,
+ as this provides the pure treatment effect (in the absence of any other treatment).
+ However,
+ in our case,
+ it may be reasonable to remain agnostic about the initial offer price,
+ and so the effect of the gender of the seller averaged over both high and low initial prices may be the appropriate estimand.
+\end_layout
+
+\begin_layout Standard
+The initial offer price was included as an experimental factor as a benchmark to which the effect of the seller's gender can be compared to judge economic significance.
+ However,
+ we also added the randomized starting price to compensate for the fact that we did not do ex-ante power calculations for the gender comparison.
+ Adding a treatment that is known to work on an experiment is a strategy sometimes employed in clinical trials to demonstrate that a particular implementation of a design with a given sample size is powered to detect a treatment effect that is at least as as large.
+ In our case,
+ we argue that being able to replicate an established finding (that the initial offer price affects the entire bargaining process that follows—
+see for instance 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "chertkoff1967opening,ochs1989experimental,kahneman1992reference"
+literal "false"
+
+\end_inset
+
+—
+means that we are powered to detect effects that are at least as large.
+\end_layout
+
+\begin_layout Standard
+Finally,
+ as we will be evaluating multiple bargaining strategies and outcomes,
+ we will have to account for multiple hypothesis testings.
+ To do so,
+ we control the False Discovery Rate (FDR) using sharpened two-stage q-values proposed by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "benjamini2006adaptive"
+literal "false"
+
+\end_inset
+
+—
+see also 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "anderson2008multiple"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
 Data and Sample
 \end_layout
 
@@ -748,19 +1080,17 @@ The total sample consists of a representative sample of 760 households,
 Enumerators visited these sampled households and asked to speak with the person within the household who generally makes the most decisions related to growing maize and input use,
  such as what type of maize seed to use.
  An appointment was then made with these individuals for a follow-up visit.
- The farmers were told to 
-\begin_inset Quotes eld
-\end_inset
-
-bring some small money to this follow-up meeting as there may be an opportunity to buy something
-\begin_inset Quotes erd
-\end_inset
-
-.
+ The farmers were told to “bring some small money to this follow-up meeting as there may be an opportunity to buy something.” The follow-up meeting took place at the farmer’s homestead,
+ and we did not lose any farmers between the initial visit—
+where the primary purpose was to set a date for the interview—
+and the actual experiment.
+ There were only a few days at most between this invitation and the follow-up interview,
+ which included the bargaining experiment.
  During the follow-up meeting,
- individuals were subjected to the bargaining experiment and after completing the experiment,
- a short survey was administered.
- 
+ individuals participated in the bargaining experiment,
+ after which a short survey was administered.
+ Since the minimum acceptable price was set very low and farmers were prepared to pay something,
+ everyone who took part in the experiment ultimately purchased seed.
 \end_layout
 
 \begin_layout Standard
@@ -806,7 +1136,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Descriptives and balance
+Descriptives and Balance
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:balance-alt"
@@ -1553,12 +1883,14 @@ Note:
  5,
  and 10
 \backslash
-% levels  based on sharpened q-values 
+% levels based on sharpened q-values 
 \backslash
 citep{benjamini2006adaptive}.
+ Outcomes are in columns as follows:
  (1) Respondent is male,
  (2) Age,(3) Household Size,
- (4) Plot Size,(5) Yield (kg/acre),
+ (4) Plot Size,
+ (5) Yield (kg/acre),
  (6) Used Improved Seed,
  (7) Used Bazooka Seed.
  Control mean is for male seller and low initial offer price.
@@ -1594,264 +1926,6 @@ nolink "false"
  we find good overall balance.
  To account for imbalance with respect to the gender of the respondent and age,
  we control for this in the specifications below.
-\end_layout
-
-\begin_layout Section
-Empirical Strategy
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:A-gendered-analysis"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We now turn to a more formal analysis of various bargaining outcomes and strategies using regression analysis.
- The primary focus is on estimating differences in bargaining outcomes and strategies between farmers who were confronted by male sellers and those who faced female sellers.
- To do so,
- we also construct an indicator variable of the gender of the seller 
-\begin_inset Formula $\left(T_{i}^{g}\right)$
-\end_inset
-
- which takes the value of 1 if the seller was a woman and zero if it was a man.
- However,
- recall that we also have a second experimental factor—
-the initial offer price—
-that is crossed into the design.
- We thus also construct an indicator variable 
-\begin_inset Formula $\left(T_{i}^{p}\right)$
-\end_inset
-
- which takes the value of 1 if the initial price was 12,000 or 11,000,
- and zero if it was 9,000 or 10,000.
-\end_layout
-
-\begin_layout Standard
-The effect of the seller's gender is estimated using Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:gender"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-,
- which is a standard regression model used to analyze factorial designs.
- In this equation,
- 
-\begin_inset Formula $y_{i}$
-\end_inset
-
- represents the outcome of interest (for instance,
- the initial bid price or an indicator that describes the use of a particular strategy such as sticking to the initial bid throughout the entire negotiation process) of farmer 
-\emph on
-i
-\emph default
-.
- 
-\begin_inset Formula $\varepsilon_{i}$
-\end_inset
-
- is a buyer specific residual,
- and 
-\begin_inset Formula $T_{i}^{p}$
-\end_inset
-
- and 
-\begin_inset Formula $T_{i}^{g}$
-\end_inset
-
- are indicator functions for the initial offer price and the gender of the seller,
- respectively.
- The parameter of interest in this equation is 
-\begin_inset Formula $\beta_{g}$
-\end_inset
-
-,
- the estimate of the effect of the seller being a woman,
- 
-\begin_inset Formula $\alpha$
-\end_inset
-
- is a constant to be estimated,
- 
-\begin_inset Formula $\beta_{p}$
-\end_inset
-
- is the estimate of the impact of a high starting price,
- and 
-\begin_inset Formula $\beta_{gp}$
-\end_inset
-
- a potential interaction effect.
- Finally,
- because we found some indications of gender matching in the negotiation pairing (see section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Discussion"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-),
- we control for the gender of the buyer and age of the buyer in the regressions as well 
-\begin_inset Formula $\left(x_{i}\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-y_{i}=\alpha+\beta_{g}T_{i}^{g}+\beta_{p}T_{i}^{p}+\beta_{gp}T_{i}^{g}T_{i}^{p}+\gamma x_{i}+\varepsilon_{i}\label{eq:gender}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The above fully saturated model is the most agnostic specification to estimate parameters in crossed designs .
- However,
- such models with binary treatments essentially split the sample into four treatment cells,
- significantly reducing statistical power for comparisons.
- However,
- by re-specifying the model,
- we can boost power by pooling treatments (comparing buyers that face female sellers to buyers that face male sellers,
- regardless of the level of the initial offer price).
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-It is important to note that this pooled coefficient also has a slightly different interpretation than 
-\begin_inset Formula $\beta_{g}$
-\end_inset
-
- in Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:gender"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
- While 
-\begin_inset Formula $\beta_{g}$
-\end_inset
-
- is an estimate of the effect of the gender of the seller when the initial price is low,
- the pooled coefficient is a weighted average of the effect of gender of the seller when initial price is low and the effect of gender of the seller with the initial price is high.
- In factorial experiments where the orthogonal factor has a control level,
- 
-\begin_inset Formula $\beta_{g}$
-\end_inset
-
- is likely to be the preferred estimand,
- as this provides the pure treatment effect (in the absence of any other treatment).
- However,
- in our case,
- it may be reasonable to remain agnostic about the initial offer price,
- and so the effect of the gender of the seller averaged over both high and low initial prices may be the appropriate estimand.
-\end_layout
-
-\end_inset
-
- This is often done by simply dropping the interaction term in Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:gender"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-,
- however,
- this leads to biased estimates if the interaction effect is not zero,
- something that is hard to test in small samples 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "10.1162/rest_a_01317"
-literal "false"
-
-\end_inset
-
-.
- Fortunately,
- there is a way to recover an unbiased estimate of the pooled regression coefficient if we treat the orthogonal factor as a co-variate and control for it by entering it in deviations from its mean (and interacted with the main experimental factor).
- Therefore,
- in Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:price"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- where the effect of the seller's gender 
-\begin_inset Formula $\left(\beta_{g}\right)$
-\end_inset
-
- is the effect of interest,
- the treatment indicator for a initial offer price is entered in deviation from its mean 
-\begin_inset Formula $\left(T_{i}^{p}-\overline{T^{p}}\right)$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-y_{i}=\alpha+\beta_{g}^{pooled}T_{i}^{g}+\beta_{p}\left(T_{i}^{p}-\overline{T^{p}}\right)+\beta_{pg}T_{i}^{g}\left(T_{i}^{p}-\overline{T^{p}}\right)+\gamma x_{i}+\varepsilon_{i}\label{eq:price}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The central parameter in this research is the effect of the gender the the seller 
-\begin_inset Formula $\left(\beta_{g}\right)$
-\end_inset
-
-.
- The effect of the initial offer price was included as a benchmark to which the effect of the seller's gender can be compared to judge economic significance.
- However,
- we also added the randomized starting price to compensate for the fact that we did not do ex-ante power calculations for the gender comparison.
- Adding a treatment that is known to work on an experiment is a strategy sometimes employed in clinical trials to demonstrate that a particular implementation of a design with a given sample size is powered to detect a treatment effect that is at least as as large.
- In our case,
- we argue that being able to replicate an established finding (that the initial offer price affects the entire bargaining process that follows—
-see for instance 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "chertkoff1967opening,ochs1989experimental,kahneman1992reference"
-literal "false"
-
-\end_inset
-
-) means that we are powered to detect effects that are at least as large.
 \end_layout
 
 \begin_layout Section
@@ -2047,7 +2121,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Effect of high price and gender of seller on bargaining
+Effect of High Price and Gender of Seller on Bargaining
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:results_seller-wide"
@@ -2103,6 +2177,15 @@ hline
 
 \backslash
 hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -2223,6 +2306,143 @@ Sexpr{format(round(results_enumerator_gender[6,3,2],3),nsmall=3)}) &
  (
 \backslash
 Sexpr{format(round(results_enumerator_gender[7,3,2],0),nsmall=0)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Seller is Female (pooled)& 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,1,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[1,1,3]<.01,"***",ifelse(results_enumerator_gender[1,1,3]<.05,"**",ifelse(results_enumerator_gender[1,1,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,1,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[2,1,3]<.01,"***",ifelse(results_enumerator_gender[2,1,3]<.05,"**",ifelse(results_enumerator_gender[2,1,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,1,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[3,1,3]<.01,"***",ifelse(results_enumerator_gender[3,1,3]<.05,"**",ifelse(results_enumerator_gender[3,1,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,1,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[4,1,3]<.01,"***",ifelse(results_enumerator_gender[4,1,3]<.05,"**",ifelse(results_enumerator_gender[4,1,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,1,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[5,1,3]<.01,"***",ifelse(results_enumerator_gender[5,1,3]<.05,"**",ifelse(results_enumerator_gender[5,1,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,1,1],3),nsmall=3)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[6,1,3]<.01,"***",ifelse(results_enumerator_gender[6,1,3]<.05,"**",ifelse(results_enumerator_gender[6,1,3]<.1,"*","")))}}$ &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,1,1],0),nsmall=0)}$^{
+\backslash
+Sexpr{ifelse(results_enumerator_gender[7,1,3]<.01,"***",ifelse(results_enumerator_gender[7,1,3]<.05,"**",ifelse(results_enumerator_gender[7,1,3]<.1,"*","")))}}$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[1,1,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[2,1,2],0),nsmall=0)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[3,1,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[4,1,2],3),nsmall=3)}) & (
+\backslash
+Sexpr{format(round(results_enumerator_gender[5,1,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[6,1,2],3),nsmall=3)}) &
+\end_layout
+
+\begin_layout Plain Layout
+
+ (
+\backslash
+Sexpr{format(round(results_enumerator_gender[7,1,2],0),nsmall=0)}) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 
 \backslash
@@ -2368,7 +2588,7 @@ Sexpr{format(round(results_enumerator_gender[7,4,2],0),nsmall=0)})
 
 \begin_layout Plain Layout
 
-Seller is Female  x Offer price is High &
+Seller is Female  x Offer Price is High &
 \end_layout
 
 \begin_layout Plain Layout
@@ -3069,90 +3289,30 @@ footnotesize
 \begin_layout Plain Layout
 
 Note:
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-***,**,
- and * denote significance at the 1,
+ ***,**,
+ and denote significance at the 1,
  5,
  and 10
 \backslash
-% levels.
- (1) 
-\begin_inset Quotes eld
-\end_inset
-
-Initial accept (
+% levels based on sharpened q-values 
 \backslash
-%)
-\begin_inset Quotes erd
-\end_inset
-
- is the likelihood that the buyer immediately accept to buy the seed pack at the initial offer price of the seller;
- (2) 
-\begin_inset Quotes eld
-\end_inset
-
-Starting price (UGX)
-\begin_inset Quotes erd
-\end_inset
-
- is the initial counter bid by the buyer following the initial offer price of the seller;
- (3) 
-\begin_inset Quotes eld
-\end_inset
-
-Bottom price (
-\backslash
-%)
-\begin_inset Quotes erd
-\end_inset
-
- is the likelihood that the buyer responds to the initial offer price of the seller with the lowest admissible bid price (UGX3000);
- (4) 
-\begin_inset Quotes eld
-\end_inset
-
-Sticky strategy (
-\backslash
-%)
-\begin_inset Quotes erd
-\end_inset
-
- is the likelihood that the buyer sticks to his or her initial counter-bid throughout the bargaining process;
- (5) 
-\begin_inset Quotes eld
-\end_inset
-
-Buyer accepts (
-\backslash
-%)
-\begin_inset Quotes erd
-\end_inset
-
- is the likelihood that the buyer accepts (as opposed to situations where negotiation ends because the last bid and offer price is smaller than the threshold,
- and the seller accepts);
- (6) 
-\begin_inset Quotes eld
-\end_inset
-
-Rounds (nr)
-\begin_inset Quotes erd
-\end_inset
-
+citep{benjamini2006adaptive}.
+ Outcomes are in columns as follows:
+ (1) Initial Accept:
+ is the share of buyers that immediately accept to buy the seed pack at the initial offer price;
+ (2) Starting Bid Price:
+ is the initial counter bid in UGX by the buyer following the initial (randomized) offer price of the seller;
+ (3) Bottom Price:
+ is the share of buyers that respond to the initial (randomized) offer price of the seller with the lowest admissible bid price (UGX3000);
+ (4) Sticky Strategy:
+ is the share of buyers that stick to their initial counter-bid throughout the bargaining process;
+ (5) Buyer Accepts:
+ is the share of buyers that accept (as opposed to situations where negotiation ends because the last bid and offer price is smaller than the threshold and the seller accepts);
+ (6) Rounds:
  refers to the number of negotiation rounds;
- and (7) 
-\begin_inset Quotes eld
-\end_inset
-
-Transaction price (UGX)
-\begin_inset Quotes erd
-\end_inset
-
- is the price at which the transaction was concluded.
- 
+ and (7) Transaction price:
+ is the price in UGX at which the transaction was concluded.
+ Control means are for male sellers starting from a low initial offer price.
 \end_layout
 
 \end_inset
@@ -3258,7 +3418,7 @@ placement document
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4534,17 +4694,7 @@ A second limitation lies in the fact that,
  for logistical consideration,
  we did not randomize the seller's gender ex-ante.
  Sellers were sent to farmers based on who was available (hence the larger group where the seller was a man).
- As in 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "fitzpatrick2017shopping"
-literal "false"
-
-\end_inset
-
-,
- supervisors were instructed not to assign enumerators to farmers in a systematic fashion.
- While we assume this happened randomly,
+ While supervisors were instructed not to assign enumerators to farmers in a systematic fashion,
  we do find that women sellers had a significantly higher probability of being paired with women buyers than male sellers.
  To account for this,
  we include the gender of the buyer as a control variable in the regression model.
@@ -4614,6 +4764,13 @@ literal "false"
  etc.).
 \end_layout
 
+\begin_layout Standard
+ADD:
+ audit studies that focus on seller side discrimination find that women pay higher prices when buying.
+ Our study provides a mirror image in that it finds that women also receive lower prices when selling.
+ Double whammy.
+\end_layout
+
 \begin_layout Section*
 Acknowledgments
 \end_layout
@@ -4626,6 +4783,84 @@ We would like to thank Charles Marc Wanume,
  the CGIAR Market Intelligence Research Initiative,
  and the CGIAR Gender Impact Platform,
  which are funded by contributors to the CGIAR Fund (https://www.cgiar.org/funders/).
+\end_layout
+
+\begin_layout Section*
+Appendix - Experimental Script
+\end_layout
+
+\begin_layout Subsection*
+Seed Offer Script
+\end_layout
+
+\begin_layout Standard
+The enumerator starts with the following introduction:
+\end_layout
+
+\begin_layout Quote
+"Hi,
+ as part of the research,
+ we are offering you the opportunity to buy a bag of maize seed to try in your fields.
+ The seed is a popular hybrid variety called 'Bazooka.' This is a high-yielding,
+ drought-tolerant variety that is also resistant to pests and diseases,
+ such as kayongo.
+ The seed is obtained from a certified agro-input dealer,
+ and we guarantee it is fresh and untampered with."
+\end_layout
+
+\begin_layout Quote
+"We offer you the seed at a price of [initial randomized offer price].
+ Would you be interested in buying this?
+ You must pay the full amount after the transaction.
+ Mobile money is also an option for payment."
+\end_layout
+
+\begin_layout Standard
+The buyer can now indicate that they buy the seed at the [initial randomized offer price],
+ in which case the bargaining experiment is concluded.
+ If the farmer says they do not want to buy at that price,
+ the enumerator proceeds:
+\end_layout
+
+\begin_layout Quote
+"How much are you willing to pay for it?"
+\end_layout
+
+\begin_layout Standard
+The counter bid is entered into the ODK app.
+ If the first counter bid is less than 3,000,
+ the enumerator answers that the absolute minimum is 3,000 and the buyer is asked if they want to revise their first counter bid to 3,000 or stop altogether.
+ If the difference between the initial offer price and the counter bid below 500,
+ the transaction is concludes at the last bid price.
+ If not,
+ the enumerator continues:
+\end_layout
+
+\begin_layout Quote
+(*)"Hmmm,
+ that is too low.
+ What about [next price point]?"
+\end_layout
+
+\begin_layout Standard
+The buyer can now indicate that they buy the seed at the [next price point],
+ in which case the bargaining experiment is concluded.
+ If the farmer says they do not want to buy at that price,
+ the enumerator proceeds:
+\end_layout
+
+\begin_layout Quote
+"How much are you willing to pay for it?"
+\end_layout
+
+\begin_layout Standard
+The counter bid,
+ which should be at least as high as the previous counter bid,
+ is entered into the ODK app.
+ If the difference between the [second price point] and the counter bid below 500,
+ the transaction is concludes at the last bid price.
+ If not,
+ the enumerator continues from (*).
 \end_layout
 
 \begin_layout Standard

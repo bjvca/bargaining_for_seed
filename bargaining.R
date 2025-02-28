@@ -386,13 +386,13 @@ for (i in outcomes) {
 } 
 
 
-if (sharp == TRUE){
-	a_sharp <- anderson_sharp_q(c(results[,3,3],results[,4,3],results[,5,3]))
-
-	results[1:(length(outcomes)),3,3] <- a_sharp[1:(length(outcomes))] 
-	results[1:(length(outcomes)),4,3] <- a_sharp[(length(outcomes)+1):(2*length(outcomes))]  
-	results[1:(length(outcomes)),5,3] <- a_sharp[(2*length(outcomes)+1):(3*length(outcomes))]
-}
+#if (sharp == TRUE){
+#	a_sharp <- anderson_sharp_q(c(results[,3,3],results[,4,3],results[,5,3]))
+#
+#	results[1:(length(outcomes)),3,3] <- a_sharp[1:(length(outcomes))] 
+#	results[1:(length(outcomes)),4,3] <- a_sharp[(length(outcomes)+1):(2*length(outcomes))]  
+#	results[1:(length(outcomes)),5,3] <- a_sharp[(2*length(outcomes)+1):(3*length(outcomes))]
+#}
 
 
 
