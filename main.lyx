@@ -142,18 +142,19 @@ The role of gender in bargaining:
 \end_layout
 
 \begin_layout Abstract
-In rural societies with strong gender norms and customs,
- small agribusinesses may be one of the few ways in which women can independently generate revenue.
- Previous research has indicated that female run businesses are perceived less favorably than their male counterparts.
- We examine the potential consequences of these biased perceptions on business transactions.
- In particular,
- we test whether the gender of the seller has an impact on buyers' negotiation strategies and outcomes in bilateral price negotiations.
- We use a bargaining experiment in eastern Uganda,
- where a representative sample of smallholder maize farmers are offered the opportunity to bargain over a bag of maize seed of an improved variety from a male or female seller.
- We find that buyers confronted with a female seller are less likely to accept the initial offer price and respond with a lower counter-bid than farmers faced with a male seller.
- Negotiations take on average one round longer when the seller is a woman and the transaction price is almost 9 percent lower.
- For comparison,
- we also look at the effect of the starting price on the same bargaining outcomes and find that the gendered disadvantage is roughly equal to a 20 percent higher starting price.
+Haggling over prices is a common feature of economic transactions in many societies.
+ This study examines whether the gender of the seller influences buyers' negotiation strategies and outcomes in bilateral price bargaining.
+ Using a bargaining experiment in eastern Uganda,
+ we analyze interactions between smallholder maize farmers and either a male or female seller.
+ Our findings reveal that buyers negotiating with female sellers are less likely to accept the initial offer and respond with lower counter-bids compared to those bargaining with male sellers.
+ Negotiations also last,
+ on average,
+ one round longer when the seller is a woman,
+ and final transaction prices are nearly 9 percent lower.
+ These results are particularly relevant for rural economies,
+ where restrictive gender norms limit women's financial autonomy.
+ Given that small agribusinesses often provide one of the few viable income-generating opportunities for women,
+ gender biases in market interactions can have substantial implications for economic empowerment and household welfare.
 \end_layout
 
 \begin_layout Abstract
@@ -217,24 +218,21 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-In this paper,
- we investigate whether this gender bias in perception extends into price bargaining processes and outcomes.
- In the context of rural Uganda,
- haggling over prices is the rule rather than the exception.
- The bargaining strategies that parties use and the ensuing transaction price is a function of a range of variables,
- such as (perceptions about) the purchasing power of parties involved,
- power relationships,
- and (beliefs about) preferences,
- among others.
- If some of these variables are skewed against female informal vendors (such as perceptions related their ability to properly store and handle the goods they sell),
- gender bias may also manifest in the strategies that negotiating parties use,
- and the outcome of the process.
+In many contexts,
+ price bargaining is the norm rather than the exception.
+ The strategies used and the final transaction price depend on various factors,
+ including perceptions of purchasing power,
+ power dynamics,
+ and assumed preferences.
+ If these factors systematically disadvantage female informal vendors,
+ gender bias may shape both negotiation strategies and outcomes.
 \end_layout
 
 \begin_layout Standard
-At the core of our study is a simple bargaining experiment.
+In this study,
+ we conduct a bargaining experiment to examine whether a seller’s gender influences buyers' negotiation behavior and outcomes.
  In particular,
- we offer the opportunity to a representative group of maize farmers to buy a bag of hybrid maize seed.
+ we offer the opportunity to a representative group of smallholder maize farmers to buy a bag of hybrid maize seed.
  A trained enumerator,
  guided by a script implemented on a tablet computer,
  acts as a seller.
@@ -248,18 +246,22 @@ At the core of our study is a simple bargaining experiment.
 \end_layout
 
 \begin_layout Standard
-Even to the primary focus of this study is the gender of the seller,
+Even though the primary focus of this study is the gender of the seller,
  we provide exogenous variation along two dimensions.
  First,
  we assign farmers to either a male or female seller in a way that is as good as random.
  This allows us to estimate the causal impact of the seller's gender on the bargaining process and outcomes.
  Second,
  we randomly assign the initial offer price that the seller (male or female) asks of the farmer,
- allowing us to estimate the causal impact of initial offer price on the bargaining process and outcomes as well as to compare the sizes of these two effects.
+ allowing us to estimate the causal impact of level of the initial offer price on the bargaining process and outcomes.
+ The addition of the level of the initial offer prices as a secondary experimental factor in our experiment allows us to compare the economic importance two effects.
+ Furthermore,
+ it enables us to explore potential heterogeneity in the gender effect conditional on initial offer price levels.
 \end_layout
 
 \begin_layout Standard
-Our experiment allows us to investigate the effect of the seller's gender (and the initial offer price) on various strategies used by the buyer as well as on outcomes of the process.
+We investigate the effect of the seller's gender (and the initial offer price) on various strategies used by the buyer,
+ as well as on outcomes of the process.
  These include:
  (1) the likelihood that the buyer immediately accepts at the initial offer price (and hence no bargaining takes place);
  (2) the first counter-bid following the initial offer price;
@@ -272,21 +274,21 @@ Our experiment allows us to investigate the effect of the seller's gender (and t
 \end_layout
 
 \begin_layout Standard
-Results show that the likelihood that the buyer immediately accepts is reduced when the seller is a woman.
- Negotiations with female sellers also leads to a substantial decrease in buyers' initial counter-bids,
- and a higher percentage of buyers starting with the lowest possible bid.
- The bargaining process with female sellers tends to involve more negotiation rounds,
- indicating increased resistance from buyers,
- and ultimately resulting in transaction prices that are approximately UGX600 lower than transaction prices that emerge when the seller is a man.
- In sum,
- we find that the gendered effect seems to manifest early in the negotiation process,
- influencing initial counter-bids and setting the stage for subsequent interactions,
- emphasizing the significant impact of seller gender on bargaining dynamics.
+The results indicate that buyers are significantly less likely to accept the initial offer when the seller is a woman.
+ Negotiations with female sellers result in lower initial counter-bids from buyers and a higher likelihood of starting at the lowest possible bid.
+ These negotiations also tend to last longer,
+ reflecting greater buyer resistance,
+ and ultimately lead to transaction prices that are approximately UGX 630 lower than those with male sellers.
+ Overall,
+ our findings suggest that gender-based disparities emerge early in the negotiation process,
+ shaping counter-bids and influencing the trajectory of bargaining interactions,
+ highlighting the substantial impact of seller gender on market outcomes.
 \end_layout
 
 \begin_layout Standard
-This article contributes to the existing literature in different ways.
- Most research on bargaining uses a WEIRD population (Western,
+This article contributes to the existing literature in at least two ways.
+ First,
+ most research on bargaining uses a WEIRD population (Western,
  Educated,
  Industrialized,
  Rich,
@@ -311,7 +313,7 @@ literal "false"
 \end_inset
 
 .
- Furthermore,
+ Second,
  the majority of studies that look at discrimination in the market place are mainly concerned about seller-side discrimination,
  where sellers offer different prices depending on minority membership 
 \begin_inset CommandInset citation
@@ -323,13 +325,13 @@ literal "false"
 
 .
  We focus on buyer-side discrimination,
- where buyers are willing to pay different prices to minority group membership.
+ where buyers bid different prices depending on seller's minority group membership.
 \end_layout
 
 \begin_layout Standard
-A large number of studies—
+We build on a large number of studies—
 based on observational data and more rigorous field experiments alike—
-find overwhelming evidence of differences in the outcomes of market transactions when minorities (including women) are involved as a transacting party (as compared to cases where all transaction parties come from the majority,
+that find overwhelming evidence of differences in the outcomes of market transactions when minorities (including women) are involved as a transacting party (as compared to cases where all transaction parties come from the majority,
  see 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -357,9 +359,7 @@ literal "false"
 .
  Another well-explored topic is the gender wage gap,
  where women generally earn less than men.
- Potential explanations include occupational sorting (women working in firms that offer lower wage premiums),
- differences in initial wage offers,
- and variations in wage negotiation strategies 
+ Potential explanations include differences in initial wage offers and variations in wage negotiation strategies 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "10.1093/qje/qjv038,leibbrandt2015women"
@@ -382,25 +382,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Given the large volume of research,
- we focus on a specific set of studies.
- First,
- we are interested in the effect of gender of one party (the seller) on the bargaining behaviour of the other party (the buyer).
- This is different from studies that look at the impact of gender on own behavior (for instance,
- testing if female buyers' initial bid price is different from male buyers' initial bid price 
-\emph on
-ceteris paribus
-\emph default
-).
- While the impact of gender on own behaviour is certainly an interesting question,
- it is much harder to investigate since gender cannot be randomized.
- Second,
- we focus on studies that capture at least some elements of bilateral bargaining.
- This excludes studies where only the outcome of the transaction is recorded;
- most studies we review involve some kind of bargaining component where actual bargaining between partners for real stakes is observed.
-\end_layout
-
-\begin_layout Standard
+Our study aligns with research examining how the gender of one party (the seller) influences the bargaining behavior of the other party (the buyer) and incorporates key aspects of bilateral negotiation.
+ 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "10.2307/25098677"
@@ -503,35 +486,18 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-What does this mean for welfare and gender-controlle income if women are systematically presented with lower prices?
- Over the past few decades,
- attention has shifted from considering farm households as a single unit to studying the structure and organization of the household as an institution comprised of different actors,
- each with their own preferences,
- which may or may not align 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "agarwal1997bargaining"
-literal "false"
-
-\end_inset
-
-.
- In the context of collective bargaining models,
- research has established the importance of household members' control over resources for their intra-household bargaining power and outcomes in terms of intra-household equity.
-\end_layout
-
-\begin_layout Standard
-In settings characterized by strong gender norms and customs,
- roles and responsibilities within households often have a gendered dimension.
- For instance,
- men could be responsible for economic activities like maize production,
- while women take care of reproductive activities such as fetching water and firewood.
- In settings characterized by subsistence agriculture,
- entry points for women in food supply chains are generally downstream,
- consisting of activities such as light processing and retail.
- Research indeed shows that informal vendors often tend to be self-employed or owned and operated by women.
- As such,
- these forms of informal self-employment often constitute a crucial source of income that women can earn independently from the husband 
+Our study holds significant academic value,
+ but it also offers critical insights from a broader policy perspective.
+ In environments shaped by strong gender norms and customs,
+ the roles and responsibilities within households are often divided along gender lines.
+ For example,
+ men might focus on economic activities like maize production,
+ while women manage reproductive tasks such as fetching water and firewood.
+ In subsistence farming communities,
+ women typically enter the food supply chain at downstream stages,
+ engaging in light processing or retail activities.
+ Research indicates that informal vendors are frequently self-employed or women-owned,
+ making these forms of informal self-employment a vital source of income independent of male household members 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "GIROUX2021101997"
@@ -543,13 +509,13 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Unfortunately,
- even though women are allowed to participate in these roles,
- perceptions may still be stacked against them.
- For instance,
- previous research with agro-input dealers in Uganda showed that female managed agro-input shops are perceived less favorably on a range of attributes than their male counterparts.
- This includes perceptions that female-managed shops sold lower quality seed,
- despite the reverse appearing to be true 
+However,
+ despite women's participation in these roles,
+ they often face biased perceptions.
+ For example,
+ a study with agro-input dealers in Uganda revealed that agro-input shops managed by women were viewed less favorably across various attributes compared to those run by men.
+ This included perceptions that women-operated shops sold lower-quality seeds,
+ even though the opposite was true 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "de2024gender"
@@ -558,16 +524,15 @@ literal "false"
 \end_inset
 
 .
- The difference in perceptions was greatest when customers were asked to rate agro-dealers in terms of price competitiveness,
- again despite the fact that we found no difference between average prices charged by male- and female-managed agro-input shops.
+ The present study shows that these biased perceptions translate in tangible,
+ real-world consequences.
 \end_layout
 
 \begin_layout Standard
 The remainder of this article is organized as follows.
  In the next section,
- we provide a brief overview of the related literature.
- We then proceed with an in-depth description of the bargaining experiment,
- followed by a description of the study population.
+ we provide an in-depth description of the bargaining experiment.
+ This is followed by a section on the empirical strategy and a description of the study population.
  Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -580,9 +545,9 @@ nolink "false"
 \end_inset
 
  provides the results of the analysis,
- and a final section provides a conclusion,
- discusses study limitations,
- and gives suggestions on the way forward.
+ and a final section provides a discussion,
+ lists study limitations,
+ and concludes.
 \end_layout
 
 \begin_layout Section
@@ -3499,8 +3464,8 @@ eventually leading to a significantly lower price at which the transaction takes
 
 \begin_layout Section
 Discussion,
- limitations,
- and the way forward
+ Limitations,
+ and Conclusion
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Discussion"
@@ -3517,10 +3482,17 @@ In this paper,
  we tested whether the gender of seed sellers had an impact on seed buyers' negotiation strategies and eventual outcomes in bilateral price negotiations.
  This was done through a bargaining experiment in eastern Uganda,
  where a representative sample of smallholder maize farmers were given the opportunity to bargain over a bag of maize seed of an improved variety from either a male or female seller.
- The findings revealed that buyers confronted with a female seller were less likely to accept the initial offer price and responded with a lower counter-bid compared to farmers faced with a male seller.
- Negotiations,
- on average,
- took one additional round longer when the seller was a woman and resulted in a transaction price that was almost 9 percent lower.
+ 
+\end_layout
+
+\begin_layout Standard
+We find evidence of systematic gender disparities in bargaining strategies used by buyers.
+ In particular,
+ we find that buyers negotiate more aggressively with female sellers,
+ making lower initial counter-bids,
+ extending negotiations by an additional round,
+ and ultimately agreeing less often.
+ This translates into a transaction price that was almost 10 percent lower when the seller is a women.
 \end_layout
 
 \begin_layout Standard
@@ -3564,10 +3536,10 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-As is generally the case,
- our experiment only establishes the existence of discrimination,
- but it does not tell us anything about the nature of discrimination.
- In the economic literature,
+As is typically the case,
+ our experiment merely demonstrates the presence of discrimination,
+ but it does not provide insight into its nature.
+ In the literature,
  a distinction is generally made between discrimination that involves some kind of animus on the one hand and statistical discrimination on the other.
  While in the former case there is some kind of general distaste for minorities or a 
 \begin_inset Quotes qld
@@ -3587,39 +3559,83 @@ literal "false"
 
 ,
  in the latter case the apparent discrimination is simply the result of market actors using average group characteristics as a proxy of reservation value.
- In our case,
- statistical discrimination would mean that buyers think that women would be willing to accept lower prices than men.
-\begin_inset Foot
-status collapsed
+ There are some studies that look into the behavioral mechanisms behind (statistical) gender discrimination,
+ often in the context of ultimatum games.
+ We distill three interconnected mechanisms:
+ perceived negotiation strength,
+ implicit biases and social norms,
+ and strategic responses.
+ 
+\end_layout
 
-\begin_layout Plain Layout
-There are several reason why this could be the case.
- As an example,
- during qualitative field work with agro-dealers as a followup for 
+\begin_layout Standard
+First,
+ buyers may perceive female sellers as weaker negotiators,
+ leading them to push for lower prices and resist concessions.
+ Evidence from ultimatum game experiments suggests that both male and female participants demand more from female proposers and offer less to female responders,
+ reinforcing the notion that women are seen as less assertive in bargaining settings 
 \begin_inset CommandInset citation
-LatexCommand citet
-key "de2022gender"
+LatexCommand citep
+key "solnick2001gender"
 literal "false"
 
 \end_inset
 
-,
- buyers mentioned that they thought 
-\begin_inset Quotes eld
-\end_inset
+.
+ Additionally,
+ gender differences in bargaining persistence have been documented,
+ with female sellers being less likely to walk away from negotiations,
+ further reinforcing buyers’ strategic advantage 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "garcia2012gender"
+literal "false"
 
-women,
- they do not need the money.
- They have husbands that should provide for the money
-\begin_inset Quotes erd
 \end_inset
 
 .
 \end_layout
 
+\begin_layout Standard
+Second,
+ implicit biases against female sellers may be rooted in broader societal norms that position men as dominant in economic transactions.
+ The meta-analysis by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "oosterbeek2004cultural"
+literal "false"
+
 \end_inset
 
+ highlights that bargaining behavior varies significantly across cultures,
+ with responders adjusting their acceptance and rejection behavior based on contextual expectations.
+ In societies where women have historically been underrepresented in commercial negotiations,
+ buyers may (subconsciously) view them as less authoritative or credible,
+ leading to more aggressive bargaining tactics.
+ 
+\end_layout
 
+\begin_layout Standard
+Third,
+ even in the absence of overt bias,
+ buyers may engage in strategic behavior that disadvantages female sellers.
+ Research on framing effects in ultimatum games suggests that men are more sensitive to how offers are presented,
+ with different physiological and decision-making responses depending on whether they perceive an interaction as a "gain" or a "loss" (
+\begin_inset CommandInset citation
+LatexCommand citep
+key "sarlo2013framing"
+literal "false"
+
+\end_inset
+
+.
+ If buyers interpret negotiations with female sellers as an opportunity to "gain" more favorable terms—
+perhaps due to an expectation that women will concede more readily—
+they may push harder for lower prices.
+ Furthermore,
+ since female sellers tend to start with lower initial offers,
+ buyers may perceive greater flexibility in the negotiation,
+ making them less likely to commit to their initial bids.
 \end_layout
 
 \begin_layout Standard
@@ -3703,27 +3719,13 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-In light of the above,
- we can only echo 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "baranski2023experiment"
-literal "false"
-
-\end_inset
-
-.
- More studies are needed on both seller-side and consumer-side discrimination to better understand how context matters (e.g.,
- perishable versus non-perishable commodities,
- characteristics of actors,
- etc.).
-\end_layout
-
-\begin_layout Standard
-ADD:
- audit studies that focus on seller side discrimination find that women pay higher prices when buying.
- Our study provides a mirror image in that it finds that women also receive lower prices when selling.
- Double whammy.
+In sum,
+ our study contributes to the growing literature on gender-based price discrimination by providing a crucial counterpart to existing audit studies,
+ which predominantly show that women pay higher prices as buyers.
+ We demonstrate that women also receive lower prices as sellers,
+ revealing a “double penalty” in market interactions.
+ This two-sided disadvantage underscores the structural barriers women face in economic transactions,
+ reinforcing income disparities and limiting their financial autonomy.
 \end_layout
 
 \begin_layout Section*
@@ -3740,12 +3742,24 @@ We would like to thank Charles Marc Wanume,
  which are funded by contributors to the CGIAR Fund (https://www.cgiar.org/funders/).
 \end_layout
 
-\begin_layout Section*
-Appendix - Experimental Script
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "bargaining"
+options "IFPRI_Style"
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
-\begin_layout Subsection*
-Seed Offer Script
+\begin_layout Section*
+Appendix - Experimental Script
 \end_layout
 
 \begin_layout Standard
@@ -3816,18 +3830,6 @@ The counter bid,
  the transaction is concludes at the last bid price.
  If not,
  the enumerator continues from (*).
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-btprint "btPrintCited"
-bibfiles "bargaining"
-options "IFPRI_Style"
-
-\end_inset
-
-
 \end_layout
 
 \end_body
