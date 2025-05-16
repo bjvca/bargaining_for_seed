@@ -186,11 +186,49 @@ p2 <-ggplot(plt2, aes(x=price, fill=gender)) +  geom_density(alpha=0.4) +   scal
 
 ### question: is gender_enumerator orthogonal to farmer baseline outcomes
 ### start by most obvious: gender of the farmers
-
+dta$anchor_high <- dta$anchor %in% c("11000","12000")
 
 model <- lm(gender=="Female"~enumerator_gender=="Female",data=dta)
 vcov_cluster <- vcovCR(model, cluster = dta$enumerator_gender, type = "CR0")
 res <- coef_test(model, vcov_cluster)
+
+model <- lm(enumerator_gender=="Female"~anchor,data=dta)
+
+# Compute means and standard errors
+library(dplyr)
+summary_stats <- dta %>%
+  group_by(enumerator_gender, anchor_high) %>%
+  summarise(
+    mean_price = mean(final_price, na.rm = TRUE),
+    se = sd(final_price, na.rm = TRUE) / sqrt(sum(!is.na(final_price))),
+    .groups = "drop"
+  )
+
+# Plot
+ggplot(summary_stats, aes(x = interaction(enumerator_gender, anchor_high), y = mean_price)) +
+  geom_bar(stat = "identity", fill = "skyblue", width = 0.7) +
+  geom_errorbar(aes(ymin = mean_price - se, ymax = mean_price + se), width = 0.2) +
+  labs(x = "Enumerator Gender × Anchor", y = "Mean Final Price", title = "Mean Final Price by Seller Gender and Anchor Level") +
+  theme_minimal()
+
+## 3 strategies to show that male and female sellers are equally likely to start off with higher vs lower offer prices
+#first
+table(dta$enumerator_gender, dta$anchor)
+
+prop.table(table(dta$enumerator_gender, dta$anchor), margin = 2)
+prop.table(table(dta$enumerator_gender, dta$anchor_high), margin = 2)
+
+#second
+chisq.test(table(dta$enumerator_gender, dta$anchor))
+chisq.test(table(dta$enumerator_gender, dta$anchor_high))
+
+
+library(ggplot2)
+
+ggplot(dta, aes(x = factor(anchor), fill = enumerator_gender)) +
+  geom_bar(position = "fill") +
+  labs(x = "Initial Offer Price", y = "Proportion", fill = "Seller Gender") +
+  theme_minimal()
 
 
 ### analysis
@@ -239,6 +277,9 @@ dta$age[dta$age==999] <- NA
 summary(lm(gender=="Female" ~anchor, data=dta))
 prop.table(table(dta$gender, dta$anchor), margin=2)
 chisq.test(table(dta$gender, dta$anchor))
+
+
+
 
 # analysis for seller gender
 
