@@ -9,7 +9,7 @@
 \usepackage{graphicx}% Required for inserting images
 
 \title{bargaining_for_seed}
-\author{bjorn.vancampenhout}
+
 
 \sloppy 
 \end_preamble
@@ -41,6 +41,8 @@ knitr
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement class
+\float_alignment class
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -286,66 +288,59 @@ The results indicate that buyers are significantly less likely to accept the ini
 \end_layout
 
 \begin_layout Standard
-We build on a large number of studies—
-based on observational data and field experiments alike—
-that find overwhelming evidence of differences in the outcomes of market transactions when minorities (including women) are involved as a transacting party (as compared to cases where all transaction parties come from the majority,
- see 
+Our study extends the literature on how the gender of one party—
+in our case,
+ the seller—
+affects the bargaining behavior of the other party,
+ the buyer,
+ by incorporating key features of bilateral negotiation.
+ Prior research has largely focused on seller-side discrimination,
+ documenting how sellers respond to buyer characteristics such as race in the U.S.
+ car market 
 \begin_inset CommandInset citation
-LatexCommand citet
-key "10.1111/1468-0297.00080"
+LatexCommand citep
+key "825eef39-d1b6-3a49-9884-20578c598ab2"
 literal "false"
 
 \end_inset
 
-).
- This unsettling regularity has led to a search for the sources of this apparent discrimination,
- generating an equally large body of research.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Research on the causes of discrimination is particularly prominent in labour economics,
- where so-called situation or audit tests have been used to estimate the effect of race on the likelihood of being invited for a job interview 
+,
+ in the taxi market in Lima 
 \begin_inset CommandInset citation
 LatexCommand citep
-before "eg:"
-key "10.1257/0002828042002561"
+key "CASTILLO201335"
+literal "false"
+
+\end_inset
+
+,
+ and in the Ugandan pharmaceutical market 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "fitzpatrick2017shopping"
 literal "false"
 
 \end_inset
 
 .
- Another well-explored topic is the gender wage gap,
- where women generally earn less than men.
- Potential explanations include differences in initial wage offers (bearing similarities with the initial offer prices in our study) and variations in wage negotiation strategies 
+ A notable exception is 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "10.1093/qje/qjv038,leibbrandt2015women"
+key "10.2307/25098677"
 literal "false"
 
 \end_inset
 
-.
- However,
- recent research also suggests interesting dynamics,
- where an initial gendered disadvantage turns into an advantage over time 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "bohren2019dynamics"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
- 
+,
+ who finds evidence of both buyer- and seller-side gender discrimination in the U.S.
+ sports card market.
+ Building on these studies,
+ we contribute novel evidence suggesting that observed price variation may stem not only from seller-side discrimination but also from buyer-side discrimination in price negotiations.
 \end_layout
 
 \begin_layout Standard
-Our study aligns with research examining how the gender of one party (the seller) influences the bargaining behavior of the other party (the buyer) and incorporates key aspects of bilateral negotiation.
+More specifically,
+ our study aligns with research examining how the gender of one party (the seller) influences the bargaining behavior of the other party (the buyer) and incorporates key aspects of bilateral negotiation.
  A landmark study in this area is 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -424,7 +419,9 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-We focus on buyer-side discrimination,
+Our paper has two major contributions.
+ First,
+ we focus on buyer-side discrimination,
  where buyers bid different prices depending on seller's minority group membership.
  To our knowledge,
  the only study that investigates buyer-side discrimination is 
@@ -450,11 +447,14 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Most research on bargaining uses a WEIRD population (Western,
+Second,
+ we investigate price discrimination in a non-WEIRD (Western,
  Educated,
  Industrialized,
  Rich,
- and Democratic),
+ and Democratic) societies.
+ Indeed,
+ most research on bargaining uses a WEIRD population,
  yet bargaining is much more prevalent in non-WEIRD societies,
  and may also differ in these settings 
 \begin_inset CommandInset citation
@@ -1152,7 +1152,7 @@ placement document
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1202,7 +1202,16 @@ hline
 
 \begin_layout Plain Layout
 
- & (1) & (2) & (3) & (4) & (5) & (6) & (7) 
+ & Male & Age & HH & Plot & Yield & Used & Used 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & Head & Head & Size & Size &  & Improved & Bazooka 
 \backslash
 
 \backslash
@@ -1913,7 +1922,7 @@ citep{benjamini2006adaptive}.
  (2) Age,(3) Household Size,
  (4) Plot Size,
  (5) Yield (kg/acre),
- (6) Used Improved Seed,
+ (6) Used Improved Seed Variety,
  (7) Used Bazooka Seed.
  Control mean is for male seller and low initial offer price.
  
@@ -3752,7 +3761,15 @@ Acknowledgments
 \begin_layout Standard
 We would like to thank Charles Marc Wanume,
  Richard Ariong,
- and Wilberforce Walukano for their support in the field.
+ and Wilberforce Walukano for excellent field support.
+ We are also indebted to the CGIAR Market Intelligence Work Package 3 team (Berber Kramer,
+ Julius Juma Okello,
+ Carly Trachtman,
+ Gashaw T.
+ Abate,
+ Prakashan Chellattan Veettil,
+ Vikram Patil,
+ and Catherine Ragasa) for comments and suggestions.
  The research received funding from the CGIAR Seed Equal Research Initiative,
  the CGIAR Market Intelligence Research Initiative,
  and the CGIAR Gender Impact Platform,
