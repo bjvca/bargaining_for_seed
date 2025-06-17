@@ -15,8 +15,8 @@ group.center <- function(var,grp) {
 ##
 path <- getwd()
 
-path <- strsplit(path, "/bargaining_for_seed")[[1]]
-dta <- read.csv(paste(path,"baseline/data/public/baseline.csv", sep="/"))
+#path <- strsplit(path, "/bargaining_for_seed")[[1]]
+dta <- read.csv(paste(path,"data/baseline.csv", sep="/"))
 
 ###use Anderson sharpened q-values
 sharp <- TRUE
